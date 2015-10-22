@@ -1,10 +1,11 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Projet {
+public class Projet implements Serializable {
 	
 	protected int _idProjet;
 	protected List<Utilisateur> _utilisateurs;

@@ -1,8 +1,9 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Backlog 
+public class Backlog implements Serializable
 {
 	protected List<UserStory> _usersStories ;
 

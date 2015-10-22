@@ -1,6 +1,8 @@
 package beans;
 
-public class Utilisateur 
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable
 {
 	protected int _idUtilisateur;
 	protected String _identifiant;

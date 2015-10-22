@@ -1,6 +1,8 @@
 package beans;
 
-public class UserStory 
+import java.io.Serializable;
+
+public class UserStory implements Serializable
 {
 	protected int idUS;
 	protected String description;
