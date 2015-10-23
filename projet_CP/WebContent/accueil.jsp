@@ -8,6 +8,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p> Bonjour <strong><c:out value="${requestScope. }</strong></p>
 </body>
 </html>
