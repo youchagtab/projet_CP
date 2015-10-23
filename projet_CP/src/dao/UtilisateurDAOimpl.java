@@ -42,23 +42,49 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 	}
 
 	@Override
-	public void recupererUtilisateur(int id) {/*
+	public Utilisateur recupererUtilisateur(int id) {
 		Connection conn = SingletonConnection.getConnection();
+		Utilisateur u = null;
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Utilisateurs WHERE identifiant = '"+ id +"'" );
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Utilisateurs WHERE idUtilisateur = '"+ id +"'" );
 			resultat.next();
-			Utilisateur u = new Utilisateur(identifiant, motDePasse, nom, prenom)
-			utilisateur.setIdUtilisateur(resultat.getInt("idUtilisateur"));
-			statement.close();
 			
+			u = new Utilisateur(resultat.getInt("idUtilisateur"),
+					                        resultat.getString("identifiant"), 
+					                        resultat.getString("motDePasse"), 
+					                        resultat.getString("nom"),
+					                        resultat.getString("prenom"));
+			statement.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}*/
-
+		}
+		return u;
 	}
+	
+	@Override
+	public Utilisateur recupererUtilisateur(String identifiant) {
+		Connection conn = SingletonConnection.getConnection();
+		Utilisateur u = null;
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Utilisateurs WHERE identifiant = '"+ identifiant +"'" );
+			resultat.next();
+			
+			u = new Utilisateur(resultat.getInt("idUtilisateur"),
+					                        resultat.getString("identifiant"), 
+					                        resultat.getString("motDePasse"), 
+					                        resultat.getString("nom"),
+					                        resultat.getString("prenom"));
+			statement.close();
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return u;
+	}
+	
 	@Override
 	public List<Utilisateur> lister() {
 		// TODO Auto-generated method stub
@@ -67,13 +93,40 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 
 	@Override
 	public void supprimer(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(
+					"DELETE FROM CP_Utilisateurs WHERE idPUtilisateur= ? AND identifiant = ? "
+																	  + "AND motDePasse = ?"
+																	  + "AND nom = ?"
+																	  + "AND prenom = ?");
+			ps.setInt(1, utilisateur.getIdUtilisateur());
+			ps.setString(2, utilisateur.getIdentifiant());
+			ps.setString(3, utilisateur.getMotDePasse());
+			ps.setString(4, utilisateur.getNom());
+			ps.setString(5, utilisateur.getPrenom());
+			ps.executeUpdate();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
-	public void supprimerUtilisateurParId(int id) {
-		// TODO Auto-generated method stub
+	public void supprimerUtilisateur(int id) {
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(
+					"DELETE FROM CP_Utilisateurs WHERE idPUtilisateur= ? ");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
