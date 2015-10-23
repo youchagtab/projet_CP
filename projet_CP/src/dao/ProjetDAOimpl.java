@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import beans.Projet;
+import beans.Utilisateur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -69,18 +70,21 @@ public class ProjetDAOimpl implements IProjetDAO{
 	@Override
 	public Projet recupererProjet(int idProjet) {		
 		
-		/*Connection conn = SingletonConnection.getConnection();
+		Projet p = null;
+		Connection conn = SingletonConnection.getConnection();
 	try {
 		
 		Statement statement = conn.createStatement();
 		ResultSet resultat = statement.executeQuery( "SELECT idProjet  FROM CP_Projet WHERE idProjet='"+idProjet+"'" );
-		resultat.next();
-		return new Projet().getInt("idProjet"));
+		//IProjetUtilisateurDAO pu = new .... ;
+		List<Utilisateur> utilisateurs = null;//....getUtilsateur(idProject);
+		p = new Projet(utilisateurs, resultat.getString("noms"), resultat.getString("description"));
 		
 	} catch (SQLException e) {
 		e.printStackTrace();
-	}*/
-		return null;
+	}
+		return p;
+		
 	}
 	
 	@Override
