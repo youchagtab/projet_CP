@@ -9,15 +9,16 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		
-		try{
+		/*try{
 		IProjetDAO projet = new ProjetDAOimpl();
 		Projet p = projet.recupererProjet(2);
 		System.out.println(p.getDescription() + p.getNoms());
 		p.setDescription("modification de la description 2");
 		projet.modifierProjet(p);
+			
 		}catch (Exception e){
 			System.out.println(e.getMessage());
-		}
+		}*/
 		
 		
 		
@@ -71,7 +72,7 @@ public class TestBD {
 		System.out.println(list);
 	}
 	
-	public static void testProjet(){
+	/*public static void testProjet(){
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		Utilisateur u = new Utilisateur(4,"Olivier","password","Constans","Olivier");
 		Projet p = new Projet(u,"test 1","test1");
@@ -80,6 +81,6 @@ public class TestBD {
 		
 		//projetDAO.supprimer(p);
 		projetDAO.supprimer(p.getIdProjet());
-	}
+	}*/
 
 }

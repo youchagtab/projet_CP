@@ -28,7 +28,7 @@ public class Connexion extends HttpServlet {
 	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	public static final String ATT_ERREUR = "erreur";
 	public static final String VUE_Connexion = "/connexion.jsp";//tgfdg
-	public static final String Vue_Accueil = "accueil.jsp";
+	public static final String Vue_Accueil = "/accueil.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -43,6 +43,7 @@ public class Connexion extends HttpServlet {
 		String motDePasse = request.getParameter(PARAM_MDP);
 		
 		IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
+		System.out.println("id = "+identifiant+" mdp = "+motDePasse);
 		if(utilisateurDAO.verificationConnexion(identifiant, motDePasse))
 		{
 			Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(identifiant);

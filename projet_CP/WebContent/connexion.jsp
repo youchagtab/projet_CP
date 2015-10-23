@@ -25,7 +25,7 @@
                 <legend>Connexion</legend>
                         
                 <label for="identifiant">Identifiant <span class="requis"></span></label>
-                <input type="text" id="identifiant" name="Identifiant" value="" size="20" maxlength="60" placeholder="identifiant" required="Veuillez compléter ce champ" />
+                <input type="text" id="identifiant" name="identifiant" value="" size="20" maxlength="60" placeholder="identifiant" required="Veuillez compléter ce champ" />
                 <br />
 
                 <label for="motdepasse">Mot de passe <span class="requis"></span></label>
@@ -43,7 +43,7 @@
         
         <br><br>
         
-        <a type="submit" href="CP_Inscription.jsp" class="sansLabel"><button>Inscription</button></a>
+        <a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
         
       </di>
 
