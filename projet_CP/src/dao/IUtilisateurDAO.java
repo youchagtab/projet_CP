@@ -17,7 +17,7 @@ public interface IUtilisateurDAO
 	public void supprimerUtilisateur(int id);
 	
 	public void modifier(Utilisateur utilisateur);
-	public int verificationConnexion(String identifiant, String motDePasse);
+	public boolean verificationConnexion(String identifiant, String motDePasse);
 	public boolean existanceIdentifiant(String identifiant);
 	
 }
