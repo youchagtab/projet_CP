@@ -9,14 +9,31 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		
+		try{
 		IProjetDAO projet = new ProjetDAOimpl();
-		List<Projet> pro = projet.lister();
-		for(Projet p : pro){
-			System.out.println(p.getNoms() + p.getDescription());
+		Projet p = projet.recupererProjet(2);
+		System.out.println(p.getDescription() + p.getNoms());
+		p.setDescription("modification de la description 2");
+		projet.modifierProjet(p);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
 		}
 		
 		
-	
+		
+		
+		
+		/*---------------------test pour lister les projets-- Done-------*/
+		/*IProjetDAO projet = new ProjetDAOimpl();
+		List<Projet> pro = projet.lister();
+		for(Projet p : pro){
+			System.out.println(p.getNoms() + p.getDescription());
+		}*/
+		
+		
+		
+		
+	/*-------------test pour ajouter un projet----Done--------------------*/
 /*
 		IProjetDAO p = new ProjetDAOimpl();
 		String _description = "pas de description pour le moment";
@@ -25,14 +42,16 @@ public class TestBD {
 		p.ajouter(proj);
 		*/
 		
+		/*-------------test pour ajouter utilisateur------Done-------------*/
+		//testProjet();
+				/*IUtilisateurDAO utilisateur = new UtilisateurDAOimpl();
+				Utilisateur u = new Utilisateur("paulseb", "mdp", "paul", "sebastien");
+				utilisateur.ajouter(u);
+				System.out.println(u.getIdUtilisateur());
+			}*/
 		
 	}
-		//testProjet();
-		/*IUtilisateurDAO utilisateur = new UtilisateurDAOimpl();
-		Utilisateur u = new Utilisateur("paulseb", "mdp", "paul", "sebastien");
-		utilisateur.ajouter(u);
-		System.out.println(u.getIdUtilisateur());
-	}*/
+		
 	
 /*	public static void testProjet(){
 		IProjetDAO projetDAO = new ProjetDAOimpl();
