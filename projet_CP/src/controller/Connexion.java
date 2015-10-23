@@ -43,7 +43,7 @@ public class Connexion extends HttpServlet {
 		String motDePasse = request.getParameter(PARAM_MDP);
 		
 		IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
-		if(utilisateurDAO.verificationConnexion(identifiant, motDePasse) > 0)
+		if(utilisateurDAO.verificationConnexion(identifiant, motDePasse))
 		{
 			Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(identifiant);
 			session.setAttribute(ATT_SESSION_UTILISATEUR, utilisateur);
