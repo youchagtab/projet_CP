@@ -17,7 +17,7 @@ import beans.Utilisateur;
  * Servlet implementation class inscription
  */
 @WebServlet("/inscription")
-public class inscription extends HttpServlet {
+public class Inscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String PARAM_NOM = "nom";
@@ -35,7 +35,7 @@ public class inscription extends HttpServlet {
 	
        
    
-    public inscription() {
+    public Inscription() {
         super();
         // TODO Auto-generated constructor stub
     }
