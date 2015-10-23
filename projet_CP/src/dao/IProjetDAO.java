@@ -8,7 +8,7 @@ import beans.Projet;
 public interface IProjetDAO {
 
 	public void ajouter(Projet projet);
-	public void supprimer(Projet projet);
+	
 	public void supprimer(int idprojet);
 	
     public Projet recupererProjet(int idProjet);
@@ -17,5 +17,7 @@ public interface IProjetDAO {
     
     public String recupererDescription();
     public void modifierDescription(String Description);
+    
+    //test ..
       
 }
