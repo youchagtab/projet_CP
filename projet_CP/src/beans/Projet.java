@@ -33,6 +33,12 @@ public class Projet implements Serializable {
 	}
 	
 	
+	public Projet(String _noms, String _description) {
+		
+		this._noms = _noms;
+		this._description = _description;
+	}
+
 	public int getIdProjet() {
 		return _idProjet;
 	}
