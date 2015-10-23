@@ -2,8 +2,14 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+
+
+
+
 
 import beans.Utilisateur;
 
@@ -14,25 +20,42 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 		Connection conn = SingletonConnection.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"insert into CP_Utilisateurs (idUtilisateur , identifiant , motDePasse, nom , prenom) values (?,?,?,?) ");
-			ps.setInt(1, utilisateur.getIdUtilisateur());
-			ps.setString(2, utilisateur.getIdentifiant());
-			ps.setString(3, utilisateur.getMotDePasse());
-			ps.setString(4, utilisateur.getNom());
-			ps.setString(5, utilisateur.getPrenom());
+					"INSERT INTO CP_Utilisateurs (identifiant , motDePasse, nom , prenom) VALUES (?,?,?,?) ");
+			ps.setString(1, utilisateur.getIdentifiant());
+			ps.setString(2, utilisateur.getMotDePasse());
+			ps.setString(3, utilisateur.getNom());
+			ps.setString(4, utilisateur.getPrenom());
 			ps.executeUpdate();
 			ps.close();
+			
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT idUtilisateur  FROM CP_Utilisateurs WHERE identifiant = '"+utilisateur.getIdentifiant()+"'" );
+			resultat.next();
+			utilisateur.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+			statement.close();
+			
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
 	@Override
-	public void recupererUtilisateur(int id) {
-		// TODO Auto-generated method stub
+	public void recupererUtilisateur(int id) {/*
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Utilisateurs WHERE identifiant = '"+ id +"'" );
+			resultat.next();
+			Utilisateur u = new Utilisateur(identifiant, motDePasse, nom, prenom)
+			utilisateur.setIdUtilisateur(resultat.getInt("idUtilisateur"));
+			statement.close();
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}*/
 
 	}
 

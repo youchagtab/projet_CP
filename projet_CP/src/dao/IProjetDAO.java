@@ -12,6 +12,7 @@ public interface IProjetDAO {
 	public void supprimer(int idprojet);
 	
     public Projet recupererProjet(int idProjet);
+    public Projet recupererProjet(String nomsProjet);
     public List<Projet> lister();
     
     public String recupererDescription();

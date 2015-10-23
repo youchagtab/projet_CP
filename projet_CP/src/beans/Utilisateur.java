@@ -30,12 +30,18 @@ public class Utilisateur implements Serializable
 		this._motDePasse = motDePasse;
 		this._nom = nom;
 		this._prenom = prenom;
+		this._idUtilisateur = -1;
 	}
 
 	public int getIdUtilisateur() 
 	{
 		return _idUtilisateur;
 	}
+	public void setIdUtilisateur(int idUtilisateur) 
+	{
+		_idUtilisateur = idUtilisateur;
+	}
+	
 	
 	public String getIdentifiant() 
 	{

@@ -21,6 +21,7 @@ public class Projet implements Serializable {
 		_utilisateurs.add(utilisateur);
 		_noms = noms;
 		_description = description;
+		_idProjet = -1;
 		//_backlog = new Backlog();
 	}
 	
@@ -32,35 +33,36 @@ public class Projet implements Serializable {
 	}
 	
 	
-	public int get_idProjet() {
+	public int getIdProjet() {
 		return _idProjet;
 	}
-	public void set_idProjet(int _idProjet) {
-		this._idProjet = _idProjet;
+	public void setIdProjet(int idProjet) {
+		_idProjet = idProjet;
 	}
-	public List<Utilisateur> get_utilisateurs() {
+	
+	public List<Utilisateur> geUutilisateurs() {
 		return _utilisateurs;
 	}
-	public void set_utilisateurs(List<Utilisateur> _utilisateurs) {
-		this._utilisateurs = _utilisateurs;
+	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
+		this._utilisateurs = utilisateurs;
 	}
-	public String get_noms() {
+	public String getNoms() {
 		return _noms;
 	}
-	public void set_noms(String _noms) {
-		this._noms = _noms;
+	public void setNoms(String noms) {
+		this._noms = noms;
 	}
-	public String get_description() {
+	public String getDescription() {
 		return _description;
 	}
-	public void set_description(String _description) {
-		this._description = _description;
+	public void setDescription(String description) {
+		this._description = description;
 	}
-	public Backlog get_backlog() {
+	public Backlog getBacklog() {
 		return _backlog;
 	}
-	public void set_backlog(Backlog _backlog) {
-		this._backlog = _backlog;
+	public void setBacklog(Backlog backlog) {
+		this._backlog = backlog;
 	}
 	
 
