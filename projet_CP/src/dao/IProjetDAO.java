@@ -14,6 +14,7 @@ public interface IProjetDAO {
     public Projet recupererProjet(int idProjet);
     public Projet recupererProjet(String nomsProjet);
     public List<Projet> lister();
+    public List<Projet> listerMotCle(String mc);
    
     public void modifierProjet(Projet p);
 

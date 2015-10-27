@@ -143,5 +143,30 @@ public class ProjetDAOimpl implements IProjetDAO{
 		}
 		
 	}
+
+	@Override
+	public List<Projet> listerMotCle(String mc) {
+		List<Projet> projet = new ArrayList<Projet>();
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement("select * FROM CP_Projet WHERE description like ?");
+			ps.setString(1, "%"+mc+"%");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()){
+				Projet p = new Projet();
+				p.setIdProjet(rs.getInt("idProjet"));
+				p.setNoms(rs.getString("noms"));
+				p.setDescription(rs.getString("description"));
+				projet.add(p);
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return projet;
+	}
 	
 }

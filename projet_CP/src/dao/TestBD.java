@@ -26,9 +26,9 @@ public class TestBD {
 		
 		/*---------------------test pour lister les projets-- Done-------*/
 		/*IProjetDAO projet = new ProjetDAOimpl();
-		List<Projet> pro = projet.lister();
+		List<Projet> pro = projet.listerMotCle("s");
 		for(Projet p : pro){
-			System.out.println(p.getNoms() + p.getDescription());
+			System.out.println(p.getIdProjet()+ "  " + p.getNoms()+ "  " + p.getDescription());
 		}*/
 		
 		
@@ -40,8 +40,10 @@ public class TestBD {
 		String _description = "pas de description pour le moment";
 		String _noms = "projet 5";
 		Projet proj = new Projet(_noms, _description);
+		Projet proj1 = new Projet("conception formmel", "dernier delai fin aout");
 		p.ajouter(proj);
-		*/
+		p.ajouter(proj1);
+	*/	
 		
 		/*-------------test pour ajouter utilisateur------Done-------------*/
 		//testProjet();
@@ -51,7 +53,7 @@ public class TestBD {
 				System.out.println(u.getIdUtilisateur());
 			}*/
 		
-		testUtilisateur();
+		//testUtilisateur();
 		//testProjet();
 		/*IUtilisateurDAO utilisateur = new UtilisateurDAOimpl();
 		Utilisateur u = new Utilisateur("paulseb", "mdp", "paul", "sebastien");

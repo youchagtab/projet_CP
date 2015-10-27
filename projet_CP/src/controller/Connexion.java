@@ -28,7 +28,7 @@ public class Connexion extends HttpServlet {
 	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	public static final String ATT_ERREUR = "erreur";
 	public static final String VUE_Connexion = "/connexion.jsp";//tgfdg
-	public static final String Vue_Accueil = "/accueil.jsp";
+	public static final String Vue_Accueil = "/acceuil.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
