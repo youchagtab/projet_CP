@@ -5,12 +5,21 @@
 	version="3.0">
 	<display-name>projet_CP</display-name>
 	<servlet>
-		<servlet-name>cs</servlet-name>
+		<servlet-name>cc</servlet-name>
 		<servlet-class>controller.Acceuil</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>cs</servlet-name>
+		<servlet-name>cc</servlet-name>
 		<url-pattern>/acceuil</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>cd</servlet-name>
+		<servlet-class>controller.Deconnexion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cd</servlet-name>
+		<url-pattern>/deconnexion</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

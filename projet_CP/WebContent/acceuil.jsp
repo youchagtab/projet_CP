@@ -16,6 +16,8 @@
 </head>
 <body>
 
+	<h3>bienvenue Monsieur ${utilisateur.nom} ${utilisateur.prenom}</h3>
+
 	<div>
 		<form action="acceuil" method="post">
 			<table>
@@ -36,15 +38,17 @@
 			</tr>
 			<c:forEach items="${model.projets}" var="p">
 				<tr>
-					
+
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
-                    <td><a
-						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}')">Supprimer
-					</a></td>
+					<td><a href="userstory.jsp">Afficher</a></td>
+					<td><a href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}')">Supprimer </a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+	<form action="deconnexion" method="post">
+		<input type="submit" value="deconnexion" name="action" />
+	</form>
 </body>
 </html>
