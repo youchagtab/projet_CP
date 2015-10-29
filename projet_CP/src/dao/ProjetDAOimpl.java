@@ -84,11 +84,11 @@ public class ProjetDAOimpl implements IProjetDAO{
 					"select * from CP_Projet where idProjet = ?");
 			ps.setString(1, nomsProjet);
 			ResultSet rs = ps.executeQuery();
+			IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl();
 			if(rs.next()){
 				p = new Projet();
 				p.setIdProjet(rs.getInt("idProjet"));
 				p.setNoms(rs.getString("noms"));
-				p.setDescription(rs.getString("description"));
 				
 			}
 		} catch (SQLException e) {

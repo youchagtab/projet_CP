@@ -124,7 +124,6 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
@@ -140,7 +139,6 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
@@ -161,7 +159,6 @@ public class UtilisateurDAOimpl implements IUtilisateurDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
