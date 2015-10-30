@@ -44,11 +44,13 @@ public class Connexion extends HttpServlet {
 		
 		IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
 		System.out.println("id = "+identifiant+" mdp = "+motDePasse);
+
 		if(utilisateurDAO.verificationConnexion(identifiant, motDePasse))
 		{
 			Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(identifiant);
 			session.setAttribute(ATT_SESSION_UTILISATEUR, utilisateur);
 			this.getServletContext().getRequestDispatcher(Vue_Accueil).forward(request, response);
+			
 		}
 		else
 		{

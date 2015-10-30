@@ -80,7 +80,7 @@ public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 		List<Integer> list = new ArrayList<>();
 		try {
 		Statement statement = conn.createStatement();
-		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idProjet= '"+ idProjet);
+		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idProjet= '"+ idProjet+"'");
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		while (resultat.next()){
 			list.add(resultat.getInt("idProjet"));
@@ -99,7 +99,7 @@ public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 		List<Integer> list = new ArrayList<>();
 		try {
 		Statement statement = conn.createStatement();
-		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idUtilisateur= '"+ idUtilisateur);
+		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idUtilisateur= '"+ idUtilisateur+"'");
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		while (resultat.next()){
 			list.add(resultat.getInt("idProjet"));

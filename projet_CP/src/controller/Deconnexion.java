@@ -17,7 +17,10 @@ public class Deconnexion extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+		HttpSession session1 = request.getSession();
+		if (session1.getAttribute("utilisateur") == null){
+			System.out.println("pas connecte");
+		} 
         HttpSession session = request.getSession();
         session.invalidate();
         request.getRequestDispatcher("connexion.jsp").forward(request, response);
