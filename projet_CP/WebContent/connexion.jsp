@@ -6,29 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Connexion</title>
- <link type="text/css" rel="stylesheet" href="CP_Inscription.css" />
+ <link type="text/css" rel="stylesheet" href="style.css" /> 
+ <link type="text/css" rel="stylesheet" href="style_connexion.css" />
 </head>
 <body  >
 <dv>
-   <h1> CP Gérez vos projets avec  Agile</h1>
-
+   <header>
+   <h1> CP Gérez vos projets avec SCRUM</h1>
+    </header>
 
 </dv>
 
 
 
-<di id="autourConnexion">
+<di class="autourConnexion">
     <br><br><br>
     	<c:out value="${requestScope.erreur }"/>
         <form method="post" action="Connexion">
             <fieldset id="Field">
                 <legend>Connexion</legend>
                         
-                <label for="identifiant">Identifiant <span class="requis"></span></label>
+                <!--  <label for="identifiant">Identifiant <span class="requis"></span></label> -->
                 <input type="text" id="identifiant" name="identifiant" value="" size="20" maxlength="60" placeholder="identifiant" required="Veuillez compléter ce champ" />
                 <br />
 
-                <label for="motdepasse">Mot de passe <span class="requis"></span></label>
+               <!--  <label for="motdepasse">Mot de passe <span class="requis"></span></label>  -->
                 <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" placeholder="mot de passe" required="Veuillez compléter ce champ"/>
                 <br />
 
@@ -37,15 +39,20 @@
                 <br />
             </fieldset>
             
-            
+                    <br>
+        
+        <a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
             
         </form>
         
-        <br><br>
-        
-        <a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
+
         
       </di>
+    
+    
+    <br> <br><br>
+	<dv> <footer> outil de de gestion de projet réalisé dans
+	le cadre du module Conduite de projet </footer> </dv>
 
 </body>
 </html>

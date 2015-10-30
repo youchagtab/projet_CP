@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>inscription</title>
- <link type="text/css" rel="stylesheet" href="CP_Inscription.css" />
+ <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
     <di class="autour">
     <br><br><br>
         <form method="post" action="inscription">
-            <fieldset>
+            <fieldset id="Fieldset">
                 <legend>Inscription</legend>
                
                 
@@ -43,6 +43,11 @@
         </form>
         
       </di>
+      
+ 
+         <br> <br><br>
+	<dv> <footer> outil de de gestion de projet réalisé dans
+	le cadre du module Conduite de projet </footer> </dv>
     
 
 </body>

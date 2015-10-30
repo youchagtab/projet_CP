@@ -10,10 +10,17 @@ body, p, legend, label, input {
 	
 	width :30%;
 	margin: right;
+	
 }
 
-#body {
-    background-color:white;
+body {
+    background-color: #F0FAFF;
+}
+
+#Fieldset{
+ background-image:-moz-linear-gradient(left, #F0F8FF , #787878 );
+ margin-left:10%;
+ margin-right: 10%;
 }
 
 fieldset {
@@ -72,10 +79,10 @@ form .requis {
 }
 
 
-
-#autourConnexion{
-	width: 50%;
-	margin: auto;
+footer{
+ text-align: center;
+ font-size: 10px;
+ background-color: #FFD6CC;
 }
 
 
