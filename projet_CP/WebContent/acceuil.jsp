@@ -43,7 +43,7 @@
 					<td>${p.description}</td>
 					<td><a href="userstory.jsp">Afficher</a></td>
 					<td><a
-						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}')">Supprimer
+						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')">Supprimer
 					</a></td>
 				</tr>
 			</c:forEach>

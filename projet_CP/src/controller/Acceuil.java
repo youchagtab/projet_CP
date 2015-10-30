@@ -68,8 +68,10 @@ public class Acceuil extends HttpServlet {
 
 			} else if (action.equals("delete")) {
 				int reference = Integer.parseInt(request.getParameter("ref"));
-				// String ref = request.getParameter("ref");
-				metier.supprimer(reference);
+				int idUtilisateur= Integer.parseInt(request.getParameter("refUtil"));
+				
+				// String ref = request.getParameter("ref")
+				projetUtilisateurDAO.supprimer(reference, idUtilisateur);
 				model.setProjets(metier.lister());
 			} 
 			
