@@ -2,8 +2,6 @@ package dao;
 
 
 
-import beans.Projet;
-import beans.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -82,7 +80,7 @@ public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 		List<Integer> list = new ArrayList<>();
 		try {
 		Statement statement = conn.createStatement();
-		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idUProjet= '"+ idProjet);
+		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idProjet= '"+ idProjet);
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		while (resultat.next()){
 			list.add(resultat.getInt("idProjet"));
