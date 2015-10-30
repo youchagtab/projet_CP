@@ -1,14 +1,17 @@
 package dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import beans.Projet;
+import beans.UserStory;
 import beans.Utilisateur;
 
 public class TestBD {
 
 	public static void main(String[] args) {
-		
+		System.out.println("mem");
+		testUserStoryDAO();
 		/*try{
 		IProjetDAO projet = new ProjetDAOimpl();
 		Projet p = projet.recupererProjet(2);
@@ -84,5 +87,36 @@ public class TestBD {
 		//projetDAO.supprimer(p);
 		projetDAO.supprimer(p.getIdProjet());
 	}*/
+	
+	public static void testUserStoryDAO(){
+		IUserStoryDAO USDAO = new UserStoryDAOimpl();
+		UserStory us = new UserStory("Test main UserStoryDAO",1,1,1);
+		USDAO.ajouter(us);
+		List<UserStory>listUS =USDAO.lister(1);
+		Iterator<UserStory> it = listUS.iterator();
+		while(it.hasNext()){
+			UserStory UStmp = it.next();
+			System.out.println("ID:"+UStmp.getIdUS()+""
+					         + "Description:"+UStmp.getDescription()+","
+					         + " Difficulte:"+ UStmp.getDifficulte()+","
+					         + " Priorite:"+ UStmp.getDifficulte()+","
+					         + "IDProjet:"+UStmp.getIdProjet());
+		}
+		us.setDescription("Vive les tests");
+		USDAO.modifier(us);
+		
+		
+	}
 
+	/*
+	public static void supp(int idU, int idP){
+		IProjetUtilisateurDAO projetUtilsateurDAO = new ProjetUtilisateurDAOimpl();
+		IProjetDAO projetDAO = new ProjetDAOimpl();
+		
+		projetUtilsateurDAO.supprimer(idP, idU);
+		List<Integer> list_idU = projetUtilsateurDAO.listerIdUtilisateurs(idP);
+		if(list_idU.isEmpty())
+			projetDAO.supprimer(idP);
+	}*/
+	
 }

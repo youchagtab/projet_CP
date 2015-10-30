@@ -34,6 +34,9 @@ public class UserStory implements Serializable
 		this.idProjet = idProjet;
 	}
 
+	public void setIdUS(int id){
+		idUS = id;
+	}
 	public int getIdUS() 
 	{
 		return idUS;
