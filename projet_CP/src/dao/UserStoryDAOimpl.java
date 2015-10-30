@@ -31,7 +31,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 					                                                                   + "AND priorite = '"+ userStory.getPriorite()+"'"
 					                                                                   + "AND id_Projet = '"+userStory.getIdProjet()+"'");
 			resultat.next();
-			userStory.setIdProjet(resultat.getInt("idUS"));
+			userStory.setIdUS(resultat.getInt("idUS"));
 			statement.close();
 
 		} catch (SQLException e) {
