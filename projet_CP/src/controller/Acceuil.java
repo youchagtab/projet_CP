@@ -75,7 +75,15 @@ public class Acceuil extends HttpServlet {
 				
 				// String ref = request.getParameter("ref")
 				projetUtilisateurDAO.supprimer(reference, idUtilisateur);
-				model.setProjets(metier.lister());
+				List<Integer> idP = projetUtilisateurDAO.listerIdProjet(u.getIdUtilisateur());
+				Iterator<Integer> iterator = idP.iterator();
+				List<Projet> p = new ArrayList<Projet>();
+				while(iterator.hasNext()){
+					p.add(metier.recupererProjet(iterator.next()));
+					
+				}
+				model.setProjets(p);
+				//model.setProjets(metier.lister());
 			} 
 			
 		}
