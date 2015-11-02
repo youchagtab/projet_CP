@@ -41,7 +41,7 @@
 
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
-					<td><a href="userstory.jsp">Afficher</a></td>
+					<td><a href="Projet?idProjet=${p.idProjet }">Afficher</a></td>
 					<td><a
 						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')">Supprimer
 					</a></td>

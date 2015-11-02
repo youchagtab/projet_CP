@@ -5,6 +5,8 @@ import java.util.List;
 import beans.Projet;
 
 
+
+
 public interface IProjetDAO {
 
 	public void ajouter(Projet projet);
