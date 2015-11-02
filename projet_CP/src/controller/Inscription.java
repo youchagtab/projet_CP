@@ -19,7 +19,7 @@ import beans.Utilisateur;
 @WebServlet("/inscription")
 public class Inscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String PARAM_NOM = "nom";
 	public static final String PARAM_PRENOM = "prenom";
 	public static final String PARAM_IDENTIFIANT = "identifiant";
@@ -28,58 +28,63 @@ public class Inscription extends HttpServlet {
 	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	public static final String ATT_ERREUR = "erreur";
 	public static final String VUE_INSCRIPTION = "/inscription.jsp";
-	public static final String VUE_ACCUEIL = "accueil.jsp";
-	
+	public static final String Vue_Accueil = "/acceuil";
+
 	IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
-	
-	
-       
-   
-    public Inscription() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+
+
+
+	public Inscription() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		HttpSession session = request.getSession();
-		
+
 		String nom = request.getParameter(PARAM_NOM);
 		String prenom = request.getParameter(PARAM_PRENOM);
 		String identifiant = request.getParameter(PARAM_IDENTIFIANT);
 		String motDePasse = request.getParameter(PARAM_MOT_DE_PASSE);
 		String confirmation = request.getParameter(PARAM_CONFIRMATION);
-		
-		
+
+		System.out.println(motDePasse);
+		System.out.println(confirmation);
+
+
+
 		Utilisateur  utilisateur =new Utilisateur(identifiant, motDePasse, nom, prenom);
-		
+
 		if(utilisateurDAO.existanceIdentifiant(identifiant)){
-			
+
 			String erreur = "L'identifiant existant déjà dans la base de données !";
 			request.setAttribute(ATT_ERREUR, erreur);
 			this.getServletContext().getRequestDispatcher(VUE_INSCRIPTION).forward(request, response);
-			
-		} else if(motDePasse!=confirmation){
-			
+			System.out.println("verif existence");
+		} else if(!(motDePasse.equals(confirmation))){
+
 			String erreur = "Mot de passe différent  !";
 			request.setAttribute(ATT_ERREUR, erreur);
 			this.getServletContext().getRequestDispatcher(VUE_INSCRIPTION).forward(request, response);
-			
+			System.out.println("verif egalité mdp");
 		} else {
 			utilisateurDAO.ajouter(utilisateur);
 			session.setAttribute(ATT_SESSION_UTILISATEUR, utilisateur);
-			this.getServletContext().getRequestDispatcher(VUE_ACCUEIL).forward(request, response);
+			this.getServletContext().getRequestDispatcher(Vue_Accueil).forward(request, response);
+			System.out.println("reussi");
 		}
-		
-		
-		
+
+
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		doGet(request, response);
 	}
 

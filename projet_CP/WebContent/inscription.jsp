@@ -10,6 +10,7 @@
 <body>
     <di class="autour">
     <br><br><br>
+    <c:out value="${requestScope.erreur }"/> 
         <form method="post" action="inscription">
             <fieldset id="Fieldset">
                 <legend>Inscription</legend>
@@ -17,7 +18,7 @@
                 
                 
                 <label for="nom">Nom d'utilisateur</label>
-                <input type="text" id="nom" name="Nom" value="" size="20" maxlength="20" placeholder="Nom"  required="Veuillez compléter ce champ"/>
+                <input type="text" id="nom" name="nom" value="" size="20" maxlength="20" placeholder="Nom"  required="Veuillez compléter ce champ"/>
                 <br />
                 
                 <label for="prenom">prenom  d'utilisateur</label>

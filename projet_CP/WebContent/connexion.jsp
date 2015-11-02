@@ -21,7 +21,7 @@
 
 <di class="autourConnexion">
     <br><br><br>
-    	<c:out value="${requestScope.erreur }"/>
+    	<c:out value="${requestScope.erreur }"/> 
         <form method="post" action="Connexion">
             <fieldset id="Field">
                 <legend>Connexion</legend>
@@ -41,7 +41,7 @@
             
                     <br>
         
-        <a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
+       
             
         </form>
         
@@ -49,6 +49,7 @@
         
       </di>
     
+     <a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
     
     <br> <br><br>
 	<dv> <footer> outil de de gestion de projet réalisé dans
