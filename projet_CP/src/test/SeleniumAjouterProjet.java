@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class SeleniumInscrCherchDeco {
+public class SeleniumAjouterProjet {
 	private Selenium selenium;
 
 	@Before
@@ -22,20 +22,17 @@ public class SeleniumInscrCherchDeco {
 	}
 
 	@Test
-	public void testSeleniumInscrCherchDeco() throws Exception {
+	public void testSeleniumAjouterProjet() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
-		selenium.click("css=button");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("id=nom", "hgui");
-		selenium.type("id=prenom", "hkui");
-		selenium.type("id=identifiant", "yutres");
-		selenium.type("id=motDePasse", "azer");
-		selenium.type("id=confirmation", "azer");
+		selenium.type("id=motdepasse", "password2");
+		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
+		selenium.click("link=Ajouter");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("css=form > input[name=\"action\"]");
+		selenium.type("name=noms", "projet ");
+		selenium.type("name=description", "test 1");
+		selenium.click("css=input[type=\"submit\"]");
 		selenium.waitForPageToLoad("30000");
 	}
 

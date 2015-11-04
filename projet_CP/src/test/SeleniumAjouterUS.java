@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class AjouterUserStroy {
+public class SeleniumAjouterUS {
 	private Selenium selenium;
 
 	@Before
@@ -22,24 +22,20 @@ public class AjouterUserStroy {
 	}
 
 	@Test
-	public void testAjouterUserStroy() throws Exception {
+	public void testSeleniumAjouterUS() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
 		selenium.type("id=motdepasse", "password2");
 		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
-		selenium.waitForPageToLoad("30000");
 		selenium.click("xpath=(//a[contains(text(),'Afficher')])[2]");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=Ajouter");
 		selenium.waitForPageToLoad("30000");
-		selenium.type("name=description", "test1");
+		selenium.type("name=description", "user story selenium eclipse");
 		selenium.type("name=difficulte", "1");
-		selenium.type("name=priorite", "2");
+		selenium.type("name=priorite", "1");
 		selenium.click("css=input[type=\"submit\"]");
-		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
 		selenium.waitForPageToLoad("30000");
 	}
 

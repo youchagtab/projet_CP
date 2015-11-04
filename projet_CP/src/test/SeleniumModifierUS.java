@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class SeleniumTestInscription {
+public class SeleniumModifierUS {
 	private Selenium selenium;
 
 	@Before
@@ -22,15 +22,18 @@ public class SeleniumTestInscription {
 	}
 
 	@Test
-	public void testSelenium_test_inscription() throws Exception {
-		selenium.open("/projet_CP/inscription.jsp");
-		selenium.type("id=nom", "dfgfg");
-		selenium.type("id=nom", "dupont");
-		selenium.type("id=prenom", "narbel");
-		selenium.type("id=identifiant", "selenium");
-		selenium.type("id=motDePasse", "nbvcxw");
-		selenium.type("id=confirmation", "nbvcxw");
+	public void testSeleniumModifierUS() throws Exception {
+		selenium.open("/projet_CP/connexion.jsp");
+		selenium.type("id=motdepasse", "password2");
+		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
+		selenium.waitForPageToLoad("30000");
+		selenium.click("link=Afficher");
+		selenium.waitForPageToLoad("30000");
+		selenium.click("link=Modifier");
+		selenium.waitForPageToLoad("30000");
+		selenium.type("name=description", "test modif eclipse");
+		selenium.click("css=input[type=\"submit\"]");
 		selenium.waitForPageToLoad("30000");
 	}
 

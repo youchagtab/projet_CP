@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class SeleniumTestConnexion {
+public class SeleniumConnexion {
 	private Selenium selenium;
 
 	@Before
@@ -22,7 +22,7 @@ public class SeleniumTestConnexion {
 	}
 
 	@Test
-	public void testSelenium_test_connexion() throws Exception {
+	public void testSeleniumtestconnexion() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
 		selenium.type("id=motdepasse", "password2");
 		selenium.type("id=identifiant", "youssef");
