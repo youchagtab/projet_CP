@@ -3,6 +3,8 @@ div {
 	padding: 10px;
 	margin: 10px;
 }
+
+
 .table1 th{
 	border: 1px dotted gray;
 	padding: 10px;
@@ -14,4 +16,111 @@ div {
 	padding: 10px;
 	margin: 10px;
 	background: white;
+} 
+
+.table1 #thprojet{
+	background-color: #003366;
+	color: white;
 }
+
+.table1 #thdescription{
+	background-color: #003366;
+	color: white;
+}
+
+
+/*added css kan */
+
+table {
+    border-collapse: collapse;
+}
+
+table tr:nth-child(odd) td {
+    background-color: #E8E8FD;
+}
+
+thead {
+    caption-side: bottom;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    font-size: 25px;
+    margin: 100px;
+    background-color: #008B8B;
+    margin: 100px;
+}
+
+aside {
+	
+	float : right;
+	color: white;
+	background-color: #003366 ;
+}
+
+
+body, p, legend, label, input {
+
+    font: normal 16pt verdana, helvetica, sans-serif;
+    
+}
+
+div {
+    margin-left:20%;
+    margin-right: 20%;
+}
+
+
+#rechercher{
+	background-color: white;
+}
+
+input {
+	background-color: #D8D8D8  ;
+}
+
+
+body {
+    background-color: #F0FAFF;
+}
+
+footer{
+ text-align: center;
+ font-size: 10px;
+ background-color: #FFD6CC;
+}
+
+#motcle{
+	background-color: white;
+}
+
+header {
+	background: #003366;
+
+	
+	margin: 0;
+	padding: 60px 40px 60px 60px;
+}
+
+img{
+	background-color: white;
+	width: 100px;
+	height: 50px;
+}
+
+footer{
+ text-align: center;
+ font-size: 10px;
+ background-color: #FFD6CC;
+}
+
+a:link 
+{ 
+ text-decoration:none;
+ 
+ text-align: center; 
+ color: #000; 
+ 
+ text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+ box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
+  
+} 
