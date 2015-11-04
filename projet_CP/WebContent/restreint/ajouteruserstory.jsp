@@ -33,5 +33,17 @@
 				</tr>
 			</table>
 		</form>
+		<br>
+	<br>
+	<br>
+		<form action="deconnexion" method="post">
+		<input type="submit" value="deconnexion" name="action" />
+	</form>
+	<br>
+	<br>
+	<br>
+	<dv> <footer> outil de de gestion de projet réalisé dans
+		le cadre du module Conduite de projet </footer> </dv>
+		<br/>
 </body>
 </html>
