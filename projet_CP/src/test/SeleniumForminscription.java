@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class SeleniumTestConnChercherDeco {
+public class SeleniumForminscription {
 	private Selenium selenium;
 
 	@Before
@@ -22,15 +22,9 @@ public class SeleniumTestConnChercherDeco {
 	}
 
 	@Test
-	public void testSeleniumTestConnChercherDeco() throws Exception {
+	public void testSeleniumtestforminscription() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
-		selenium.type("id=motdepasse", "PASSWORD");
-		selenium.type("id=identifiant", "Olivier");
-		selenium.click("css=input.sansLabel");
-		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
-		selenium.waitForPageToLoad("30000");
-		selenium.click("css=form > input[name=\"action\"]");
+		selenium.click("css=button");
 		selenium.waitForPageToLoad("30000");
 	}
 

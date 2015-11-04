@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class ModifierUserStory {
+public class SeleniumSupprimerUS {
 	private Selenium selenium;
 
 	@Before
@@ -22,23 +22,16 @@ public class ModifierUserStory {
 	}
 
 	@Test
-	public void testModifierUserStory() throws Exception {
+	public void testSeleniumSupprimerUS() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
 		selenium.type("id=motdepasse", "password2");
 		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
+		selenium.click("link=Afficher");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("xpath=(//a[contains(text(),'Afficher')])[3]");
-		selenium.waitForPageToLoad("30000");
-		selenium.click("link=Modifier");
-		selenium.waitForPageToLoad("30000");
-		selenium.type("name=description", "Vive les tests 1ere modif");
-		selenium.click("css=input[type=\"submit\"]");
-		selenium.waitForPageToLoad("30000");
-		selenium.click("name=action");
-		selenium.waitForPageToLoad("30000");
+		selenium.click("link=Supprimer");
+		assertTrue(selenium.getConfirmation().matches("^etes vous sure de vouloir supprimer cet user story[\\s\\S]$"));
 	}
 
 	@After
