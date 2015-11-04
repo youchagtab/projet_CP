@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+.msg-erreurs {
+	color: red;
+	margin-left: 28%;
+	margin-right: 25%;
+}

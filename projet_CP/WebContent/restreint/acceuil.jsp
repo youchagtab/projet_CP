@@ -8,17 +8,18 @@
 
 <script type="text/javascript">
 	function confirmer(url) {
-		var repo = confirm("etes vous sure de vouloir supprimer ce projet?");
+		var repo = confirm("Etez-vous sûrs de vouloir vous retirer de ce projet?");
 		if (repo == true) {
 			document.location = url;
 		}
 	}
 </script>
+
 </head>
 <body>
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>bienvenue Monsieur ${utilisateur.nom}
+		<aside>Bienvenu ${utilisateur.nom}
 			${utilisateur.prenom}</aside>
 	</header>
 	<br>

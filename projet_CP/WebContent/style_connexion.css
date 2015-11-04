@@ -12,6 +12,9 @@ form{
     margin-right: 25%;
 }
 
+#erreur_color{
+	color:red;
+}
 
 h1{
  color: white;
