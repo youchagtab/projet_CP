@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Acceuil</title>
 <link rel="stylesheet" type="text/css" href="style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="menus.css">
 
 <script type="text/javascript">
 	function confirmer(url) {
@@ -19,16 +20,24 @@
 <body>
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>Bienvenu ${utilisateur.nom}
-			${utilisateur.prenom}</aside>
+		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
 	</header>
+	<nav>
+		<ul>
+			<li><a href="accueil.jsp">accueil</a></li>
+			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="contacts.jsp">contact </a></li>
+		</ul>
+	</nav>
+
 	<br>
 	<br>
 	<br>
 
 	<div>
-		&nbsp;<a href="AjouterProjet">Ajouter</a>
- 		<table class="table1">
+		&nbsp;<a href="AjouterProjet">Ajouter un projet</a> <br>
+		<br>
+		<table class="table1">
 			<tr>
 				<th id="thprojet">PROJET</th>
 				<th id="thdescription">DESCRIPTION</th>
@@ -39,10 +48,9 @@
 
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
-					<td><a href="Projet?idProjet=${p.idProjet }">Afficher</a>
-					<a
-						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')">Se retirer
-					</a></td>
+					<td><a href="Projet?idProjet=${p.idProjet }">Afficher</a> <a
+						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')">Se
+							retirer </a></td>
 				</tr>
 			</c:forEach>
 		</table>

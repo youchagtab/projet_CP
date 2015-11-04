@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
 <link rel="stylesheet" type="text/css" href="style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="menus.css">
 <title>projet</title>
 <script type="text/javascript">
 	function confirmer(url) {
@@ -23,6 +24,13 @@
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
 		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
 	</header>
+	<nav>
+		<ul>
+			<li><a href="accueil.jsp">accueil</a></li>
+			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="contacts.jsp">contact </a></li>
+		</ul>
+	</nav>
 
 
 
@@ -32,7 +40,8 @@
 			<c:out value="${ projet.description }" />
 		</h2>
 		<br /> <strong>Backlog : </strong> <a
-			href="AjouterUserStory?idProjet=${projet.idProjet}">Ajouter</a>
+			href="AjouterUserStory?idProjet=${projet.idProjet}">Ajouter une
+			US</a> <br>
 		<table class="table1">
 			<tr>
 				<td>#</td>
@@ -55,6 +64,12 @@
 				</tr>
 			</c:forEach>
 		</table>
+	</div>
+
+
+	<div>
+		<button>Ajouter un sprint</button>
+
 	</div>
 
 	<br />

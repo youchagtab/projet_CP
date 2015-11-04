@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="menus.css">
 <title>modification du user story </title>
 </head>
 <body>
@@ -14,6 +15,13 @@
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
 		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
 	</header>
+	<nav>
+		<ul>
+			<li><a href="accueil.jsp">accueil</a></li>
+			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="contacts.jsp">contact </a></li>
+		</ul>
+	</nav>
 	
 	<br />
 
