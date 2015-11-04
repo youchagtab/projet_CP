@@ -9,10 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.*;
+import beans.Sprint;
+import beans.UserStory;
 import dao.IProjetDAO;
+import dao.ISprintDAO;
 import dao.IUserStoryDAO;
 import dao.ProjetDAOimpl;
+import dao.SprintDAOimpl;
 import dao.UserStoryDAOimpl;
 
 /**
@@ -43,6 +46,13 @@ public class Projet extends HttpServlet {
 			
 			request.setAttribute(ATT_PROJET, projet);
 			request.setAttribute(ATT_USER_STORIES, userStories);
+			
+			
+			
+			ISprintDAO sprintDAO = new SprintDAOimpl();
+			List<Sprint> sprints = sprintDAO.lister(Integer.parseInt(idProjet));
+			request.setAttribute("sprints", sprints);
+	
 			
 		this.getServletContext().getRequestDispatcher(VUE_PROJET).forward(request, response);
 	}

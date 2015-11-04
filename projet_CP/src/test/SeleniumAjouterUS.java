@@ -32,7 +32,7 @@ public class SeleniumAjouterUS {
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=Ajouter");
 		selenium.waitForPageToLoad("30000");
-		selenium.type("name=description", "user story selenium eclipse");
+		selenium.type("name=description", "user story selenium eclipse 6");
 		selenium.type("name=difficulte", "1");
 		selenium.type("name=priorite", "1");
 		selenium.click("css=input[type=\"submit\"]");
