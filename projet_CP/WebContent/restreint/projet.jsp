@@ -26,7 +26,7 @@
 			<strong>Backlog : </strong><a href="AjouterUserStory?idProjet=${projet.idProjet}">Ajouter</a>
 				<table class="table1">
 					<tr>
-						<td>#</td><td>Description</td><td>Difficulté</td><td>Priorité</td><td>Action</td>
+						<td>#</td><td>Description</td><td>Difficulté</td><td>Priorité</td><td>Actions</td>
 					</tr>
 					<c:forEach var="userStory" items="${ userStories }">
 					<tr>

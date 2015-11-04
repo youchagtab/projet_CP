@@ -33,16 +33,55 @@ public class Acceuil extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		//request.getRequestDispatcher("acceuil.jsp").forward(request, response);
-		doPost(request, response);
+			throws ServletException, IOException 
+	{
+		HttpSession session = request.getSession();
+		if (session.getAttribute("utilisateur") == null){
+			System.out.println("pas connecte");
+		}
+		AcceuilModel model = new AcceuilModel();
+		request.setAttribute("model", model);
+		
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		String action = request.getParameter("action");
+		
+		//delete
+		if (action != null && action.equals("delete")) {
+			int reference = Integer.parseInt(request.getParameter("ref"));
+			int idUtilisateur= Integer.parseInt(request.getParameter("refUtil"));
+			
+			// String ref = request.getParameter("ref")
+			projetUtilisateurDAO.supprimer(reference, idUtilisateur);
+			List<Integer> idP = projetUtilisateurDAO.listerIdProjet(u.getIdUtilisateur());
+			Iterator<Integer> iterator = idP.iterator();
+			List<Projet> p = new ArrayList<Projet>();
+			while(iterator.hasNext()){
+				p.add(metier.recupererProjet(iterator.next()));
+				
+			}
+			model.setProjets(p);
+			//model.setProjets(metier.lister());
+		} 
+		
+		
+		//lister projets
+		List<Integer> idP = projetUtilisateurDAO.listerIdProjet(u.getIdUtilisateur());
+		Iterator<Integer> iterator = idP.iterator();
+		List<Projet> p = new ArrayList<Projet>();
+		while(iterator.hasNext())
+		{
+			p.add(metier.recupererProjet(iterator.next()));
+		}
+		model.setProjets(p);
+		request.getRequestDispatcher("/restreint/acceuil.jsp").forward(request, response);
 
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+			throws ServletException, IOException 
+	{
+	/*	HttpSession session = request.getSession();
 		if (session.getAttribute("utilisateur") == null){
 			System.out.println("pas connecte");
 		}
@@ -57,7 +96,7 @@ public class Acceuil extends HttpServlet {
 			if (action.equals("chercher")) {
 				/*model.setMotCle(request.getParameter("motCle"));
 				List<Projet> p = metier.listerMotCle(model.getMotCle());
-				model.setProjets(p);*/
+				model.setProjets(p);
 				
 				
 				List<Integer> idP = projetUtilisateurDAO.listerIdProjet(u.getIdUtilisateur());
@@ -88,5 +127,6 @@ public class Acceuil extends HttpServlet {
 			
 		}
 		request.getRequestDispatcher("/restreint/acceuil.jsp").forward(request, response);
+	*/
 	}
 }

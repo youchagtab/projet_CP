@@ -10,30 +10,24 @@
 <body>
 		<h3>Bienvenue Monsieur ${utilisateur.nom} ${utilisateur.prenom}</h3>
 		<br/>
-		<h3>Ajouter "User Story"</h3>
-		<form action="AjouterUserStory" method="post">
+		<h3>Ajouter un nouveau projet</h3>
+		<form action="AjouterProjet" method="post">
 			<table class="table1">
+				<tr>
+					<td>Nom : </td>
+					<td><input type="text" name="noms"/></td>		
+				</tr>
 				<tr>
 					<td>Description : </td>
 					<td><textarea name="description"></textarea></td>
 				</tr>
 				<tr>
-					<td>Difficulté : </td>
-					<td><input type="text" name="difficulte"/></td>
-				</tr>
-				<tr>
-					<td>Priorité : </td>
-					<td><input type="text" name="priorite"/></td>
-				</tr>
-				<tr>
 					<td></td>
 					<td>
-						<input type="hidden" name="idProjet" value="${param.idProjet }">
 						<input type="submit" value="Ajouter"/>
-						<input type="reset" value="Effacer"/>
+						<input type="reset" value="Effacer	">
 					</td>
 				</tr>
 			</table>
-		</form>
 </body>
 </html>
