@@ -28,7 +28,7 @@ public class Connexion extends HttpServlet {
 	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	public static final String ATT_ERREUR = "erreur";
 	public static final String VUE_Connexion = "/connexion.jsp";//tgfdg
-	public static final String Vue_Accueil = "/acceuil";
+	public static final String Vue_Accueil = "/projet_CP/acceuil";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -49,8 +49,8 @@ public class Connexion extends HttpServlet {
 		{
 			Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(identifiant);
 			session.setAttribute(ATT_SESSION_UTILISATEUR, utilisateur);
-			this.getServletContext().getRequestDispatcher(Vue_Accueil).forward(request, response);
-			
+			//this.getServletContext().getRequestDispatcher(Vue_Accueil).forward(request, response);
+			response.sendRedirect(Vue_Accueil);
 		}
 		else
 		{
