@@ -122,6 +122,12 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		
 	}
 
+	@Override
+	public List<UserStory> listerParSprint(int idSprint) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
