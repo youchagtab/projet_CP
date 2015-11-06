@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+#barre-menus ul{
+
+	padding: 0px;
+	margin: 0px;
+	list-style-type:none;
+	
+}
+
+#barre-menus li{
+  display:inline-block;
+}
+
+
+#tete-menus ul{
+	padding: 0px;
+	margin: 0px;
+	
+}
+
+#tete-menus ul #menu-ppale{
+background: url("img/icone-portrait.gif");
+background-repeat:no-repeat;
+}
+
+#tete-menus li{
+	list-style-type:none;
+	position:relative;
+	background-color: #999;
+	;
+}
+
+
+
+#tete-menus ul li ul a{
+	display :block;
+	text-align:center;
+	width:145px;
+	height:30px;
+	color:#003366;
+	
+}
+
+#tete-menus ul ul{
+	position: absolute;
+	top:30px;
+	visibility:hidden;
+	
+	/*derouler le menu à gauche*/
+    right:0px;
+
+}
+
+#tete-menus ul li:hover ul{
+	visibility:visible;
+
+}
+
+#tete-menus li:hover{
+	background-color: #FFF;
+} 
+
+#tete-menus ul li ul a:hover{
+	color:#FFF;
+	background-color:#003366;
+}
+
+
+

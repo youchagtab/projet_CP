@@ -20,9 +20,26 @@
 <body>
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
+		<aside>
+			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
+			<aside id="tete-menus">
+				<ul>
+					<li><a href="#" id="menu-ppale">__</a>
+					
+						<ul>
+							<li><a href="#">Mes infos</a></li>
+							<li><a href="#">Mes groupes</a></li>
+							<li><a href="#">Historique</a></li>
+							<li><form action="deconnexion" method="post">
+									<input type="submit" value="deconnexion" name="action" />
+								</form></li>
+						</ul></li>
+				</ul>
+			</aside>
+		</aside>
+
 	</header>
-	<nav>
+	<nav id="barre-menus">
 		<ul>
 			<li><a href="accueil.jsp">accueil</a></li>
 			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
@@ -35,13 +52,12 @@
 	<br>
 
 	<div>
-		&nbsp;<a href="AjouterProjet">Ajouter un projet</a> <br>
-		<br>
+		&nbsp;<a href="AjouterProjet">Ajouter un projet</a> <br> <br>
 		<table class="table1">
 			<tr>
-				<th id="thprojet">PROJET</th>
-				<th id="thdescription">DESCRIPTION</th>
-				<th id="thactions">Actions</th>
+				<th class="thprojet">PROJET</th>
+				<th class="thprojet">DESCRIPTION</th>
+				<th class="thprojet">Actions</th>
 			</tr>
 			<c:forEach items="${model.projets}" var="p">
 				<tr>

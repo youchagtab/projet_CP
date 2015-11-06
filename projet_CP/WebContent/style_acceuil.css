@@ -18,18 +18,7 @@ div {
 	background: white;
 } 
 
-.table1 #thprojet{
-	background-color: #003366;
-	color: white;
-}
-
-.table1 #thdescription{
-	background-color: #003366;
-	color: white;
-}
-
-
-.table1 #thactions{
+.table1 .thprojet{
 	background-color: #003366;
 	color: white;
 }
@@ -73,6 +62,7 @@ body, p, legend, label, input {
 div {
     margin-left:20%;
     margin-right: 20%;
+    
 }
 
 

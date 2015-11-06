@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
 <link rel="stylesheet" type="text/css" href="style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="projet.css">
 <link rel="stylesheet" type="text/css" href="menus.css">
 <title>projet</title>
 <script type="text/javascript">
@@ -32,53 +33,56 @@
 		</ul>
 	</nav>
 
+	<h2>
+		Projet :
+		<c:out value="${ projet.description }" />
+	</h2>
+
+	<section>
 
 
-	<div>
-		<h2>
-			Projet :
-			<c:out value="${ projet.description }" />
-		</h2>
 		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}">Ajouter une
 			US</a> <br>
-		<table class="table1">
-			<tr>
-				<td>#</td>
-				<td>Description</td>
-				<td>Difficulté</td>
-				<td>Priorité</td>
-				<td>Action</td>
-			</tr>
-			<c:forEach var="userStory" items="${ userStories }">
+		<article>
+			<table class="table1">
 				<tr>
-					<td>${ userStory.idUS }</td>
-					<td>${ userStory.description }</td>
-					<td>${ userStory.difficulte }</td>
-					<td>${ userStory.priorite}</td>
-					<td><a
-						href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}">
-							Modifier </a>|<a
-						href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')">
-							Supprimer </a></td>
+					<td>#</td>
+					<td>Description</td>
+					<td>Difficulté</td>
+					<td>Priorité</td>
+					<td>Action</td>
 				</tr>
-			</c:forEach>
-		</table>
-	</div>
-	
-	<!--  affichage des sprint sous forme de bouton
-				<div>
-  			<c:forEach var="sprint" items="${ sprints }">
-				
-					<button> sprint ${ sprint.numero }</button>
-					
-			</c:forEach>
-				</div>
-    -->
-	<div>
-		<button>Ajouter un sprint</button>
+				<c:forEach var="userStory" items="${ userStories }">
+					<tr>
+						<td>${ userStory.idUS }</td>
+						<td>${ userStory.description }</td>
+						<td>${ userStory.difficulte }</td>
+						<td>${ userStory.priorite}</td>
+						<td><a
+							href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}">
+								Modifier </a>|<a
+							href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')">
+								Supprimer </a></td>
+					</tr>
+				</c:forEach>
+			</table>
 
-	</div>
+
+		</article>
+		<aside>
+
+			<button>Ajouter un sprint</button>
+             eccec  ddzdzd dzdzdz zeefefrfrfrfr rfrfr
+             frfrfrfr rfrfrfr rfrfrfrf rradadzdzdzdede
+             edededededede edededxefrfrtg eeded ededededede
+             ededede edede ededede efrfrfrfqZAAA EFRFFRF
+             FRFRFR RFRFR  E E E  RFRFRRFRFFRFRF
+
+		</aside>
+	</section>
+
+
 
 	<br />
 
