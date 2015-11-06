@@ -22,7 +22,7 @@ public class SprintDAOimpl implements ISprintDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("INSERT INTO cp_sprint(idProjet,numero) VALUES(?,?)");
+			statement = connexion.prepareStatement("INSERT INTO CP_Sprint(idProjet,numero) VALUES(?,?)");
 			statement.setInt(1, sprint.getIdProjet());
 			statement.setInt(2, sprint.getNumero());
 			statement.executeUpdate();
@@ -59,7 +59,7 @@ public class SprintDAOimpl implements ISprintDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("UPDATE cp_sprint SET numero = ? WHERE idSprint = ?");
+			statement = connexion.prepareStatement("UPDATE CP_Sprint SET numero = ? WHERE idSprint = ?");
 			statement.setInt(1, sprint.getNumero());
 			statement.setInt(2, sprint.getIdSprint());
 			statement.executeUpdate();
@@ -96,7 +96,7 @@ public class SprintDAOimpl implements ISprintDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("DELETE  FROM cp_sprint WHERE idSprint = ?");
+			statement = connexion.prepareStatement("DELETE  FROM CP_Sprint WHERE idSprint = ?");
 			statement.setInt(1, sprint.getIdSprint());
 			statement.executeUpdate();
 		}
@@ -133,7 +133,7 @@ public class SprintDAOimpl implements ISprintDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("SELECT * FROM cp_sprint WHERE idSprint = ?");
+			statement = connexion.prepareStatement("SELECT * FROM CP_Sprint WHERE idSprint = ?");
 			statement.setInt(1, idSprint);
 			resultat = statement.executeQuery();
 			
@@ -179,7 +179,7 @@ public class SprintDAOimpl implements ISprintDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("SELECT * FROM cp_sprint WHERE idProjet = ?");
+			statement = connexion.prepareStatement("SELECT * FROM CP_Sprint WHERE idProjet = ?");
 			statement.setInt(1, idProjet);
 			resultat = statement.executeQuery();
 
