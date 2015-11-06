@@ -65,8 +65,16 @@
 			</c:forEach>
 		</table>
 	</div>
-
-
+	
+	<!--  affichage des sprint sous forme de bouton
+				<div>
+  			<c:forEach var="sprint" items="${ sprints }">
+				
+					<button> sprint ${ sprint.numero }</button>
+					
+			</c:forEach>
+				</div>
+    -->
 	<div>
 		<button>Ajouter un sprint</button>
 
