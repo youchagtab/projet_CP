@@ -21,7 +21,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("INSERT INTO cp_tache(tag,description,cout,status,idUS) VALUES(?,?,?,?,?)");
+			statement = connexion.prepareStatement("INSERT INTO CP_Tache(tag,description,cout,status,idUS) VALUES(?,?,?,?,?)");
 			statement.setString(1, tache.getTag());
 			statement.setString(2, tache.getDescription());
 			statement.setInt(3, tache.getCout());
@@ -61,7 +61,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("UPDATE cp_tache SET tag = ?,description= ?,cout= ?,status= ?,idUS= ? WHERE idTache = ?");
+			statement = connexion.prepareStatement("UPDATE CP_Tache SET tag = ?,description= ?,cout= ?,status= ?,idUS= ? WHERE idTache = ?");
 			statement.setString(1, tache.getTag());
 			statement.setString(2, tache.getDescription());
 			statement.setInt(3, tache.getCout());
@@ -102,7 +102,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("DELETE  FROM cp_tache WHERE idTache = ?");
+			statement = connexion.prepareStatement("DELETE  FROM CP_Tache WHERE idTache = ?");
 			statement.setInt(1, tache.getIdTache());
 			statement.executeUpdate();
 		}
@@ -139,7 +139,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("SELECT * FROM cp_tache WHERE idTache = ?");
+			statement = connexion.prepareStatement("SELECT * FROM CP_Tache WHERE idTache = ?");
 			statement.setInt(1, idTache);
 			resultat = statement.executeQuery();
 			
@@ -194,7 +194,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		try
 		{
 
-			statement = connexion.prepareStatement("SELECT * FROM cp_tache WHERE idUS = ?");
+			statement = connexion.prepareStatement("SELECT * FROM CP_Tache WHERE idUS = ?");
 			statement.setInt(1, idUS);
 			resultat = statement.executeQuery();
 
