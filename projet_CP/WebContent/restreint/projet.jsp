@@ -27,9 +27,9 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="accueil.jsp">accueil</a></li>
-			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="contacts.jsp">contact </a></li>
+			<li><a href="restreint/accueil.jsp">accueil</a></li>
+			<li><a href="restreint/ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="restreint/contacts.jsp">contact </a></li>
 		</ul>
 	</nav>
 
@@ -72,12 +72,12 @@
 		</article>
 		<aside>
 
-			<button>Ajouter un sprint</button>
-             eccec  ddzdzd dzdzdz zeefefrfrfrfr rfrfr
-             frfrfrfr rfrfrfr rfrfrfrf rradadzdzdzdede
-             edededededede edededxefrfrtg eeded ededededede
-             ededede edede ededede efrfrfrfqZAAA EFRFFRF
-             FRFRFR RFRFR  E E E  RFRFRRFRFFRFRF
+			<a
+				href="AjouterSprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">Ajouter
+				un sprint</a>
+			<c:forEach var="sprint" items="${sprints}">
+				<a href="Sprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">sprint ${sprint.numero}</a>
+			</c:forEach>
 
 		</aside>
 	</section>
