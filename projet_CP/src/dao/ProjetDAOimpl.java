@@ -69,7 +69,7 @@ public class ProjetDAOimpl implements IProjetDAO{
 			e.printStackTrace();
 		}
 		if (p == null)
-			throw new RuntimeException("produit:" + idProjet + " est introuvable");
+			throw new RuntimeException("projet:" + idProjet + " est introuvable");
 
 		return p;
 		
@@ -95,7 +95,7 @@ public class ProjetDAOimpl implements IProjetDAO{
 			e.printStackTrace();
 		}
 		if (p == null)
-			throw new RuntimeException("produit:" + nomsProjet + " est introuvable");
+			throw new RuntimeException("projet:" + nomsProjet + " est introuvable");
 		
 		return p;
 	}

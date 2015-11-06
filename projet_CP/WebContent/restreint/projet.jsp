@@ -73,7 +73,7 @@
 		<aside>
 
 			<a
-				href="AjouterSprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">Ajouter
+				href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}">Ajouter
 				un sprint</a>
 			<c:forEach var="sprint" items="${sprints}">
 				<a href="Sprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">sprint ${sprint.numero}</a>

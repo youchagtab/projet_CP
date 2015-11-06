@@ -52,6 +52,9 @@ public class Projet extends HttpServlet {
 			ISprintDAO sprintDAO = new SprintDAOimpl();
 			List<Sprint> sprints = sprintDAO.lister(Integer.parseInt(idProjet));
 			request.setAttribute("sprints", sprints);
+			request.setAttribute("numero", sprints.size()+1);
+			//request.setAttribute("numero", "1");
+			
 	
 			
 		this.getServletContext().getRequestDispatcher(VUE_PROJET).forward(request, response);
