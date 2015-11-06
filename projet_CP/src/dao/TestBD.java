@@ -1,18 +1,24 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import beans.Projet;
+import beans.Sprint;
 import beans.UserStory;
 import beans.Utilisateur;
 
 public class TestBD {
 
 	public static void main(String[] args) {
-		System.out.println("mem");
-		testUserStoryDAO();
-		/*try{
+		System.out.println("test bdd");
+	
+		/*test sprint*/
+		testSprint();
+		
+		/*testUserStoryDAO();
+		try{
 		IProjetDAO projet = new ProjetDAOimpl();
 		Projet p = projet.recupererProjet(2);
 		System.out.println(p.getDescription() + p.getNoms());
@@ -62,6 +68,21 @@ public class TestBD {
 		Utilisateur u = new Utilisateur("paulseb", "mdp", "paul", "sebastien");
 		utilisateur.ajouter(u);
 		System.out.println(u.getIdUtilisateur());*/
+	}
+	
+	public static void testSprint()
+	{
+		ISprintDAO sprintDAO = new SprintDAOimpl();
+		//Sprint sprint = sprintDAO.recupererSprint(5);
+		//System.out.println("id "+sprint.getIdSprint()+" idProjet "+sprint.getIdProjet()+" numero "+sprint.getNumero());
+		List<Sprint> sprints = new ArrayList<Sprint>();
+		sprints = sprintDAO.lister(2);
+		System.out.println(sprints.size());
+		//sprintDAO.ajouter(sprint);
+		//sprint.setNumero(6);
+		//sprint.setIdSprint(6);
+		//sprintDAO.modifier(sprint);
+		//sprintDAO.supprimer(sprint);
 	}
 	
 	public static void testUtilisateur(){

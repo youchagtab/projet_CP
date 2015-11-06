@@ -12,5 +12,6 @@ public interface ITacheDAO
 	Tache recupererSprint(int idSprint);
 	List<Tache> listerParProjet(int idProjet);
 	List<Tache> listerParSprint(int idSprint);
+	List<Tache> listerDependanceTaches(int idTache);
 	
 }

@@ -42,4 +42,10 @@ public class TacheDAOimpl implements ITacheDAO {
 		return null;
 	}
 
+	@Override
+	public List<Tache> listerDependanceTaches(int idTache) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
