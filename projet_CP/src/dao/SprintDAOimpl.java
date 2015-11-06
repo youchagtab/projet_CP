@@ -47,13 +47,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		    if ( connexion != null ) {
-		        try {
-		            /* Et enfin on ferme la connexion */
-		            connexion.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
 		}
 	}
 
@@ -91,13 +84,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		    if ( connexion != null ) {
-		        try {
-		            /* Et enfin on ferme la connexion */
-		            connexion.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
 		}
 	}
 
@@ -131,13 +117,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        try {
 		            /* Puis on ferme le Statement */
 		            statement.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
-		    if ( connexion != null ) {
-		        try {
-		            /* Et enfin on ferme la connexion */
-		            connexion.close();
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
@@ -182,13 +161,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        try {
 		            /* Puis on ferme le Statement */
 		            statement.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
-		    if ( connexion != null ) {
-		        try {
-		            /* Et enfin on ferme la connexion */
-		            connexion.close();
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
@@ -238,13 +210,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        try {
 		            /* Puis on ferme le Statement */
 		            statement.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
-		    if ( connexion != null ) {
-		        try {
-		            /* Et enfin on ferme la connexion */
-		            connexion.close();
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
