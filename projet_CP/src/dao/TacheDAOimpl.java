@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import beans.Sprint;
 import beans.Tache;
+import beans.UserStory;
 
 public class TacheDAOimpl implements ITacheDAO {
 
@@ -236,15 +238,33 @@ public class TacheDAOimpl implements ITacheDAO {
 	}
 
 	@Override
-	public List<Tache> listerParSprint(int idSprint) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<Tache> listerDependanceTaches(int idTache) {
 		// TODO Auto-generated method stub
-		return null;
+		Connection conn = SingletonConnection.getConnection();
+		List<Tache> taches = null;
+		Tache tache = null;
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT  td.idTache, td.tag, td.description, td.cout, td.status, td.idUS FROM cp_dependancetache t, cp_tache td WHERE t.dependance = td.idTache AND t.tache = '"+ idTache +"'");
+			
+			taches = new ArrayList<Tache>();
+			while(resultat.next())
+			{
+				tache = new Tache();
+				tache.setIdTache(resultat.getInt("idTache"));
+				tache.setTag(resultat.getString("tag"));
+				tache.setDescription(resultat.getString("description"));
+				tache.setCout(resultat.getInt("cout"));
+				tache.setStatus(resultat.getString("status"));
+				tache.setIdUS(resultat.getInt("idUS"));
+				taches.add(tache);
+			}
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return taches;
 	}
 
 }

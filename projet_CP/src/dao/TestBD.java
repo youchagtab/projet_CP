@@ -79,8 +79,9 @@ public class TestBD {
 		//Tache tache = tacheDAO.recupererTache(3);
 		//System.out.println(tache.getDescription());
 		List<Tache> taches = new ArrayList<Tache>();
-		taches = tacheDAO.listerParUserStory(62);
+		taches = tacheDAO.listerDependanceTaches(1);
 		System.out.println(taches.size());
+		System.out.println(taches.get(2).getDescription());
 		
 	}
 	public static void testSprint()
