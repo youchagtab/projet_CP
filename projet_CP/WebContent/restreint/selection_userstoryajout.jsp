@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html >
@@ -8,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
-<title>sprint</title>
+<title>selection user story</title>
 </head>
 <body>
 
@@ -18,7 +17,7 @@
 			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
 			<aside id="tete-menus" class="tete-menus">
 				<ul>
-					<li><a href="#" id="menu-ppale"  class="menu-ppale">__</a>
+					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
 
 						<ul>
 							<li><a href="#">Mes infos</a></li>
@@ -41,58 +40,35 @@
 		</ul>
 	</nav>
 
+
+
 	<br />
 	<div>
-
-		<h2>
-			sprint
-			<!--  <c:out value="${ sprint.numero }" />  -->
-		</h2>
+		<h3>Ajouter "User Story" au sprint</h3>
 
 
-		<a href="AjouterUserStorySprint">Ajouter une US</a> <br>
+		<form action="AjouterUserStorySprint" method="post" id="liste-us">
+			<ul>
+				<c:forEach var="userStory" items="${ userStories }">
+					<li><INPUT type="checkbox" name="selectionUS"
+						value="${userStory}">${userStory}</li>
+				</c:forEach>
+			</ul>
 
-		<table class="table1">
-			<tr>
-				<th>USER STORY</th>
-				<th>TACHES</th>
-			</tr>
-			<c:forEach var="userStory" items="${userStories}">
-				<tr>
-					<td><c:out value="${userStory.key}" /></td>
-					<td><a href="restreint/ajoutertache.jsp">
-							<button>ajouter une tache</button>
-					</a>
+			<input type="submit" value="Valider" />
 
-						<ul>
-							<c:forEach var="tache" items="${userStory.value}">
-								<li><c:out value="${tache}" /> &nbsp;
-									<aside id="taches-menus" class="tete-menus" >
-										<ul>
-											<li><a href="#" id="menu-tache" class="menu-ppale">__</a>
-
-												<ul>
-													<li><a href="#">Modifier</a></li>
-													<li><a href="#">Supprimer</a></li>
-												</ul></li>
-										</ul>
-									</aside></li>
-							</c:forEach>
-						</ul></td>
-			</c:forEach>
-		</table>
-
-
-
-
+		</form>
 	</div>
 
 	<br>
+
+	<a href="AjouterUserStory?idSprint=${sprint.idSprint}">Ajouter une
+		nouvelle US au sprint</a>
+	<br>
+
 	<br>
 	<br>
-	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action" />
-	</form>
+	<br>
 	<br>
 	<br>
 	<br>
