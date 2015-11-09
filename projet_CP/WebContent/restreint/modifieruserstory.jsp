@@ -4,25 +4,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="menus.css">
-<title>modification du user story </title>
+<link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="css/menus.css">
+<title>modification du user story</title>
 </head>
 <body>
-	
-	<header>
 
+	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
+		<aside>
+			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
+			<aside id="tete-menus" class="tete-menus">
+				<ul>
+					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
+
+						<ul>
+							<li><a href="#">Mes infos</a></li>
+							<li><a href="#">Mes groupes</a></li>
+							<li><a href="#">Historique</a></li>
+							<li><form action="deconnexion" method="post">
+									<input type="submit" value="deconnexion" name="action" />
+								</form></li>
+						</ul></li>
+				</ul>
+			</aside>
+		</aside>
+
 	</header>
-	<nav>
+	<nav id="barre-menus">
 		<ul>
 			<li><a href="accueil.jsp">accueil</a></li>
 			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
 			<li><a href="contacts.jsp">contact </a></li>
 		</ul>
 	</nav>
-	
+
 	<br />
 
 	<div>
@@ -55,10 +71,10 @@
 
 	</div>
 
-		<br>
 	<br>
 	<br>
-		<form action="deconnexion" method="post">
+	<br>
+	<form action="deconnexion" method="post">
 		<input type="submit" value="deconnexion" name="action" />
 	</form>
 	<br>
@@ -66,7 +82,7 @@
 	<br>
 	<dv> <footer> outil de de gestion de projet réalisé dans
 		le cadre du module Conduite de projet </footer> </dv>
-		<br/>
+	<br />
 
 </body>
 </html>

@@ -13,31 +13,15 @@
 <body>
 
 	<header>
+
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>
-			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
-			<aside id="tete-menus" class="tete-menus">
-				<ul>
-					<li><a href="#" id="menu-ppale"  class="menu-ppale">__</a>
-
-						<ul>
-							<li><a href="#">Mes infos</a></li>
-							<li><a href="#">Mes groupes</a></li>
-							<li><a href="#">Historique</a></li>
-							<li><form action="deconnexion" method="post">
-									<input type="submit" value="deconnexion" name="action" />
-								</form></li>
-						</ul></li>
-				</ul>
-			</aside>
-		</aside>
-
+		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
 	</header>
-	<nav id="barre-menus">
+	<nav>
 		<ul>
-			<li><a href="accueil.jsp">accueil</a></li>
-			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="contacts.jsp">contact </a></li>
+			<li><a href="restreint/accueil.jsp">accueil</a></li>
+			<li><a href="restreint/ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="restreint/contacts.jsp">contact </a></li>
 		</ul>
 	</nav>
 
@@ -57,26 +41,33 @@
 				<th>USER STORY</th>
 				<th>TACHES</th>
 			</tr>
-			<c:forEach var="userStory" items="${userStories}">
+			<strong><c:out value="${fn:length(userStories)}" /></strong>
+			<c:forEach var="userStory" items="${userStories}" begin="0"
+				end="${fn:length(userStories)}" varStatus="status">
 				<tr>
-					<td><c:out value="${userStory.key}" /></td>
+					<td><c:out value="${userStory.description}" /></td>
 					<td><a href="restreint/ajoutertache.jsp">
 							<button>ajouter une tache</button>
 					</a>
 
 						<ul>
-							<c:forEach var="tache" items="${userStory.value}">
+							<c:forEach var="tache" items="${taches[(status.count)-1] }">
 								<li><c:out value="${tache}" /> &nbsp;
-									<aside id="taches-menus" class="tete-menus" >
+									<aside id="taches-menus" class="tete-menus">
 										<ul>
 											<li><a href="#" id="menu-tache" class="menu-ppale">__</a>
 
 												<ul>
-													<li><a href="#">Modifier</a></li>
-													<li><a href="#">Supprimer</a></li>
+													<li><a
+														href="ModifierTache?idTache=${tache.idTache}&idUS=${userStory.idUS}">
+															Modifier </a></li>
+													<li><a
+														href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache}&idUS=${userStory.idUS}')">
+															Supprimer </a></li>
 												</ul></li>
 										</ul>
 									</aside></li>
+
 							</c:forEach>
 						</ul></td>
 			</c:forEach>
