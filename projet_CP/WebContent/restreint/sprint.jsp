@@ -29,7 +29,7 @@
 	<div>
 
 		<h2>
-			sprint
+			Sprint ${ sprint.numero }
 			<!--  <c:out value="${ sprint.numero }" />  -->
 		</h2>
 
@@ -41,7 +41,6 @@
 				<th>USER STORY</th>
 				<th>TACHES</th>
 			</tr>
-			<strong><c:out value="${fn:length(userStories)}" /></strong>
 			<c:forEach var="userStory" items="${userStories}" begin="0"
 				end="${fn:length(userStories)}" varStatus="status">
 				<tr>
@@ -52,7 +51,7 @@
 
 						<ul>
 							<c:forEach var="tache" items="${taches[(status.count)-1] }">
-								<li><c:out value="${tache}" /> &nbsp;
+								<li><c:out value="${tache.description}" /> &nbsp;
 									<aside id="taches-menus" class="tete-menus">
 										<ul>
 											<li><a href="#" id="menu-tache" class="menu-ppale">__</a>

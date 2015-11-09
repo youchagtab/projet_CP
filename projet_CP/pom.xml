@@ -55,6 +55,14 @@
 			<version>2.47.1</version>
 			<scope>test</scope>
 		</dependency>	
+		
+
+		<dependency>
+	<groupId>org.javabits.jgrapht</groupId>
+	<artifactId>jgrapht-ext</artifactId>
+	<version>0.9.1</version>
+</dependency>
+		
   
 	</dependencies>
 </project>

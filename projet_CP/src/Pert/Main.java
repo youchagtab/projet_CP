@@ -14,7 +14,7 @@ import java.util.HashMap;
 import javax.swing.*;
 
 import org.jgrapht.*;
-import org.jgrapht.demo.JGraphAdapterDemo;
+
 import org.jgrapht.ext.*;
 import org.jgrapht.graph.*;
 
