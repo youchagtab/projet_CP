@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Acceuil</title>
-<link rel="stylesheet" type="text/css" href="style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="menus.css">
+<link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="css/menus.css">
 
 <script type="text/javascript">
 	function confirmer(url) {
@@ -22,9 +22,9 @@
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
 		<aside>
 			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
-			<aside id="tete-menus">
+			<aside id="tete-menus"  class="tete-menus">
 				<ul>
-					<li><a href="#" id="menu-ppale">__</a>
+					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
 					
 						<ul>
 							<li><a href="#">Mes infos</a></li>
@@ -41,9 +41,9 @@
 	</header>
 	<nav id="barre-menus">
 		<ul>
-			<li><a href="accueil.jsp">accueil</a></li>
-			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="contacts.jsp">contact </a></li>
+			<li><a href="../restreint/accueil.jsp">accueil</a></li>
+			<li><a href="../restreint/ajouterprojet.jsp">ajouter un projet</a></li>
+			<li><a href="../restreint/contacts.jsp">contact </a></li>
 		</ul>
 	</nav>
 
@@ -77,6 +77,8 @@
 	<br>
 	<br>
 	<br>
+	
+	
 	<dv> <footer> outil de de gestion de projet réalisé dans
 		le cadre du module Conduite de projet </footer> </dv>
 </body>

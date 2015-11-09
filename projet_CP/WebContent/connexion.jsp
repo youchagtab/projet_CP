@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Connexion</title>
-<link type="text/css" rel="stylesheet" href="style.css" />
-<link type="text/css" rel="stylesheet" href="erreurs.css" />
-<link type="text/css" rel="stylesheet" href="style_connexion.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/erreurs.css" />
+<link type="text/css" rel="stylesheet" href="css/style_connexion.css" />
 </head>
 <body>
 
