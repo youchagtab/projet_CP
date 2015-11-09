@@ -55,7 +55,7 @@ public class Projet extends HttpServlet {
 			request.setAttribute("numero", sprints.size()+1);
 			//request.setAttribute("numero", "1");
 			
-	
+	/*test*/
 			
 		this.getServletContext().getRequestDispatcher(VUE_PROJET).forward(request, response);
 	}

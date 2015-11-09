@@ -56,6 +56,7 @@ public class Sprint extends HttpServlet {
 			
 			List<Tache> taches = tacheDAO.listerParSprint(Integer.parseInt(idSprint));/*a modifier */
 			request.setAttribute(ATT_TACHE, taches);
+			/*test*/
 			
 			
 		}
