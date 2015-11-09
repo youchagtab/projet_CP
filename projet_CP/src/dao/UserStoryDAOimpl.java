@@ -124,8 +124,27 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 
 	@Override
 	public List<UserStory> listerParSprint(int idSprint) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = SingletonConnection.getConnection();
+		List<UserStory> listUS = new ArrayList<UserStory>();
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT  us.idUS,us.description,us.difficulte,us.priorite,us.id_Projet,us.place,us.status FROM cp_sprint_userstory s, cp_userstory us WHERE s.idUS = us.idUS AND s.idSprint ='"+ idSprint +"'");
+			
+			while (resultat.next()){
+				
+				UserStory us = new UserStory(resultat.getInt("idUS"),
+					resultat.getString("description"), 
+					resultat.getInt("difficulte"), 
+					resultat.getInt("priorite"),
+					resultat.getInt("id_Projet"));
+				listUS.add(us);
+			}
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listUS;
 	}
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import beans.Projet;
 import beans.Sprint;
+import beans.Tache;
 import beans.UserStory;
 import beans.Utilisateur;
 
@@ -15,7 +16,7 @@ public class TestBD {
 		System.out.println("test bdd");
 	
 		/*test sprint*/
-		testSprint();
+		testTache();
 		
 		/*testUserStoryDAO();
 		try{
@@ -69,7 +70,20 @@ public class TestBD {
 		utilisateur.ajouter(u);
 		System.out.println(u.getIdUtilisateur());*/
 	}
-	
+	public static void testTache()
+	{
+		
+		ITacheDAO tacheDAO = new TacheDAOimpl();
+		//Tache tache = new Tache(8,"AVION", "AIREPORT", 2, "FAIT", 63);
+		//tacheDAO.modifier(tache);
+		//Tache tache = tacheDAO.recupererTache(3);
+		//System.out.println(tache.getDescription());
+		List<Tache> taches = new ArrayList<Tache>();
+		taches = tacheDAO.listerDependanceTaches(1);
+		System.out.println(taches.size());
+		System.out.println(taches.get(2).getDescription());
+		
+	}
 	public static void testSprint()
 	{
 		ISprintDAO sprintDAO = new SprintDAOimpl();
@@ -111,9 +125,9 @@ public class TestBD {
 	
 	public static void testUserStoryDAO(){
 		IUserStoryDAO USDAO = new UserStoryDAOimpl();
-		UserStory us = new UserStory("Test main UserStoryDAO",1,1,1);
-		USDAO.ajouter(us);
-		List<UserStory>listUS =USDAO.lister(1);
+		//UserStory us = new UserStory("Test main UserStoryDAO",1,1,1);
+		//USDAO.ajouter(us);
+		List<UserStory>listUS =USDAO.listerParSprint(3);
 		Iterator<UserStory> it = listUS.iterator();
 		while(it.hasNext()){
 			UserStory UStmp = it.next();
@@ -123,8 +137,8 @@ public class TestBD {
 					         + " Priorite:"+ UStmp.getDifficulte()+","
 					         + "IDProjet:"+UStmp.getIdProjet());
 		}
-		us.setDescription("Vive les tests");
-		USDAO.modifier(us);
+		//us.setDescription("Vive les tests");
+		//USDAO.modifier(us);
 		
 		
 	}

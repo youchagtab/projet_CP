@@ -54,7 +54,7 @@ public class Sprint extends HttpServlet {
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		for(int i= 1 ; i< userStories.size(); i++){
 			
-			List<Tache> taches = tacheDAO.listerParSprint(Integer.parseInt(idSprint));/*a modifier */
+			List<Tache> taches = tacheDAO.listerParUserStory(userStories.get(i).getIdUS());/*a modifier */
 			request.setAttribute(ATT_TACHE, taches);
 			/*test*/
 			

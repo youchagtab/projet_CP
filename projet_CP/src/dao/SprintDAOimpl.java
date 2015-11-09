@@ -47,7 +47,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		   
 		}
 	}
 
@@ -85,7 +84,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		    
 		}
 	}
 
@@ -122,7 +120,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		   
 		}
 	}
 
@@ -167,7 +164,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		   
 		}
 		return sprint;
 	}
@@ -217,7 +213,6 @@ public class SprintDAOimpl implements ISprintDAO {
 		        } catch ( SQLException ignore ) {
 		        }
 		    }
-		    
 		}
 		return sprints;
 	}
