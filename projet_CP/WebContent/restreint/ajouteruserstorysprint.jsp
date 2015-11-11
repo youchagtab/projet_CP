@@ -25,11 +25,40 @@
 		</ul>
 	</nav>
 	<div>
-	<!--
-		
-	
-	-->
-	  
+
+
+		<table class="table1">
+			<tr>
+				<td><strong> Liste des UserStories</strong></td>
+
+			</tr>
+
+
+
+			<form action="AjouterUserStorySprint" method="post">
+				<c:forEach var="p" items="${ userStories }">
+					<tr>
+						<td>${ p.description }<input type="checkbox"
+							name="userstories" value="p.idUS" />
+						</td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td>
+						<p>
+							<input type="submit" value="Ajouter" />
+						</p>
+					</td>
+				</tr>
+			</form>
+
+
+
+		</table>
+
+
+
+		<!--
 			 <table class="table1">
 				<tr>
 					<td>Liste des UserStories</td>
@@ -45,19 +74,20 @@
 							href="AjouterUserStorySprint?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}&idSprint=${sprint.idSprint}">
 								Ajouter </a>
 				    </td>
+
 				    
-				    <!--
+				</tr>    
+			</table>
+			    -->
+
+		<!--
 				   <td>
 				 	   <form action="AjouterUserStorySprint" method="post">
 		                   <input type="submit" value="Ajouter" name="action" />
 	                    </form>
 	                </td>
 	                -->
-				    
-				    
-				</tr>    
-			</table>
-			  
+
 	</div>
 </body>
 </html>
