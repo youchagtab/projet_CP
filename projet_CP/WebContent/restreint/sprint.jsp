@@ -34,7 +34,7 @@
 		</h2>
 
 
-		<a href="AjouterUserStorySprint">Ajouter une US</a> <br>
+		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}">Ajouter une US</a> <br>
 
 		<table class="table1">
 			<tr>
@@ -58,11 +58,12 @@
 											<li><a href="#" id="menu-tache" class="menu-ppale">__</a>
 
 												<ul>
-													<li><a
-														href="ModifierTache?idTache=${tache.idTache}&idUS=${userStory.idUS}">
+													<li>
+													<a
+														href="ModifierTache">
 															Modifier </a></li>
 													<li><a
-														href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache}&idUS=${userStory.idUS}')">
+														href="javascript:confirmer('SupprimerTache')">
 															Supprimer </a></li>
 												</ul></li>
 										</ul>
