@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
-<link rel="stylesheet" type="text/css" href="style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="projet.css">
-<link rel="stylesheet" type="text/css" href="menus.css">
+<link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="css/projet.css">
+<link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>projet</title>
 <script type="text/javascript">
 	function confirmer(url) {

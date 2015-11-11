@@ -34,7 +34,7 @@
 		</h2>
 
 
-		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}">Ajouter une US</a> <br>
+		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">Ajouter une US</a> <br>
 
 		<table class="table1">
 			<tr>
