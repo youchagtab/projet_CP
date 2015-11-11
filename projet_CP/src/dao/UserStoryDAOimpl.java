@@ -128,7 +128,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		List<UserStory> listUS = new ArrayList<UserStory>();
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT  us.idUS,us.description,us.difficulte,us.priorite,us.id_Projet,us.place,us.status FROM cp_sprint_userstory s, cp_userstory us WHERE s.idUS = us.idUS AND s.idSprint ='"+ idSprint +"'");
+			ResultSet resultat = statement.executeQuery( "SELECT  us.idUS,us.description,us.difficulte,us.priorite,us.id_Projet,us.place,us.status FROM CP_Sprint_UserStory s, CP_UserStory us WHERE s.idUS = us.idUS AND s.idSprint ='"+ idSprint +"'");
 			
 			while (resultat.next()){
 				
