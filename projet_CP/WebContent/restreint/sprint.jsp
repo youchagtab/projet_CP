@@ -13,20 +13,39 @@
 <body>
 
 	<header>
-
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
+		<aside id="tete-aside" class="aside-conteneur">
+			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
+			<aside id="tete-menus" class="aside-conteneur">
+				<ul>
+					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
+
+						<ul>
+							<li><a href="#" class="menu-ppale">Mes infos</a></li>
+							<li><a href="#" class="menu-ppale">Mes groupes</a></li>
+							<li><a href="#" class="menu-ppale">Historique</a></li>
+							<li><form action="deconnexion" method="post">
+									<input type="submit" value="deconnexion" name="action"
+										id="input-menuDeconnexion" class="input-bouton" />
+								</form></li>
+						</ul></li>
+				</ul>
+			</aside>
+		</aside>
+
 	</header>
-	<nav>
+	<nav id="barre-menus" class="nav-conteneur">
 		<ul>
-			<li><a href="restreint/accueil.jsp">accueil</a></li>
-			<li><a href="restreint/ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="restreint/contacts.jsp">contact </a></li>
+			<li><a href="accueil.jsp" class="menu-horizontale">accueil</a></li>
+			<li><a href="../restreint/ajouterprojet.jsp"
+				class="menu-horizontale">ajouter un projet</a></li>
+			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact
+			</a></li>
 		</ul>
 	</nav>
 
 	<br />
-	<div>
+	<div class="div-conteneur" id="div-sprint">
 
 		<h2>
 			Sprint ${ sprint.numero }
@@ -34,12 +53,14 @@
 		</h2>
 
 
-		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}">Ajouter une US</a> <br>
+		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}"
+			class="menu-ppale">Ajouter une US</a> <br />
+		<br />
 
 		<table class="table1">
 			<tr>
-				<th>USER STORY</th>
-				<th>TACHES</th>
+				<th class="thprojet">USER STORY</th>
+				<th class="thprojet">TACHES</th>
 			</tr>
 			<c:forEach var="userStory" items="${userStories}" begin="0"
 				end="${fn:length(userStories)}" varStatus="status">
@@ -52,18 +73,15 @@
 						<ul>
 							<c:forEach var="tache" items="${taches[(status.count)-1] }">
 								<li><c:out value="${tache.description}" /> &nbsp;
-									<aside id="taches-menus" class="tete-menus">
+									<aside id="taches-menus" class="aside-conteneur">
 										<ul>
-											<li><a href="#" id="menu-tache" class="menu-ppale">__</a>
+											<li><a href="#" id="menu-tache" class="menu-Sprint">__</a>
 
 												<ul>
-													<li>
-													<a
-														href="ModifierTache">
+													<li><a href="ModifierTache" class="menu-ppale">
 															Modifier </a></li>
-													<li><a
-														href="javascript:confirmer('SupprimerTache')">
-															Supprimer </a></li>
+													<li><a href="javascript:confirmer('SupprimerTache')"
+														class="menu-ppale"> Supprimer </a></li>
 												</ul></li>
 										</ul>
 									</aside></li>
@@ -87,9 +105,9 @@
 	<br>
 	<br>
 	<br>
-	<dv> <footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> </dv>
-	<br />
+	 <footer> outil de de gestion de projet réalisé dans
+		le cadre du module Conduite de projet </footer> 
+	
 
 </body>
 </html>

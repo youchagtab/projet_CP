@@ -4,8 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Acceuil</title>
-<link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="css/menus.css">
+<link rel="stylesheet" type="text/css" href="css/style_acceuil.css"> 
+<link rel="stylesheet" type="text/css" href="css/menus.css">  
 
 <script type="text/javascript">
 	function confirmer(url) {
@@ -20,18 +20,18 @@
 <body>
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>
+		<aside id="tete-aside" class="aside-conteneur">
 			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
-			<aside id="tete-menus"  class="tete-menus">
+			<aside id="tete-menus"  class="aside-conteneur">
 				<ul>
 					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
 					
 						<ul>
-							<li><a href="#">Mes infos</a></li>
-							<li><a href="#">Mes groupes</a></li>
-							<li><a href="#">Historique</a></li>
+							<li><a href="#" class="menu-ppale">Mes infos</a></li>
+							<li><a href="#" class="menu-ppale">Mes groupes</a></li>
+							<li><a href="#" class="menu-ppale">Historique</a></li>
 							<li><form action="deconnexion" method="post">
-									<input type="submit" value="deconnexion" name="action" />
+									<input type="submit" value="deconnexion" name="action" id="input-menuDeconnexion" class="input-bouton"/>
 								</form></li>
 						</ul></li>
 				</ul>
@@ -39,11 +39,10 @@
 		</aside>
 
 	</header>
-	<nav id="barre-menus">
+	<nav id="barre-menus" class="nav-conteneur">
 		<ul>
-			<li><a href="../restreint/accueil.jsp">accueil</a></li>
-			<li><a href="../restreint/ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="../restreint/contacts.jsp">contact </a></li>
+			<li><a href="../restreint/ajouterprojet.jsp" class="menu-horizontale">ajouter un projet</a></li>
+			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact  </a></li>
 		</ul>
 	</nav>
 
@@ -51,8 +50,8 @@
 	<br>
 	<br>
 
-	<div>
-		&nbsp;<a href="AjouterProjet">Ajouter un projet</a> <br> <br>
+	<div class="div-conteneur" id="div-accueil">
+		&nbsp;<a href="AjouterProjet" class="menu-ppale">Ajouter un projet</a> <br/> <br/>
 		<table class="table1">
 			<tr>
 				<th class="thprojet">PROJET</th>
@@ -64,22 +63,20 @@
 
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
-					<td><a href="Projet?idProjet=${p.idProjet }">Afficher</a> <a
-						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')">Se
+					<td><a href="Projet?idProjet=${p.idProjet }" class="menu-ppale">Afficher</a> <a
+						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')" class="menu-ppale">Se
 							retirer </a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action" />
+		<input type="submit" value="deconnexion" name="action" id="input-deconnexion" class="input-bouton"/>
 	</form>
-	<br>
-	<br>
-	<br>
+    <br> <br><br><br><br><br><br>
 	
 	
-	<dv> <footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> </dv>
+	<footer> outil de de gestion de projet réalisé dans
+		le cadre du module Conduite de projet </footer>
 </body>
 </html>

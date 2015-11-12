@@ -13,18 +13,18 @@
 
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>
+		<aside id="tete-aside" class="aside-conteneur">
 			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
-			<aside id="tete-menus" class="tete-menus">
+			<aside id="tete-menus"  class="aside-conteneur">
 				<ul>
 					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
-
+					
 						<ul>
-							<li><a href="#">Mes infos</a></li>
-							<li><a href="#">Mes groupes</a></li>
-							<li><a href="#">Historique</a></li>
+							<li><a href="#" class="menu-ppale">Mes infos</a></li>
+							<li><a href="#" class="menu-ppale">Mes groupes</a></li>
+							<li><a href="#" class="menu-ppale">Historique</a></li>
 							<li><form action="deconnexion" method="post">
-									<input type="submit" value="deconnexion" name="action" />
+									<input type="submit" value="deconnexion" name="action" id="input-menuDeconnexion" class="input-bouton"/>
 								</form></li>
 						</ul></li>
 				</ul>
@@ -32,22 +32,52 @@
 		</aside>
 
 	</header>
-	<nav id="barre-menus">
+	<nav id="barre-menus" class="nav-conteneur">
 		<ul>
-			<li><a href="accueil.jsp">accueil</a></li>
-			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="contacts.jsp">contact </a></li>
+		    <li><a href="accueil.jsp" class="menu-horizontale">accueil</a></li> 
+			<li><a href="../restreint/ajouterprojet.jsp" class="menu-horizontale">ajouter un projet</a></li>
+			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact  </a></li>
 		</ul>
 	</nav>
 
 
 
 	<br />
-	<div>
+	<div class="div-conteneur" id="div-ajoutUSSprint">
 		<h3>Ajouter "User Story" au sprint</h3>
 
+        <table class="table1">
+			<tr>
+				<td class="thprojet">Liste des tâches</td>
+				<td class="thprojet">Tâches dans le sprint</td>
+			</tr>
+			<tr>
+				<!-- Form ajouter us au sprint -->
+				<td>
+					<form actione="#" method="post">
+						<p> u s à ajouter 1 <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s à ajouter 2 <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s à ajouter 3<input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s à ajouter 4 <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s à ajouter 5<input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p><input type="submit" value=">>>>>"/></p>
+					</form>
+				</td>
+				<!-- Form supprimer us du sprint -->
+				<td>
+					<form actione="#" method="post">
+						<p>u s 1  déjà dans le sprint  <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s 2  déjà dans le sprint <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s 3  déjà dans le sprint <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s 4  déjà dans le sprint  <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p>u s 5  déjà dans le sprint  <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
+						<p><input type="submit" value="<<<<<"/></p>
+					</form>
+				</td>
+			</tr>
+		</table>
 
-		<form action="AjouterUserStorySprint" method="post" id="liste-us">
+		<!--  <form action="AjouterUserStorySprint" method="post" id="liste-us">
 			<ul>
 				<c:forEach var="userStory" items="${ userStories }">
 					<li><INPUT type="checkbox" name="selectionUS"
@@ -57,14 +87,16 @@
 
 			<input type="submit" value="Valider" />
 
-		</form>
-	</div>
+		</form> -->
+		
+	<br><br>
 
-	<br>
-
-	<a href="AjouterUserStory?idSprint=${sprint.idSprint}">Ajouter une
+	<a href="AjouterUserStory?idSprint=${sprint.idSprint}" class="menu-ppale">Ajouter une
 		nouvelle US au sprint</a>
 	<br>
+		
+	</div>
+
 
 	<br>
 	<br>
@@ -72,9 +104,9 @@
 	<br>
 	<br>
 	<br>
-	<dv> <footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> </dv>
-	<br />
+	<footer> outil de de gestion de projet réalisé dans
+		le cadre du module Conduite de projet </footer> 
+	
 
 </body>
 </html>
