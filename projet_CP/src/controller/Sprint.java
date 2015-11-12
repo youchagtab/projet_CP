@@ -60,7 +60,7 @@ public class Sprint extends HttpServlet {
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		List<List<Tache>> taches = new ArrayList<List<Tache>>();
 	
-		for(int i= 1 ; i< userStories.size(); i++){
+		for(int i= 0 ; i< userStories.size(); i++){
 			
 			List<Tache> tmpTaches = tacheDAO.listerParUserStory(userStories.get(i).getIdUS());
 			taches.add(tmpTaches);

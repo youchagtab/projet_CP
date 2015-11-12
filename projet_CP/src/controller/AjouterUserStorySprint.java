@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import beans.UserStory;
 import dao.IProjetDAO;
 import dao.ISprintDAO;
+import dao.ITacheDAO;
 import dao.IUserStoryDAO;
 import dao.ProjetDAOimpl;
 import dao.SprintDAOimpl;
+import dao.TacheDAOimpl;
 import dao.UserStoryDAOimpl;
 
 @WebServlet("/AjouterUserStorySprint")
@@ -25,7 +27,7 @@ public class AjouterUserStorySprint extends HttpServlet {
 	public static final String VUE_AJOUTER_USER_STORY_SPRINT = "/restreint/ajouteruserstorysprint.jsp";
 	public static final String ATT_USER_STORIES = "userStories";
 	public static final String PARAM_ID_PROJET = "idProjet";
-	public static final String PARAM_ID_SPRINT = "idSprint";
+	public static final String PARAM_ID_TACHE = "idTache";
 	public static final String VUE_PROJET = "/restreint/projet.jsp";
 
 
@@ -57,15 +59,15 @@ public class AjouterUserStorySprint extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String idSprint = request.getParameter(PARAM_ID_SPRINT);
-		ISprintDAO sprintDAO= new SprintDAOimpl();
-		beans.Sprint sprint ;
+		String idTache = request.getParameter(PARAM_ID_TACHE);
+		ITacheDAO tacheDAO= new TacheDAOimpl();
+		beans.Tache taches;
 		
 		
 		String[] res = request.getParameterValues("userstories");
 		
 			for (int i = 0; i < res.length; ++i){ 
-			
+			//taches = tacheDAO.ajouter(tache);
 				
 			} 
 			

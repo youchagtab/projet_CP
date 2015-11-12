@@ -94,7 +94,7 @@
 		<aside id="aside-sprint" class="aside-sprintConteneur">
 
 			<a
-				href="AjouterSprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
+				href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}"
 				id="a-ajouterSprint" class="a-sprint">Ajouter un sprint</a> <br />
 			<br />
 			<c:forEach var="sprint" items="${sprints}">

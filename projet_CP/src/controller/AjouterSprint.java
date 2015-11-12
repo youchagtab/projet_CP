@@ -39,6 +39,7 @@ public class AjouterSprint extends HttpServlet {
 		response.sendRedirect(VUE_PROJET+"?idProjet="+idProjet);
 		
 		
+		
 	}
 	
 	
