@@ -9,6 +9,14 @@
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>sprint</title>
+<script type="text/javascript">
+	function confirmer(url) {
+		var repo = confirm("Etez-vous sûrs de vouloir vous supprimer cette tâche?");
+		if (repo == true) {
+			document.location = url;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -80,7 +88,7 @@
 												<ul>
 													<li><a href="ModifierTache" class="menu-ppale">
 															Modifier </a></li>
-													<li><a href="javascript:confirmer('SupprimerTache')"
+													<li><a href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache }&idSprint=${param.idSprint}&idProjet=${param.idProjet}')"
 														class="menu-ppale"> Supprimer </a></li>
 												</ul></li>
 										</ul>

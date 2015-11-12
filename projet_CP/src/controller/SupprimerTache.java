@@ -25,6 +25,9 @@ public class SupprimerTache extends HttpServlet {
 		int idTache = Integer.parseInt(request.getParameter("idTache"));
 		tache.setIdTache(idTache);
 		tacheDAO.supprimer(tache);
+		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
+		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
+		response.sendRedirect("Sprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
