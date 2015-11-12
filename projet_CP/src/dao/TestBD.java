@@ -14,9 +14,9 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		System.out.println("test bdd");
-	
+	    testGranttPrevisionelDAO();
 		/*test sprint*/
-		testTache();
+		//testTache();
 		
 		/*testUserStoryDAO();
 		try{
@@ -142,6 +142,27 @@ public class TestBD {
 		
 		
 	}
+	
+	public static void testGranttPrevisionelDAO(){
+		IGanttPrevisionelDAO GanttPrevisionelDAO = new GanttPrevisionelDAOimpl();
+		int idSprint = 4;
+
+		//GanttPrevisionelDAO.ajouter(idSprint, 4, 1, 4, 10);
+		//GanttPrevisionelDAO.ajouter(idSprint, 4, 2, 14, 10);
+		//GanttPrevisionelDAO.ajouter(idSprint, 4, 3, 0, 2);
+		//GanttPrevisionelDAO.ajouter(idSprint, 4, 4, 2, 1);
+		//GanttPrevisionelDAO.modifier(idSprint, 4, 4, 2, 2);
+		//GanttPrevisionelDAO.supprimer(idSprint, 4, 2);
+		List<Tache> taches = GanttPrevisionelDAO.recuperer(idSprint, 4);
+		Iterator<Tache> it = taches.iterator();
+		while(it.hasNext()){
+			Tache t = it.next();
+			System.out.println("ID:"+t.getIdTache()+""
+					+ "Debut:"+t.getDebut()+","
+					+ " Duree:"+ t.getDuree()+"\n");
+		}
+	}
+	
 
 	/*
 	public static void supp(int idU, int idP){
