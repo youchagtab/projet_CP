@@ -10,8 +10,8 @@ public class SingletonConnection {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(                  //jdbc:mysql://dbserver:3306/oconstan
-					"jdbc:mysql://localhost/oconstan", "root", 
-					"");
+					"jdbc:mysql://dbserver.emi.u-bordeaux.fr/oconstan", "oconstan", 
+					"U-bordeaux1");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -23,4 +23,3 @@ public class SingletonConnection {
 	}
 
 }
-/*test*/
