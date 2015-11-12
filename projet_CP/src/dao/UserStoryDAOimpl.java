@@ -156,7 +156,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		try
 		{
 
-			statement = connexion.prepareStatement("INSERT INTO cp_sprint_userstory(idSprint,idUS) VALUES(?,?)");
+			statement = connexion.prepareStatement("INSERT INTO CP_Sprint_UserStory(idSprint,idUS) VALUES(?,?)");
 			statement.setInt(1, idSprint);
 			statement.setInt(2, idUserStory);
 			statement.executeUpdate();
@@ -191,7 +191,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		List<UserStory> listUS = new ArrayList<UserStory>();
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT * FROM cp_userstory WHERE idUS not in (SELECT  us.idUS FROM cp_sprint_userstory s, cp_userstory us WHERE s.idUS = us.idUS AND s.idSprint = '"+ idSprint +"' ) AND id_Projet = '"+ idProjet +"'");
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_UserStory WHERE idUS not in (SELECT  us.idUS FROM CP_Sprint_UserStory s, CP_UserStory us WHERE s.idUS = us.idUS AND s.idSprint = '"+ idSprint +"' ) AND id_Projet = '"+ idProjet +"'");
 			
 			while (resultat.next()){
 				
@@ -216,7 +216,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		Connection conn = SingletonConnection.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"DELETE FROM cp_sprint_userstory WHERE idUS= ? AND idSprint = ?");
+					"DELETE FROM CP_Sprint_UserStory WHERE idUS= ? AND idSprint = ?");
 			ps.setInt(1, idUS);
 			ps.setInt(2, idSprint);
 			ps.executeUpdate();
