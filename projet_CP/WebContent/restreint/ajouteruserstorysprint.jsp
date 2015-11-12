@@ -29,31 +29,31 @@
 
 		<table class="table1">
 			<tr>
-				<td><strong> Liste des UserStories</strong></td>
-
+				<td><strong> User Stories</strong></td>
+				<td><strong> User Stories du Sprint</strong></td>
 			</tr>
-
-
-
-			<form action="AjouterUserStorySprint" method="post">
-				<c:forEach var="p" items="${ userStories }">
-					<tr>
-						<td>${ p.description }<input type="checkbox"
-							name="userstories" value="p.idUS" />
-						</td>
-					</tr>
-				</c:forEach>
-				<tr>
-					<td>
-						<p>
-							<input type="submit" value="Ajouter" />
-						</p>
-					</td>
-				</tr>
-			</form>
-
-
-
+			<tr>
+				<td>
+					<form action="AjouterUserStorySprint" method="post">
+						<c:forEach var="userStory" items="${ userStories }">
+							<p><input type="checkbox" name="userstories" value="${ userStory.idUS}" />&nbsp;${ userStory.description }</p>
+						</c:forEach>
+						<p><input type="submit" value="Ajouter >>>" />
+						<input type="hidden" value="${param.idSprint}" name="idSprint"/>
+						<input type="hidden" value="${param.idProjet}" name="idProjet"/></p>
+					</form>
+				</td>
+				<td>
+					<form action="SupprimerUserStorySprint" method="post">
+					<c:forEach var="userStory" items="${ userStoriesSprint }">
+						<p><input type="checkbox" name="userstories" value="${ userStory.idUS}" />&nbsp;${ userStory.description }</p>
+					</c:forEach>
+					<p><input type="submit" value="<<< Supprimer" />
+					<input type="hidden" value="${param.idSprint}" name="idSprint"/>
+						<input type="hidden" value="${param.idProjet}" name="idProjet"/></p>
+					</form>			
+				</td>
+			</tr>
 		</table>
 
 

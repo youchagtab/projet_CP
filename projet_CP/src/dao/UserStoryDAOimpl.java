@@ -147,6 +147,86 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		return listUS;
 	}
 
+	@Override
+	public void ajouterUserStoryToSprint(int idSprint, int idUserStory) {
+		// TODO Auto-generated method stub
+		Connection connexion = SingletonConnection.getConnection();
+		PreparedStatement statement = null;
+		ResultSet resultat = null;
+		try
+		{
+
+			statement = connexion.prepareStatement("INSERT INTO cp_sprint_userstory(idSprint,idUS) VALUES(?,?)");
+			statement.setInt(1, idSprint);
+			statement.setInt(2, idUserStory);
+			statement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+		    if ( resultat != null ) {
+		        try {
+		            /* On commence par fermer le ResultSet */
+		            resultat.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		    if ( statement != null ) {
+		        try {
+		            /* Puis on ferme le Statement */
+		            statement.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		}		
+	}
+
+	@Override
+	public List<UserStory> listerParNotInSprint(int idProjet ,int idSprint) {
+		// TODO Auto-generated method stub
+		Connection conn = SingletonConnection.getConnection();
+		List<UserStory> listUS = new ArrayList<UserStory>();
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM cp_userstory WHERE idUS not in (SELECT  us.idUS FROM cp_sprint_userstory s, cp_userstory us WHERE s.idUS = us.idUS AND s.idSprint = '"+ idSprint +"' ) AND id_Projet = '"+ idProjet +"'");
+			
+			while (resultat.next()){
+				
+				UserStory us = new UserStory(resultat.getInt("idUS"),
+					resultat.getString("description"), 
+					resultat.getInt("difficulte"), 
+					resultat.getInt("priorite"),
+					resultat.getInt("id_Projet"));
+				listUS.add(us);
+			}
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listUS;
+	}
+
+	@Override
+	public void supprimer(int idSprint, int idUS) {
+		// TODO Auto-generated method stub
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(
+					"DELETE FROM cp_sprint_userstory WHERE idUS= ? AND idSprint = ?");
+			ps.setInt(1, idUS);
+			ps.setInt(2, idSprint);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+
 
 
 }
