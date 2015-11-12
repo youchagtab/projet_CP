@@ -12,18 +12,19 @@
 
 	<header>
 		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>
+		<aside id="tete-aside" class="aside-conteneur">
 			Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
-			<aside id="tete-menus" class="tete-menus">
+			<aside id="tete-menus" class="aside-conteneur">
 				<ul>
 					<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
 
 						<ul>
-							<li><a href="#">Mes infos</a></li>
-							<li><a href="#">Mes groupes</a></li>
-							<li><a href="#">Historique</a></li>
+							<li><a href="#" class="menu-ppale">Mes infos</a></li>
+							<li><a href="#" class="menu-ppale">Mes groupes</a></li>
+							<li><a href="#" class="menu-ppale">Historique</a></li>
 							<li><form action="deconnexion" method="post">
-									<input type="submit" value="deconnexion" name="action" />
+									<input type="submit" value="deconnexion" name="action"
+										id="input-menuDeconnexion" class="input-bouton" />
 								</form></li>
 						</ul></li>
 				</ul>
@@ -31,17 +32,19 @@
 		</aside>
 
 	</header>
-	<nav id="barre-menus">
+	<nav id="barre-menus" class="nav-conteneur">
 		<ul>
-			<li><a href="accueil.jsp">accueil</a></li>
-			<li><a href="ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="contacts.jsp">contact </a></li>
+			<li><a href="accueil.jsp" class="menu-horizontale">accueil</a></li>
+			<li><a href="../restreint/ajouterprojet.jsp"
+				class="menu-horizontale">ajouter un projet</a></li>
+			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact
+			</a></li>
 		</ul>
 	</nav>
 
 	<br />
 
-	<div>
+	<div class="div-conteneur" id="div-modifUS">
 		<h3>Modifier "User Story"</h3>
 		<form action="ModifierUserStory" method="post">
 			<table class="table1">
@@ -51,19 +54,20 @@
 				</tr>
 				<td>Difficulté :</td>
 				<td><input type="text" name="difficulte"
-					value="${userStory.difficulte}" /></td>
+					value="${userStory.difficulte}" class="input-bouton" /></td>
 				<tr>
 					<td>Priorité :</td>
 					<td><input type="text" name="priorite"
-						value="${userStory.priorite}" /></td>
+						value="${userStory.priorite}" class="input-bouton" /></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input type="hidden" name="idUserStory"
-						value="${param.idUserStory }"> <input type="hidden"
-						name="idProjet" value="${param.idProjet }"> <input
-						type="submit" value="Modifier" /> <input type="reset"
-						value="Effacer" /></td>
+						value="${param.idUserStory }" class="input-bouton"> <input
+						type="hidden" name="idProjet" value="${param.idProjet }"
+						class="input-bouton"> <input type="submit"
+						value="Modifier" class="input-bouton" /> <input type="reset"
+						value="Effacer" class="input-bouton" /></td>
 				</tr>
 			</table>
 		</form>
@@ -75,14 +79,15 @@
 	<br>
 	<br>
 	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action" />
+		<input type="submit" value="deconnexion" name="action"
+			class="input-bouton" />
 	</form>
 	<br>
 	<br>
 	<br>
-	<dv> <footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> </dv>
-	<br />
+	<footer> outil de de gestion de projet réalisé dans
+		le cadre du module Conduite de projet </footer> 
+
 
 </body>
 </html>

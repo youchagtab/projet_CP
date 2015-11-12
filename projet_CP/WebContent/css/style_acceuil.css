@@ -1,122 +1,109 @@
-div {
+div.div-conteneur {
 	border: 1px dotted gray;
-	padding: 10px;
-	margin: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding:5%;
+	border-radius: 5px;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 -1px 0
+		rgba(255, 255, 255, 0.4);
+
 }
 
-
-.table1 th{
+table.table1 th, table.table1 td{
 	border: 1px dotted gray;
-	padding: 10px;
-	margin: 10px;
+	padding:10px;	
+	margin:5%;
 	background: white;
 }
-.table1 td{
-	border: 1px dotted gray;
-	padding: 10px;
-	margin: 10px;
-	background: white;
-} 
 
-.table1 .thprojet{
+
+.table1 .thprojet {
 	background-color: #003366;
 	color: white;
 }
 
-
 /*added css kan */
-
 table {
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 table tr:nth-child(odd) td {
-    background-color: #E8E8FD;
+	background-color: #E8E8FD;
 }
 
 thead {
-    caption-side: bottom;
-    font-weight: bold;
-    font-style: italic;
-    color: white;
-    font-size: 25px;
-    margin: 100px;
-    background-color: #008B8B;
-    margin: 100px;
-}
-
-aside {
-	
-	float : right;
+	caption-side: bottom;
+	font-weight: bold;
+	font-style: italic;
 	color: white;
-	background-color: #003366 ;
+	font-size: 25px;
+	margin: 100px;
+	background-color: #008B8B;
+	margin: 100px;
+}
+
+aside.aside-conteneur {
+	float: right;
+	color: white;
+	background-color: #003366;
+}
+
+body, p, legend, label, input.input-bouton {
+	font: normal 16pt verdana, helvetica, sans-serif;
 }
 
 
-body, p, legend, label, input {
-
-    font: normal 16pt verdana, helvetica, sans-serif;
-    
-}
-
-div {
-    margin-left:20%;
-    margin-right: 20%;
-    
-}
-
-
-#rechercher{
+#rechercher {
 	background-color: white;
 }
 
 input {
-	background-color: #D8D8D8  ;
+	background-color: #D8D8D8;
 }
-
 
 body {
-    background-color: #F0FAFF;
+	background-color: #F0FAFF;
+	margin: 0%;
+	height: 100%;
+	width: 100%;
 }
 
-footer{
- text-align: center;
- font-size: 10px;
- background-color: #FFD6CC;
-}
-
-#motcle{
+#motcle {
 	background-color: white;
 }
 
 header {
 	background: #003366;
-
-	
-	margin: 0;
+	margin: 0%;
 	padding: 60px 40px 60px 60px;
 }
 
-img{
+img {
 	background-color: white;
 	width: 100px;
 	height: 50px;
 }
 
-footer{
- text-align: center;
- font-size: 10px;
- background-color: #FFD6CC;
+footer {
+	text-align: center;
+	font-size: 10px;
+	background-color: #FFD6CC;
+	margin: 0%;
+	bottom: 0%;
 }
 
-a:link 
-{ 
- text-decoration:none;
- 
- text-align: center; 
- color: #000; 
- 
- text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
- box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
-  
-} 
+a.menu-ppale:link {
+	text-decoration: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #000;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 -1px 0
+		rgba(255, 255, 255, 0.4);
+}
+
+input#input-menuDeconnexion:hover {
+	background-color: #003366;
+	color: white;
+}
