@@ -45,7 +45,7 @@
 				end="${fn:length(userStories)}" varStatus="status">
 				<tr>
 					<td><c:out value="${userStory.description}" /></td>
-					<td><a href="restreint/ajoutertache.jsp">
+					<td><a href="restreint/ajoutertache.jsp?idUS=${userStory.idUS }&idSprint=${param.idSprint}&idProjet=${param.idProjet}">
 							<button>ajouter une tache</button>
 					</a>
 

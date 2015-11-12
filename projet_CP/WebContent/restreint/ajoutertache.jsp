@@ -47,19 +47,29 @@
 		<h3>Ajouter une tâche</h3>
 
 
-		<form action="AjouterUneTache" method="post">
+		<form action="/projet_CP/AjouterTache" method="post">
 			<table class="table1">
 				<tr>
 					<td>Description :</td>
-					<td><textarea name="description"></textarea></td>
+					<td>
+						<textarea name="description"></textarea>
+					</td>
 				</tr>
-
+				<tr>
+					<td>Tag :</td>
+					<td><input type="text" name="tag"/></td>
+				</tr>
+				<tr>
+					<td>Coût :</td>
+					<td><input type="text" name="cout"/></td>
+				</tr>
 				<tr>
 					<td></td>
-					<td><input type="hidden" name="idUserStory"
-						value="${param.idUserStory }" class="input-bouton"> <input
-						type="submit" value="Ajouter" class="input-bouton" /> <input
-						type="reset" value="Effacer" class="input-bouton" /></td>
+					<td><input type="hidden" name="idUserStory" value="${param.idUS}" class="input-bouton"> 
+						<input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
+						<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
+						<input type="submit" value="Ajouter" class="input-bouton" /> 
+						<input type="reset" value="Effacer" class="input-bouton" /></td>
 				</tr>
 			</table>
 		</form>
