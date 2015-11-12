@@ -8,7 +8,8 @@ public class Tache
 	protected int		cout;
 	protected String	status;
 	protected int		idUS;
-	
+	protected int       duree;
+	protected int       debut;
 
 	public Tache() {}
 	
@@ -70,6 +71,22 @@ public class Tache
 	}
 	public void setIdUS(int idUS) {
 		this.idUS = idUS;
+	}
+
+	public int getDuree() {
+		return duree;
+	}
+
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
+
+	public int getDebut() {
+		return debut;
+	}
+
+	public void setDebut(int debut) {
+		this.debut = debut;
 	}
 	
 	
