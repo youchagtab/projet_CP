@@ -72,11 +72,29 @@
 						</ul></td>
 			</c:forEach>
 		</table>
-
-
-
-
 	</div>
+
+ <div align="center">
+        <jsp:plugin
+        	archive="applet.jar"
+            type="applet"
+            code="src/pert/Main.class"
+            codebase="applet.jar"
+            
+            width="700" 
+            height="500">
+             
+            <jsp:params>
+                <jsp:param name="" value="" />
+                <jsp:param name="" value="" />
+            </jsp:params>
+             
+            <jsp:fallback>
+                <p>Could not load applet!</p>
+            </jsp:fallback>
+             
+        </jsp:plugin>
+</div>
 
 	<br>
 	<br>
