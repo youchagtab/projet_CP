@@ -90,6 +90,8 @@
 															Modifier </a></li>
 													<li><a href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache }&idSprint=${param.idSprint}&idProjet=${param.idProjet}')"
 														class="menu-ppale"> Supprimer </a></li>
+														<li><a href="DependanceEntreTaches" class="menu-ppale">
+															Dependance </a></li>
 												</ul></li>
 										</ul>
 									</aside></li>
