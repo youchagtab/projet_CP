@@ -52,11 +52,15 @@ public class AfficherGantt extends HttpServlet {
 		request.setAttribute("sprint", sprint);
 		request.setAttribute("projet", projet);
 		
+		
 		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 
 		List<Integer> idCollaborateur = projetUtilisateurDAO.listerIdUtilisateurs(idProjet);
 	
 		
 		IGanttPrevisionelDAO ganttPrevisionelDAO = new GanttPrevisionelDAOimpl();
+		boolean exist =ganttPrevisionelDAO.exist(idSprint);
+		if(exist){
+			
 		HashMap<Integer, List<Tache>> ListTachedeIdCollaborateur = new HashMap<Integer, List<Tache>>();
 		
 		ITacheDAO tacheDAO = new TacheDAOimpl();
@@ -103,81 +107,14 @@ public class AfficherGantt extends HttpServlet {
 		request.setAttribute("maxdate", maxdate);
 		request.setAttribute("collaborateurs", collaborateurs);
 		request.setAttribute("GanttParIdCollaborateur", ganttParIdCollaborateur);
-		
+		}
+		request.setAttribute("Ganttexist", exist);
 		this.getServletContext().getRequestDispatcher(VUE_GANTT).forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{/*
-		int idProjet = Integer.parseInt(request.getParameter(PARAM_ID_PROJET));
-		int idSprint = Integer.parseInt(request.getParameter(PARAM_ID_SPRINT));
-		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 
-		List<Integer> idCollaborateur = projetUtilisateurDAO.listerIdUtilisateurs(idProjet);
-		
-		IGanttPrevisionelDAO ganttPrevisionelDAO = new GanttPrevisionelDAOimpl();
-		HashMap<Integer, List<Tache>> ListTachedeIdCollaborateur = new HashMap<Integer, List<Tache>>();
-		
-		ITacheDAO tacheDAO = new TacheDAOimpl();
-		
-		int maxdate =0;
-		for(Integer i:idCollaborateur){
-			List<Tache>tachesPartielDuGantt = ganttPrevisionelDAO.recuperer(idSprint,i);
-			List<Tache>tachesDuGantt = new ArrayList<Tache>();
-			for(Tache t: tachesPartielDuGantt){
-				Tache tacheTotale = tacheDAO.recupererTache(t.getIdTache());
-				tacheTotale.setDebut(t.getDebut());
-				tacheTotale.setDuree(t.getDuree());
-				if(maxdate<t.getDebut()+t.getDuree()){
-					maxdate = t.getDebut()+t.getDuree();
-				}
-			}
-			ListTachedeIdCollaborateur.put(i, tachesDuGantt);
-		}
-		
-		HashMap<Integer, Tache[]> ganttParIdCollaborateur = new HashMap<Integer, Tache[]>();
-		for(Integer i:idCollaborateur){
-			Tache[] tableau = new Tache[maxdate];
-			Tache vide = new Tache("", "", 0, "", 0);
-			vide.setDebut(0);
-			vide.setCout(1);
-			for(int j=0; j<maxdate;j++){
-				tableau[j]=vide;
-			}
-			for(Tache t : ListTachedeIdCollaborateur.get(i)){
-				for(int j=t.getDebut();j<t.getDebut()+t.getDuree();j++){
-					tableau[j]=t;
-				}
-			}
-			ganttParIdCollaborateur.put(i, tableau);
-		}
-		
-		request.setAttribute("maxdate", maxdate);
-		request.setAttribute("ListidCollaborateur", idCollaborateur);
-		request.setAttribute("GanttParIdCollaborateur", ganttParIdCollaborateur);
-		*/
+	{
 	}
 }
 
-
-
-/*
-<article>
-<table class="table1">
-	<tr>
-		<td class="thprojet">Devellopeur</td>
-		<c:forEach begin="0" end="${maxdate}" var="val">
-			<td class="thprojet"> <c:out value="${val}"/></td>
-    	</c:forEach>
-    <tr/>
-	<c:forEach var="utilisateur" items="${ utilisateur }">
-		<tr>
-			<td>${ utilisateur.name }</td>
-			<c:forEach begin="0" end="${maxdate}" var="val" step= ${}>
-		         <td rowspan="${ }"> ????????????????????????</td>
-            </c:forEach>
-	</c:forEach>
-</table>
-</article>
-<c:out value="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
-*/
