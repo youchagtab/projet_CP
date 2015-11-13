@@ -180,8 +180,8 @@ public class TacheDAOimpl implements ITacheDAO {
 	}
 
 	@Override
-	public List<Tache> listerParProjet(int idProjet) {
-		// TODO Auto-generated method stub
+	public List<Tache> listerParSprint(int idSprint) {
+		
 		return null;
 	}
 
