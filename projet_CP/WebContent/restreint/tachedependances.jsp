@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
-<link rel="stylesheet" type="text/css" href="style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="projet.css">
-<link rel="stylesheet" type="text/css" href="menus.css">
+<link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="css/projet.css">
+<link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>projet</title>
 </head>
 <body>
@@ -51,29 +51,42 @@
 			<tr>
 				<!-- Form ajouter tâches to dependance liste -->
 				<td>
-					<form actione="#" method="post">
-						<p>Tâche 1 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 2 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 3 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 4 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 5 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
+					<form action="DependanceEntreTaches" method="get">
+						<c:forEach var="p" items="${ Taches }">
+							<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
+						</c:forEach>
 						<p><input type="submit" value=">>>>>"/></p>
+						<input type="hidden" value="${param.idUS}" name="idUS"/></p>
 					</form>
 				</td>
 				<!-- Form supprimer tâches from dependance liste -->
 				<td>
-					<form actione="#" method="post">
-						<p>Tâche 1 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 2 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 3 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 4 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
-						<p>Tâche 5 <input type="checkbox" name="taches" value="<c:out value="tache.idTache"/>"/></p>
+					<form action="SupprimerDependanceEntreTaches" method="post">
+						<c:forEach var="p" items="${ TachesUserStory }">
+						<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
+					    </c:forEach>
 						<p><input type="submit" value="<<<<<"/></p>
 					</form>
 				</td>
 			</tr>
 		</table>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	    <br> <br><br><br><br><br><br>
 	
