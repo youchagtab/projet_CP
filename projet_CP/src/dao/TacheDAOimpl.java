@@ -181,8 +181,30 @@ public class TacheDAOimpl implements ITacheDAO {
 
 	@Override
 	public List<Tache> listerParSprint(int idSprint) {
-		
-		return null;
+		Connection conn = SingletonConnection.getConnection();
+		List<Tache> taches =null;
+		Tache tache = null;
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT  t.idTache, t.tag, t.description, t.cout, t.status, t.idUS FROM CP_Sprint_Tache s, CP_Tache t WHERE s.idTache = t.idTache AND s.idSprint ='"+ idSprint +"'");
+			
+			while (resultat.next()){
+				
+				tache = new Tache();
+				tache.setIdTache(resultat.getInt("idTache"));
+				tache.setTag(resultat.getString("tag"));
+				tache.setDescription(resultat.getString("description"));
+				tache.setCout(resultat.getInt("cout"));
+				tache.setStatus(resultat.getString("status"));
+				tache.setIdUS(resultat.getInt("idUS"));
+				taches.add(tache);
+			}
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return taches;
 	}
 
 	@Override
