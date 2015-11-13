@@ -46,7 +46,8 @@ Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
 		<!--  <c:out value="${ sprint.numero }" />  -->
 	</h2>
 	Gantt <br />
-
+	
+    <c:if test="${Ganttexist == true}">
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>
@@ -74,6 +75,7 @@ Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
                 </c:forEach>
 		</c:forEach>
 	</table>
+	</c:if>
 	</body>
 	
 </html>

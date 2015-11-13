@@ -112,6 +112,29 @@ public class GanttPrevisionelDAOimpl implements IGanttPrevisionelDAO{
 		}
 		return null;
 	}
+
+	@Override
+	public boolean exist(int idSprint) {
+		Connection connexion = SingletonConnection.getConnection();
+		ResultSet resultat = null;
+		try
+		{
+
+			PreparedStatement statement = connexion.prepareStatement("SELECT * FROM CP_GanttPrevisionel WHERE idSprint= ?");
+			statement.setInt(1, idSprint);
+			resultat = statement.executeQuery();
+			
+			if(resultat.next()){
+				return true;
+			}
+			return false;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	
 }

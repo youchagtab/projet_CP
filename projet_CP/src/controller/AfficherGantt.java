@@ -52,11 +52,15 @@ public class AfficherGantt extends HttpServlet {
 		request.setAttribute("sprint", sprint);
 		request.setAttribute("projet", projet);
 		
+		
 		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 
 		List<Integer> idCollaborateur = projetUtilisateurDAO.listerIdUtilisateurs(idProjet);
 	
 		
 		IGanttPrevisionelDAO ganttPrevisionelDAO = new GanttPrevisionelDAOimpl();
+		boolean exist =ganttPrevisionelDAO.exist(idSprint);
+		if(exist){
+			System.out.println("je hais quand ca marche pas du 1er coup");
 		HashMap<Integer, List<Tache>> ListTachedeIdCollaborateur = new HashMap<Integer, List<Tache>>();
 		
 		ITacheDAO tacheDAO = new TacheDAOimpl();
@@ -103,7 +107,8 @@ public class AfficherGantt extends HttpServlet {
 		request.setAttribute("maxdate", maxdate);
 		request.setAttribute("collaborateurs", collaborateurs);
 		request.setAttribute("GanttParIdCollaborateur", ganttParIdCollaborateur);
-		
+		}
+		request.setAttribute("Ganttexist", exist);
 		this.getServletContext().getRequestDispatcher(VUE_GANTT).forward(request, response);
 	}
 
