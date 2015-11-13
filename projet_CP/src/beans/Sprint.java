@@ -7,7 +7,6 @@ public class Sprint
 	protected int numero;
 	
 	
-	
 	public Sprint() 
 	{
 	}
@@ -43,6 +42,5 @@ public class Sprint
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	
 	
 }

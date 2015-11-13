@@ -64,6 +64,8 @@
 		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
 			class="menu-ppale">Ajouter une US</a> <br />
 		<br />
+		<a href="AfficherGantt?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
+		class="menu-ppale">Gantt Test</a> <br />
 
 		<table class="table1">
 			<tr>
