@@ -62,7 +62,10 @@
 
 		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
-			class="menu-ppale">Ajouter une US</a> <br />
+			class="menu-ppale">Ajouter une US</a> <br/> &nbsp;
+			<a
+			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
+			class="menu-ppale">Collaborateurs</a> <br />
 		<br />
 		<article>
 			<table class="table1">
