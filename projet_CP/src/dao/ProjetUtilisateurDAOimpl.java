@@ -83,7 +83,7 @@ public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur WHERE idProjet= '"+ idProjet+"'");
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		while (resultat.next()){
-			list.add(resultat.getInt("idProjet"));
+			list.add(resultat.getInt("idUtilisateur"));
 		}
 		statement.close();
 
