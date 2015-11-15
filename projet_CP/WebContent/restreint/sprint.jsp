@@ -88,7 +88,7 @@
 											<li><a href="#" id="menu-tache" class="menu-Sprint">__</a>
 
 												<ul>
-													<li><a href="ModifierTache" class="menu-ppale">
+													<li><a href="ModifierTache?idUserStory=${userStory.idUS}&idTache=${tache.idTache}&idProjet=${projet.idProjet}" class="menu-ppale">
 															Modifier </a></li>
 													<li><a href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache }&idSprint=${param.idSprint}&idProjet=${param.idProjet}')"
 														class="menu-ppale"> Supprimer </a></li>

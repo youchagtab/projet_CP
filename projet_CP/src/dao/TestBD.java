@@ -14,9 +14,10 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		System.out.println("test bdd");
-	    testGranttPrevisionelDAO();
+	    //testGranttPrevisionelDAO();
 		/*test sprint*/
 		//testTache();
+		testTacheDAO();
 		
 		/*testUserStoryDAO();
 		try{
@@ -162,6 +163,20 @@ public class TestBD {
 					+ " Duree:"+ t.getDuree()+"\n");
 		}
 	}
+	
+	
+	public static void testTacheDAO(){
+		
+		
+		
+		ITacheDAO tache = new TacheDAOimpl();
+		List<Tache>listTache =tache.listerParSprint(13);
+		for(Tache t : listTache){
+			System.out.println(t.getIdTache()+ "  " + t.getCout()+ "  " + t.getDescription() + " "+t.getIdUS());
+		}
+		
+	}
+	
 	
 
 	/*

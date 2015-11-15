@@ -51,12 +51,13 @@
 			<tr>
 				<!-- Form ajouter tâches to dependance liste -->
 				<td>
-					<form action="DependanceEntreTaches" method="get">
+					<form action="DependanceEntreTaches" method="post">
 						<c:forEach var="p" items="${ Taches }">
 							<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
 						</c:forEach>
 						<p><input type="submit" value=">>>>>"/></p>
 						<input type="hidden" value="${param.idUS}" name="idUS"/></p>
+						<input type="hidden" value="${param.idProjet}" name="idProjet"/></p>
 					</form>
 				</td>
 				<!-- Form supprimer tâches from dependance liste -->

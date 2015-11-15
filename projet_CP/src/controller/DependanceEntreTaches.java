@@ -43,7 +43,7 @@ public class DependanceEntreTaches extends HttpServlet {
 		
 		IUserStoryDAO userStoryDAO = new UserStoryDAOimpl();
 		IProjetDAO projetDAO = new ProjetDAOimpl();
-		//beans.Projet projet = projetDAO.recupererProjet(Integer.parseInt(idProjet));
+		beans.Projet projet = projetDAO.recupererProjet(Integer.parseInt(idProjet));
 		beans.UserStory userstory = userStoryDAO.recupererUserStory(Integer.parseInt(idUS));
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		beans.Tache tache = tacheDAO.recupererTache(Integer.parseInt(idTache));
@@ -51,7 +51,7 @@ public class DependanceEntreTaches extends HttpServlet {
 		Taches = tacheDAO.listerParUserStory(Integer.parseInt(idUS));
 		request.setAttribute(ATT_TACHE, Taches);
 		request.setAttribute("userstory", userstory);
-		//request.setAttribute("projet", projet);
+		request.setAttribute("projet", projet);
 		
 		/*
 		IUserStoryDAO userStoryDAO = new UserStoryDAOimpl();

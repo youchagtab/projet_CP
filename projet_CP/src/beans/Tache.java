@@ -34,6 +34,14 @@ public class Tache
 		this.idUS = idUS;
 	}
 
+	public Tache(int idTache, String description, int idUS) {
+		super();
+		
+		this.description = description;
+		
+		this.idUS = idUS;
+	}
+
 
 
 	public int getIdTache() {

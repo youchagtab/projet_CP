@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/style_acceuil.css">
-<link rel="stylesheet" type="text/css" href="../css/menus.css">
+<link rel="stylesheet" type="text/css" href="/css/style_acceuil.css">
+<link rel="stylesheet" type="text/css" href="/css/menus.css">
 <title>modification d'une tâche</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
 
 	<div class="div-conteneur" id="div-modifTache">
 		<h3>Modifier une tâche</h3>
-		<form action="ModifierUserStory" method="post">
+		<form action="ModifierTache" method="post">
 			<table class="table1">
 				<tr>
 					<td>Description :</td>
@@ -55,12 +55,12 @@
 
 				<tr>
 					<td></td>
-					<td><input type="hidden" name="idTache"
-						value="${param.idTache }" class="input-bouton"> <input
-						type="hidden" name="idUserStory" value="${param.idUserStory }"
-						class="input-bouton"> <input type="submit"
-						value="Modifier" class="input-bouton" /> <input type="reset"
-						value="Effacer" class="input-bouton" /></td>
+					<td><input type="hidden" name="idTache" value="${param.idTache }" class="input-bouton">
+						<input type="hidden" name="idUserStory" value="${param.idUserStory }" class="input-bouton">
+						<input type="hidden" name="idProjet" value="${param.idProjet }" class="input-bouton">
+						
+						<input type="submit" value="Modifier" class="input-bouton" />
+						<input type="reset" value="Effacer" class="input-bouton" /></td>
 				</tr>
 			</table>
 		</form>
