@@ -104,12 +104,48 @@
 		</table>
 
 
+<object type="application/x-java-applet" height="300" width="550">
+  <param name="code" value="MyClock" />
+  <param name="archive" value="app.jar" />
+  Clock :: Applet failed to run.  No Java plug-in was found.
+</object>
+
+<object type="application/x-java-applet" height="300" width="550">
+  <param name="code" value="Pert/Main" />
+  <param name="archive" value="pert.jar" />
+  Pert :: Applet failed to run.  No Java plug-in was found.
+</object>
+
+<div align="center">
+        <jsp:plugin
+        	archive="app.jar"
+            type="applet"
+            code="MyClock"
+            codebase="/"
+            
+            width="700" 
+            height="500">
+             
+            <jsp:params>
+                <jsp:param name="" value="" />
+                <jsp:param name="" value="" />
+            </jsp:params>
+             
+            <jsp:fallback>
+                <p>Could not load applet!</p>
+            </jsp:fallback>
+             
+        </jsp:plugin>
+</div>
+
+
+
 <div align="center">
         <jsp:plugin
         	archive="applet.jar"
             type="applet"
             code="Main.class"
-            codebase="/src/Pert"
+            codebase="Pert/"
             
             width="700" 
             height="500">

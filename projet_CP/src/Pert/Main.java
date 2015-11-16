@@ -25,7 +25,7 @@ public class Main extends JApplet{
 
     private JGraphXAdapter<Etat,Arc> jgxAdapter;
     
-	public static void main(String [] args)
+	/*public static void main(String [] args)
 	{
 		
 		
@@ -38,7 +38,7 @@ public class Main extends JApplet{
         frame.pack();
         frame.setVisible(true);
     
-	}
+	}*/
 	 public void init()
 	    {
 			// Tache
@@ -105,6 +105,19 @@ public class Main extends JApplet{
 	    	layout.setLevelDistance(40);
 	    	
 	    	layout.execute(jgxAdapter.getDefaultParent());
+	    	
+
+
+	    	try{
+	            SwingUtilities.invokeAndWait(new Runnable(){
+	              public void run(){
+
+	              }
+	            });             
+	          }
+	          catch(Exception e){
+	            System.out.println(e);
+	          }
 
 	    }
 }
