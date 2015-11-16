@@ -2,6 +2,7 @@ package Pert;
 
 import beans.Tache;
 
+
 import com.mxgraph.canvas.mxHtmlCanvas;
 import com.mxgraph.layout.*;
 import com.mxgraph.layout.hierarchical.model.mxGraphHierarchyNode;
@@ -25,7 +26,7 @@ public class Main extends JApplet{
 
     private JGraphXAdapter<Etat,Arc> jgxAdapter;
     
-	/*public static void main(String [] args)
+	public static void main(String [] args)
 	{
 		
 		
@@ -38,7 +39,7 @@ public class Main extends JApplet{
         frame.pack();
         frame.setVisible(true);
     
-	}*/
+	}
 	 public void init()
 	    {
 			// Tache
