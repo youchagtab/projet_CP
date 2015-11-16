@@ -108,7 +108,37 @@
 		  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar" />
 		  Pert :: Applet failed to run.  No Java plug-in was found.
 		</object>
-
+	 <c:if test="${Ganttexist == true}">
+    </h2>
+	Gantt <br />
+	<table class="table1">
+		<tr>
+			<td class="thprojet">Developeur</td>
+			<c:forEach begin="0" end="${maxdate-1}" var="val">
+				<td class="thprojet"><c:out value="${val}" /></td>
+			</c:forEach>
+		<tr />
+		<c:forEach var="utilisateur" items="${ collaborateurs }">
+			<tr>
+				<td>${ utilisateur.getNom()}</td>
+				<c:forEach begin="0" end="${maxdate-1}" var="val">
+				<c:if test="${val==0}">
+				   <td colspan="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	 <c:out value="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		           </td>
+				</c:if>
+				<c:if test="${val!=0}">
+					<c:if test="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val] != GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val-1]}">
+				         <td colspan="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	      <c:out value="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		              	 </td>
+					</c:if>
+				</c:if>
+				
+                </c:forEach>
+		</c:forEach>
+	</table>
+	</c:if>
 
 	</div>
 
