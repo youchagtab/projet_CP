@@ -62,7 +62,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		ResultSet resultat = null;
 		try
 		{
-
+			System.out.println("SQL IN");
 			statement = connexion.prepareStatement("UPDATE CP_Tache SET tag = ?,description= ?,cout= ?,status= ?,idUS= ? WHERE idTache = ?");
 			statement.setString(1, tache.getTag());
 			statement.setString(2, tache.getDescription());
@@ -74,6 +74,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		}
 		catch(SQLException e)
 		{
+			System.out.println("SQl ERREUR");
 			e.printStackTrace();
 		}
 		finally
@@ -180,17 +181,18 @@ public class TacheDAOimpl implements ITacheDAO {
 	}
 
 	@Override
-	public List<Tache> listerParSprint(int idSprint) {
+	public List<Tache> listerParSprintNotDep(int idSprint,int idTache) {
 		Connection conn = SingletonConnection.getConnection();
-		List<Tache> taches =null;
-		Tache tache = null;
+		List<Tache> taches = new ArrayList<>();
+		//Tache tache ;
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT  t.idTache, t.tag, t.description, t.cout, t.status, t.idUS FROM CP_Sprint_Tache s, CP_Tache t WHERE s.idTache = t.idTache AND s.idSprint ='"+ idSprint +"'");
+			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Sprint_Tache sp, CP_Tache t WHERE sp.idTache = t.idTache AND idSprint = '"+ idSprint +"' AND t.idTache NOT IN (Select dependance From CP_DependanceTache WHERE tache = '"+ idTache +"') AND sp.idTache != '"+ idTache +"'");
 			
 			while (resultat.next()){
 				
-				tache = new Tache();
+					
+			    Tache tache = new Tache();
 				tache.setIdTache(resultat.getInt("idTache"));
 				tache.setTag(resultat.getString("tag"));
 				tache.setDescription(resultat.getString("description"));
@@ -198,6 +200,8 @@ public class TacheDAOimpl implements ITacheDAO {
 				tache.setStatus(resultat.getString("status"));
 				tache.setIdUS(resultat.getInt("idUS"));
 				taches.add(tache);
+				
+						
 			}
 			statement.close();
 
@@ -267,7 +271,7 @@ public class TacheDAOimpl implements ITacheDAO {
 		Tache tache = null;
 		try {
 			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT  td.idTache, td.tag, td.description, td.cout, td.status, td.idUS FROM cp_dependancetache t, cp_tache td WHERE t.dependance = td.idTache AND t.tache = '"+ idTache +"'");
+			ResultSet resultat = statement.executeQuery( "SELECT  td.idTache, td.tag, td.description, td.cout, td.status, td.idUS FROM CP_DependanceTache t, CP_Tache td WHERE t.dependance = td.idTache AND t.tache = '"+ idTache +"'");
 			
 			taches = new ArrayList<Tache>();
 			while(resultat.next())
@@ -287,6 +291,60 @@ public class TacheDAOimpl implements ITacheDAO {
 			e.printStackTrace();
 		}
 		return taches;
+	}
+
+	@Override
+	public void ajouterTacheToDep(int idTache, int idTacheDep) {
+		Connection connexion = SingletonConnection.getConnection();
+		PreparedStatement statement = null;
+		ResultSet resultat = null;
+		try
+		{
+
+			statement = connexion.prepareStatement("INSERT INTO CP_DependanceTache VALUES(?,?)");
+			statement.setInt(1, idTache);
+			statement.setInt(2, idTacheDep);
+			statement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+		    if ( resultat != null ) {
+		        try {
+		            /* On commence par fermer le ResultSet */
+		            resultat.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		    if ( statement != null ) {
+		        try {
+		            /* Puis on ferme le Statement */
+		            statement.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		}		
+		
+	}
+
+	@Override
+	public void supprimer(int idTache, int idTacheDep) {
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(
+					"DELETE FROM CP_DependanceTache WHERE tache= ? AND dependance = ?");
+			ps.setInt(1, idTache);
+			ps.setInt(2, idTacheDep);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
 	}
 
 }

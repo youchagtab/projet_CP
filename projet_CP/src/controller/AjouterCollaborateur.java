@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Utilisateur;
 import dao.IProjetDAO;
@@ -55,14 +56,12 @@ public class AjouterCollaborateur extends HttpServlet {
 			beans.Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(iter.next());
 			collaborateurs.add(utilisateur);
 		}
-
-
+		
 		/*recuperation des utilisateurs non collaborateurs sur le projet*/
 		List<Utilisateur> utilisateurs =utilisateurDAO.lister();
 
 		while (iter.hasNext()) {
-			beans.Utilisateur utilisateur = utilisateurDAO.recupererUtilisateur(iter.next());
-			utilisateurs.remove(utilisateur);	
+			utilisateurs.remove(iter.next());	
 		}
 
 

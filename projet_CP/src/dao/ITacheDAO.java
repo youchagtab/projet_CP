@@ -10,8 +10,9 @@ public interface ITacheDAO
 	void modifier(Tache tache);
 	void supprimer(Tache tache);
 	Tache recupererTache(int idTache);
-	List<Tache> listerParSprint(int idSprint);
+	List<Tache> listerParSprintNotDep(int idSprint, int idTache);
 	List<Tache> listerParUserStory(int idUS);
 	List<Tache> listerDependanceTaches(int idTache);
-	
+	void ajouterTacheToDep (int idTache , int idTacheDep);
+	void supprimer(int idTache , int idTacheDep);
 }

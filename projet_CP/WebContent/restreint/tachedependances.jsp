@@ -52,21 +52,23 @@
 				<!-- Form ajouter tâches to dependance liste -->
 				<td>
 					<form action="DependanceEntreTaches" method="post">
-						<c:forEach var="p" items="${ Taches }">
-							<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
+						<c:forEach var="p" items="${taches}">
+							<p><input type="checkbox" name="tachescheckbox" value="${p.idTache}" />&nbsp;${ p.description }</p>
 						</c:forEach>
 						<p><input type="submit" value=">>>>>"/></p>
-						<input type="hidden" value="${param.idUS}" name="idUS"/></p>
-						<input type="hidden" value="${param.idProjet}" name="idProjet"/></p>
+						<input type="hidden" value="${param.idSprint}" name="idSprint"/></p>
+						<input type="hidden" value="${param.idTache}" name="idTache"/></p>
 					</form>
 				</td>
 				<!-- Form supprimer tâches from dependance liste -->
 				<td>
 					<form action="SupprimerDependanceEntreTaches" method="post">
-						<c:forEach var="p" items="${ TachesUserStory }">
+						<c:forEach var="p" items="${ tachesDep}">
 						<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
 					    </c:forEach>
 						<p><input type="submit" value="<<<<<"/></p>
+						<input type="hidden" value="${param.idSprint}" name="idSprint"/></p>
+						<input type="hidden" value="${param.idTache}" name="idTache"/></p>
 					</form>
 				</td>
 			</tr>
