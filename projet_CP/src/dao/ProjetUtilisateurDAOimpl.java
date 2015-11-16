@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import beans.Utilisateur;
 public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 
 	@Override
@@ -91,6 +93,32 @@ public class ProjetUtilisateurDAOimpl implements IProjetUtilisateurDAO{
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	@Override
+	public List<Utilisateur> listerUtilisateursParProjet(int idProjet) {
+		Connection conn = SingletonConnection.getConnection();
+		List<Utilisateur> res = new ArrayList<Utilisateur>();
+		try {
+		Statement statement = conn.createStatement();
+		ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_Projet_Utilisateur pu, CP_Utilisateurs u WHERE pu.idUtilisateur = u.idUtilisateur AND idProjet= '"+ idProjet+"'");
+		IProjetDAO projetDAO = new ProjetDAOimpl();
+		while(resultat.next()){;
+
+		res.add( new Utilisateur(resultat.getInt("idUtilisateur"),
+				resultat.getString("identifiant"), 
+				resultat.getString("motDePasse"), 
+				resultat.getString("nom"),
+				resultat.getString("prenom")));
+		
+	
+		}
+		statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	@Override
