@@ -44,10 +44,11 @@ Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
 	<h2>
 		Sprint ${ sprint.numero }
 		<!--  <c:out value="${ sprint.numero }" />  -->
-	</h2>
-	Gantt <br />
+	
 	
     <c:if test="${Ganttexist == true}">
+    </h2>
+	Gantt <br />
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>

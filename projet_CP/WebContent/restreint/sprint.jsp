@@ -102,66 +102,43 @@
 						</ul></td>
 			</c:forEach>
 		</table>
-
-
-<object type="application/x-java-applet" height="300" width="550">
-  <param name="code" value="MyClock" />
-  <param name="archive" value="app.jar" />
-  Clock :: Applet failed to run.  No Java plug-in was found.
-</object>
-
-<object type="application/x-java-applet" height="300" width="550">
-  <param name="code" value="Pert/Main" />
-  <param name="archive" value="pert.jar" />
-  Pert :: Applet failed to run.  No Java plug-in was found.
-</object>
-
-<div align="center">
-        <jsp:plugin
-        	archive="app.jar"
-            type="applet"
-            code="MyClock"
-            codebase="/"
-            
-            width="700" 
-            height="500">
-             
-            <jsp:params>
-                <jsp:param name="" value="" />
-                <jsp:param name="" value="" />
-            </jsp:params>
-             
-            <jsp:fallback>
-                <p>Could not load applet!</p>
-            </jsp:fallback>
-             
-        </jsp:plugin>
-</div>
-
-
-
-<div align="center">
-        <jsp:plugin
-        	archive="applet.jar"
-            type="applet"
-            code="Main.class"
-            codebase="Pert/"
-            
-            width="700" 
-            height="500">
-             
-            <jsp:params>
-                <jsp:param name="" value="" />
-                <jsp:param name="" value="" />
-            </jsp:params>
-             
-            <jsp:fallback>
-                <p>Could not load applet!</p>
-            </jsp:fallback>
-             
-        </jsp:plugin>
-</div>
-
+		
+		<object type="application/x-java-applet" height="500" width="700">
+		  <param name="code" value="Main" />
+		  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar" />
+		  Pert :: Applet failed to run.  No Java plug-in was found.
+		</object>
+	 <c:if test="${Ganttexist == true}">
+    </h2>
+	Gantt <br />
+	<table class="table1">
+		<tr>
+			<td class="thprojet">Developeur</td>
+			<c:forEach begin="0" end="${maxdate-1}" var="val">
+				<td class="thprojet"><c:out value="${val}" /></td>
+			</c:forEach>
+		<tr />
+		<c:forEach var="utilisateur" items="${ collaborateurs }">
+			<tr>
+				<td>${ utilisateur.getNom()}</td>
+				<c:forEach begin="0" end="${maxdate-1}" var="val">
+				<c:if test="${val==0}">
+				   <td colspan="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	 <c:out value="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		           </td>
+				</c:if>
+				<c:if test="${val!=0}">
+					<c:if test="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val] != GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val-1]}">
+				         <td colspan="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	      <c:out value="${GanttParIdCollaborateur.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		              	 </td>
+					</c:if>
+				</c:if>
+				
+                </c:forEach>
+		</c:forEach>
+	</table>
+	</c:if>
 
 	</div>
 
