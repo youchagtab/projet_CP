@@ -25,6 +25,7 @@ public class ModifierTache extends HttpServlet {
 	public static final String PARAM_DESCRITPION = "description";
 	public static final String VUE_SPRINT = "/projet_CP/Sprint";
 	public static final String PARAM_ID_PROJET = "idProjet";
+	public static final String PARAM_ID_SPRINT = "idSprint";
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,22 +45,30 @@ public class ModifierTache extends HttpServlet {
 	
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		System.out.println("IN");
 		String description = request.getParameter(PARAM_DESCRITPION);
-		//String tag = request.getParameter(PARAM_TAG);
-		//int cout = Integer.parseInt(request.getParameter(PARAM_COUT));
-		//String status = request.getParameter(PARAM_STATUS);
+		String tag = request.getParameter(PARAM_TAG);
+		int cout = Integer.parseInt(request.getParameter(PARAM_COUT));
+		String status = request.getParameter(PARAM_STATUS);
 		int idTache = Integer.parseInt(request.getParameter(PARAM_ID_TACHE));
 		int idUS = Integer.parseInt(request.getParameter(PARAM_ID_USER_STORY));
 		int idProjet = Integer.parseInt(request.getParameter(PARAM_ID_PROJET));
-	
-		Tache tache = new Tache(idTache,  description, idUS);
+		int idSprint = Integer.parseInt(request.getParameter(PARAM_ID_SPRINT));
+		
+		Tache tache = new Tache(idTache, tag, description, cout, status, idUS);
+
+		System.out.println("idTAche : "+tache.getIdTache());
+		System.out.println("idTAche : "+request.getParameter("idTache"));
+		System.out.println("cout : "+tache.getCout());
+		
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		tacheDAO.modifier(tache);
 		request.setAttribute(PARAM_ID_USER_STORY, idUS);
 		request.setAttribute(PARAM_ID_PROJET, idProjet);
-		response.sendRedirect(VUE_SPRINT+"?idUS="+idUS+"?idProjet="+idProjet);
+		request.setAttribute(PARAM_ID_SPRINT, idSprint);
+		response.sendRedirect(VUE_SPRINT+"?idUS="+idUS+"&idProjet="+idProjet+"&idSprint="+idSprint);
 		
 		
 		

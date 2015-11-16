@@ -36,9 +36,8 @@ public class Tache
 
 	public Tache(int idTache, String description, int idUS) {
 		super();
-		
+		this.idTache = idTache;
 		this.description = description;
-		
 		this.idUS = idUS;
 	}
 

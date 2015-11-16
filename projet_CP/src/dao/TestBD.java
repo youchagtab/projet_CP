@@ -170,7 +170,7 @@ public class TestBD {
 		
 		
 		ITacheDAO tache = new TacheDAOimpl();
-		List<Tache>listTache =tache.listerParSprint(13);
+		List<Tache>listTache =tache.listerParSprintNotDep(13,2);
 		for(Tache t : listTache){
 			System.out.println(t.getIdTache()+ "  " + t.getCout()+ "  " + t.getDescription() + " "+t.getIdUS());
 		}

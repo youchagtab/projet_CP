@@ -48,9 +48,21 @@
 		<h3>Modifier une tâche</h3>
 		<form action="ModifierTache" method="post">
 			<table class="table1">
+			    <tr>
+					<td>Tag :</td>
+					<td><textarea name="tag">${tache.tag }</textarea></td>
+				</tr>
 				<tr>
 					<td>Description :</td>
 					<td><textarea name="description">${tache.description }</textarea></td>
+				</tr>
+				<tr>
+					<td>cout :</td>
+					<td><textarea name="cout">${tache.cout}</textarea></td>
+				</tr>
+				<tr>
+					<td>status :</td>
+					<td><textarea name="status">${tache.status}</textarea></td>
 				</tr>
 
 				<tr>
@@ -58,6 +70,7 @@
 					<td><input type="hidden" name="idTache" value="${param.idTache }" class="input-bouton">
 						<input type="hidden" name="idUserStory" value="${param.idUserStory }" class="input-bouton">
 						<input type="hidden" name="idProjet" value="${param.idProjet }" class="input-bouton">
+						<input type="hidden" name="idSprint" value="${param.idSprint }" class="input-bouton">
 						
 						<input type="submit" value="Modifier" class="input-bouton" />
 						<input type="reset" value="Effacer" class="input-bouton" /></td>
