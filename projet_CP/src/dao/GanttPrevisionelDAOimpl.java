@@ -80,6 +80,24 @@ public class GanttPrevisionelDAOimpl implements IGanttPrevisionelDAO{
 		}
 		
 	}
+	@Override
+	public void supprimer(int idSprint,int idTache) {
+		Connection connexion = SingletonConnection.getConnection();
+		PreparedStatement statement = null;
+		try
+		{
+
+			statement = connexion.prepareStatement("DELETE  FROM CP_GanttPrevisionel WHERE idSprint= ? AND idTache = ?");
+			statement.setInt(1, idSprint);
+			statement.setInt(2, idTache);
+			statement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Override
 	public List<Tache> recuperer(int idSprint, int idUtilisateur) {

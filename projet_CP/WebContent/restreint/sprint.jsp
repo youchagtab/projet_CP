@@ -92,9 +92,13 @@
 															Modifier </a></li>
 													<li><a href="javascript:confirmer('SupprimerTache?idTache=${tache.idTache }&idSprint=${param.idSprint}&idProjet=${param.idProjet}')"
 														class="menu-ppale"> Supprimer </a></li>
-														<li><a href="DependanceEntreTaches?idTache=${tache.idTache}&idSprint=${sprint.idSprint}" class="menu-ppale">
+													<li><a href="DependanceEntreTaches?idTache=${tache.idTache}&idSprint=${sprint.idSprint}" class="menu-ppale">
 															Dependance </a></li>
-												</ul></li>
+													<li><a href="AffectationTache?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}" class="menu-ppale">
+															Affecter </a></li>
+													<li><a href="SupprimerAffectation?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}" class="menu-ppale">
+															Supprimer l'affectation </a></li>
+												</ul>
 										</ul>
 									</aside></li>
 

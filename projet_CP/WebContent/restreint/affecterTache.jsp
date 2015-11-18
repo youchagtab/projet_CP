@@ -48,18 +48,18 @@
 		<h3>Affecter la tâche : </h3>
 
 
-		<form action="#" method="post">
+		<form action="AffectationTache" method="post">
 			<table class="table1">
 				<tr>
 					<td>Tâche :</td>
 					<td>
-						<c:out value="{description}"/>
+						<c:out value="${tache.description}"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Développeur :</td>
 					<td>
-						<select name="utilisateur">
+						<select name="idUtilisateur">
 							<c:forEach var="developpeur" items="${developpeurs}">
 								<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
 							</c:forEach>
@@ -76,8 +76,8 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="hidden" name="idUserStory" value="${param.idUS}" class="input-bouton"> 
-						<input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
+					<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
+						<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
 						<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
 						<input type="submit" value="Affecter" class="input-bouton" /> 
 						<input type="reset" value="Effacer" class="input-bouton" /></td>
