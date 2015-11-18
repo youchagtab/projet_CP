@@ -11,6 +11,7 @@ public interface IGanttPrevisionelDAO {
 
 	public void supprimer(int idSprint, int idUtilisateur, int idTache);
 	public void supprimer(int idSprint, int idTache);
+	//test
 	
 	public List<Tache> recuperer(int idSprint, int idUtilisateur);
 	
