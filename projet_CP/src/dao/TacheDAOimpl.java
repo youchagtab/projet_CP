@@ -347,4 +347,20 @@ public class TacheDAOimpl implements ITacheDAO {
 		
 	}
 
+	@Override
+	public void ajouterTacheSprint(int idSprint, int idTache) {
+		Connection conn = SingletonConnection.getConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(
+					"INSERT INTO CP_Sprint_Tache (idSprint, idTache) VALUES (?,?) ");
+			ps.setInt(1,idSprint);
+			ps.setInt(2, idTache);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

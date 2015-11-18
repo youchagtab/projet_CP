@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,9 @@ public class AjouterTache extends HttpServlet {
 		System.out.println(request.getParameter("description"));
 		System.out.println(request.getParameter("cout"));
 		System.out.println(request.getParameter("tag"));
+		
+		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
+		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
 		int idUS = Integer.parseInt(request.getParameter("idUserStory"));
 		String description = request.getParameter("description");
 		int cout = Integer.parseInt(request.getParameter("cout"));
@@ -37,8 +41,9 @@ public class AjouterTache extends HttpServlet {
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		Tache tache = new Tache(tag, description, cout, "A_FAIRE", idUS);
 		tacheDAO.ajouter(tache);
-		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
-		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
+		System.out.println("idtache:" + tache.getIdTache());
+		tacheDAO.ajouterTacheSprint(idSprint,tache.getIdTache());
+		
 		
 		response.sendRedirect("Sprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}

@@ -7,6 +7,7 @@ import beans.Tache;
 public interface ITacheDAO 
 {
 	void ajouter(Tache tache);
+	void ajouterTacheSprint(int idSprint, int idTache);
 	void modifier(Tache tache);
 	void supprimer(Tache tache);
 	Tache recupererTache(int idTache);
