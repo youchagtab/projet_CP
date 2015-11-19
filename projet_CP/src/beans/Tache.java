@@ -10,7 +10,8 @@ public class Tache
 	protected int		idUS;
 	protected int       duree;
 	protected int       debut;
-
+    protected Utilisateur  devellopeur;
+    
 	public Tache() {}
 	
 	public Tache(int idTache, String tag, String description, int cout, String status, int idUS) {
@@ -21,6 +22,7 @@ public class Tache
 		this.cout = cout;
 		this.status = status;
 		this.idUS = idUS;
+		this.devellopeur = null;
 	}
 
 
@@ -32,6 +34,7 @@ public class Tache
 		this.cout = cout;
 		this.status = status;
 		this.idUS = idUS;
+		this.devellopeur = null;
 	}
 
 	public Tache(int idTache, String description, int idUS) {
@@ -39,9 +42,18 @@ public class Tache
 		this.idTache = idTache;
 		this.description = description;
 		this.idUS = idUS;
+		this.devellopeur = null;
 	}
 
+	
 
+	public Utilisateur getDevellopeur() {
+		return devellopeur;
+	}
+
+	public void setDevellopeur(Utilisateur devellopeur) {
+		this.devellopeur = devellopeur;
+	}
 
 	public int getIdTache() {
 		return idTache;

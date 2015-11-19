@@ -14,10 +14,10 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		System.out.println("test bdd");
+		testListerTacheParStatus();
 	    //testGranttPrevisionelDAO();
 		/*test sprint*/
 		//testTache();
-		testTacheDAO();
 		
 		/*testUserStoryDAO();
 		try{
@@ -190,4 +190,17 @@ public class TestBD {
 			projetDAO.supprimer(idP);
 	}*/
 	
+	public static void testListerTacheParStatus(){
+		ITacheDAO tacheDAO = new TacheDAOimpl();
+		List<Tache> aFaire = tacheDAO.listerTache(13, "A_FAIRE");
+		List<Tache> enCours = tacheDAO.listerTache(13, "EN_COURS");
+		List<Tache> finis = tacheDAO.listerTache(13, "FAIT");
+		
+		for(Tache t: aFaire){
+			System.out.println("idTache:"+ t.getIdTache()+", Tag"+t.getTag()+", Status:"+t.getStatus());
+			if(t.getDevellopeur()!=null)
+			System.out.println("Dev:" +t.getDevellopeur());
+		}
+		
+	}
 }

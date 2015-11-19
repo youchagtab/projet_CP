@@ -16,4 +16,7 @@ public interface ITacheDAO
 	List<Tache> listerDependanceTaches(int idTache);
 	void ajouterTacheToDep (int idTache , int idTacheDep);
 	void supprimer(int idTache , int idTacheDep);
+	public List<Tache> listerTache(int idSprint,String status);
+	
+	
 }
