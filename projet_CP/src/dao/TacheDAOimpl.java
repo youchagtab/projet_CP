@@ -10,6 +10,11 @@ import java.util.List;
 
 import beans.Tache;
 
+
+import beans.UserStory;
+import beans.Utilisateur;
+
+
 public class TacheDAOimpl implements ITacheDAO {
 
 	@Override
@@ -364,6 +369,45 @@ public class TacheDAOimpl implements ITacheDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+		
+	
+	
+	@Override
+	public List<Tache> listerTache(int idSprint,String status){
+		Connection conn = SingletonConnection.getConnection();
+		List<Tache> taches = null;
+		Tache tache = null;
+		try {
+			Statement statement = conn.createStatement();
+			ResultSet resultat = statement.executeQuery( "SELECT  t.idTache, t.tag, t.description, t.cout, t.status, t.idUS, st.idUtilisateur FROM CP_Tache t, CP_Sprint_Tache st WHERE t.idTache = st.idTache AND t.status='"+status+"' AND st.idSprint = '"+ idSprint +"'");
+			
+			taches = new ArrayList<Tache>();
+			while(resultat.next())
+			{
+				tache = new Tache();
+				tache.setIdTache(resultat.getInt("idTache"));
+				tache.setTag(resultat.getString("tag"));
+				tache.setDescription(resultat.getString("description"));
+				tache.setCout(resultat.getInt("cout"));
+				tache.setStatus(resultat.getString("status"));
+				tache.setIdUS(resultat.getInt("idUS"));
+				IUtilisateurDAO	utilisateurDAO = new UtilisateurDAOimpl();
+				
+				if(resultat.getInt("idUtilisateur")!=0){
+				Utilisateur d = utilisateurDAO.recupererUtilisateur(resultat.getInt("idUtilisateur"));
+				tache.setDevellopeur(d);
+				}
+				
+				taches.add(tache);
+			}
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return taches;
+		
 	}
 
 }
