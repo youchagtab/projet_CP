@@ -8,9 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.Sprint;
 import beans.Tache;
-import beans.UserStory;
 
 public class TacheDAOimpl implements ITacheDAO {
 
@@ -30,6 +28,11 @@ public class TacheDAOimpl implements ITacheDAO {
 			statement.setString(4, tache.getStatus());
 			statement.setInt(5, tache.getIdUS());
 			statement.executeUpdate();
+			
+			Statement s = connexion.createStatement();
+			ResultSet r = s.executeQuery( "SELECT max(idTache)  FROM CP_Tache WHERE description='"+tache.getDescription()+"'" );
+			r.next();
+			tache.setIdTache(r.getInt("max(idTache)"));  
 		}
 		catch(SQLException e)
 		{

@@ -17,8 +17,8 @@ public class TestBD {
 	    //testGranttPrevisionelDAO();
 		/*test sprint*/
 		//testTache();
-		testTacheDAO();
-		
+		//testTacheDAO();
+		testAjouterTacheSprint();
 		/*testUserStoryDAO();
 		try{
 		IProjetDAO projet = new ProjetDAOimpl();
@@ -164,6 +164,13 @@ public class TestBD {
 		}
 	}
 	
+	
+	public static void testAjouterTacheSprint(){
+		
+		ITacheDAO tacheDAO = new TacheDAOimpl();
+		tacheDAO.ajouterTacheSprint(13, 15);
+		
+	}
 	
 	public static void testTacheDAO(){
 		
