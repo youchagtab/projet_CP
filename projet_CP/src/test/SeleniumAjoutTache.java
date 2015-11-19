@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class SeleniumAjouterProjet {
+public class SeleniumAjoutTache {
 	private Selenium selenium;
 
 	@Before
@@ -22,17 +22,22 @@ public class SeleniumAjouterProjet {
 	}
 
 	@Test
-	public void testSeleniumAjouterProjet() throws Exception {
+	public void testSeleniumAjoutTache() throws Exception {
 		selenium.open("/projet_CP/connexion.jsp");
 		selenium.type("id=motdepasse", "password2");
 		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("link=Ajouter");
+		selenium.click("link=Afficher");
 		selenium.waitForPageToLoad("30000");
-		selenium.type("name=noms", "projet youssef");
-		selenium.type("name=description", "test youssef");
-		selenium.click("css=input[type=\"submit\"]");
+		selenium.click("link=sprint 1");
+		selenium.waitForPageToLoad("30000");
+		selenium.click("css=button");
+		selenium.waitForPageToLoad("30000");
+		selenium.type("name=description", "tache selenium");
+		selenium.type("name=tag", "tag Selenium");
+		selenium.type("name=cout", "1");
+		selenium.click("//input[@value='Ajouter']");
 		selenium.waitForPageToLoad("30000");
 	}
 

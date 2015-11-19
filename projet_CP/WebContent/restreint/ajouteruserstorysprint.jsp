@@ -14,8 +14,7 @@
 
 	<header>
 
-		<img src="img/logo-bdx.png" alt='logo-bdx.img' align="left" />
-		<aside>Bienvenu ${utilisateur.nom} ${utilisateur.prenom}</aside>
+		<%@ include file="header.jsp" %>
 	</header>
 	<nav>
 		<ul>
