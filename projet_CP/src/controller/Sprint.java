@@ -84,6 +84,22 @@ public class Sprint extends HttpServlet {
 		request.setAttribute("sprint", sprint);
 		request.setAttribute("projet", projet);
 		
+		List<Tache> aFaire = tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE");
+		List<Tache> enCours = tacheDAO.listerTache(Integer.parseInt(idSprint), "EN_COURS");
+		List<Tache> fait= tacheDAO.listerTache(Integer.parseInt(idSprint), "FAIT");
+		
+		int taillemax =0;
+		if(aFaire.size() > taillemax)
+			taillemax = aFaire.size();
+		if(enCours.size() > taillemax)
+			taillemax = enCours.size();
+		if(fait.size()>taillemax)
+			taillemax= fait.size();
+			
+		request.setAttribute("tacheAFaire", tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE"));
+		request.setAttribute("tacheEnCours", tacheDAO.listerTache(Integer.parseInt(idSprint), "EN_COURS"));
+		request.setAttribute("tacheFinis", tacheDAO.listerTache(Integer.parseInt(idSprint), "FAIT"));
+		request.setAttribute("tailleListeLongue", taillemax);
 		
 		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 
 		List<Integer> idCollaborateur = projetUtilisateurDAO.listerIdUtilisateurs(Integer.parseInt(idProjet));
