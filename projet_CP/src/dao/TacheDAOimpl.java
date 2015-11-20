@@ -410,4 +410,58 @@ public class TacheDAOimpl implements ITacheDAO {
 		
 	}
 
+	@Override
+	public List<Tache> listerTache(int idSprint) {
+
+		// TODO Auto-generated method stub
+		Connection connexion = SingletonConnection.getConnection();
+		PreparedStatement statement = null;
+		ResultSet resultat = null;
+		List<Tache> taches = null;
+		Tache tache = null;
+		try
+		{
+
+			statement = connexion.prepareStatement("SELECT * FROM CP_Sprint_Tache sp, CP_Tache t WHERE sp.idTache = t.idTache AND sp.idSprint = ?");
+			statement.setInt(1, idSprint);
+			resultat = statement.executeQuery();
+
+			taches = new ArrayList<Tache>();
+			while(resultat.next())
+			{
+				tache = new Tache();
+				tache.setIdTache(resultat.getInt("idTache"));
+				tache.setTag(resultat.getString("tag"));
+				tache.setDescription(resultat.getString("description"));
+				tache.setCout(resultat.getInt("cout"));
+				tache.setStatus(resultat.getString("status"));
+				tache.setIdUS(resultat.getInt("idUS"));
+				taches.add(tache);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+		    if ( resultat != null ) {
+		        try {
+		            /* On commence par fermer le ResultSet */
+		            resultat.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		    if ( statement != null ) {
+		        try {
+		            /* Puis on ferme le Statement */
+		            statement.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		}
+		return taches;
+	
+	}
+
 }

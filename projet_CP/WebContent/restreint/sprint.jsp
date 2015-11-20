@@ -47,9 +47,10 @@
 			class="menu-ppale">Ajouter une US</a> <br />
 		<br />
 		<a href="AfficherGantt?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
-		class="menu-ppale">Gantt Test</a> <br />
+		class="menu-ppale">Gantt Test</a>
 
 		<table class="table1">
+		<br/>
 			<tr>
 				<th class="thprojet">USER STORY</th>
 				<th class="thprojet">TACHES</th>
@@ -64,7 +65,7 @@
 
 						<ul>
 							<c:forEach var="tache" items="${taches[(status.count)-1] }">
-								<li><c:out value="${tache.description}" /> &nbsp;
+								<li><c:out value="${tache.description} [tag : ${tache.tag }, coût : ${tache.cout }]" /> &nbsp;
 									<aside id="taches-menus" class="aside-conteneur">
 										<ul>
 											<li><a href="#" id="menu-tache" class="menu-Sprint">__</a>
@@ -89,14 +90,54 @@
 			</c:forEach>
 		</table>
 		
+		<br/>
+		<h2>Kanaban</h2>
+			<table class="table1">
+				<tr>
+					<th>A FAIRE</th>
+					<th>EN COURS</th>
+					<th>FAIT</th>
+				</tr>
+				<tr>
+					<td>Tache 5 [<a href="#">></a>]</td>
+					<td>Tache 3 [Developpeur 1 | <a href="#"><</a> <a href="#">></a>]</td>
+					<td>Tache 1 [Developpeur 1 | <a href="#"><</a>]</td>
+				</tr>
+				<tr>
+					<td>Tache 6 [<a href="#">></a>]</td>
+					<td>Tache 4 [Developpeur 2 | <a href="#"><</a> <a href="#">></a>]</td>
+					<td>Tache 2 [Developpeur 2 | <a href="#"><</a>]</td>
+				</tr>
+				<tr>
+					<td>Tache 7 [<a href="#">></a>]</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Tache 8 [<a href="#">></a>]</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Tache 9 [<a href="#">></a>]</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>	
+		<br/>
+		
+		<br/>
+		<h2>Pert</h2>
 		<object type="application/x-java-applet" height="500" width="700">
 		  <param name="code" value="Main" />
-		  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar" />
+		  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar,mysql-connector-java-5.1.29.jar" />
 		  Pert :: Applet failed to run.  No Java plug-in was found.
 		</object>
+		<br/>
+		
 	 <c:if test="${Ganttexist == true}">
-    </h2>
-	Gantt <br />
+     <br />
+     <h2>Gantt</h2>
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>

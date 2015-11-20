@@ -1,8 +1,9 @@
 package Pert;
 
 import beans.Tache;
-
-
+import dao.ITacheDAO;
+import dao.TacheDAOimpl;
+import java.util.List;
 import com.mxgraph.canvas.mxHtmlCanvas;
 import com.mxgraph.layout.*;
 import com.mxgraph.layout.hierarchical.model.mxGraphHierarchyNode;
@@ -10,6 +11,7 @@ import com.mxgraph.swing.*;
 import com.mxgraph.view.mxEdgeStyle;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.*;
@@ -42,10 +44,49 @@ public class Main extends JApplet{
 	}
 	 public void init()
 	    {
+		 	//Bdd::Tache
+		 	int idSprint = 13;
+		 	ITacheDAO tacheDAO = new TacheDAOimpl();
+		 	List<Tache> listTaches = tacheDAO.listerTache(idSprint);
+		 	
+		 	//Bdd::Dependance
+		 	List<List<String>> listDependance = new ArrayList<List<String>>();
+		 	for(Tache tache : listTaches)
+		 	{
+		 		List<Tache> tachesEnDep = tacheDAO.listerDependanceTaches(tache.getIdTache());
+		 		for(Tache tachedep : tachesEnDep)
+		 		{
+		 			System.out.println("-A-"+tache.getTag()+"<--"+tachedep.getTag()+"--");
+					 List<String> listCouple = new ArrayList<String>();
+					 listCouple.add(String.valueOf(tache.getTag()));
+					 listCouple.add(String.valueOf(tachedep.getTag()));
+					 listDependance.add(listCouple);
+		 		}
+		 	}
+		 	System.out.println("Size of dependance : "+listDependance.size());
+		 	int lignes = listDependance.size();
+		 	String dependance[][] = new String[lignes][2];
+		 	int l = 0;
+		 	for(List<String> tache : listDependance)
+		 	{
+		 		System.out.println("-B-"+tache.get(0)+"<--"+tache.get(1)+"--");
+		 		dependance[l][0] = tache.get(0);
+				dependance[l][1] = tache.get(1);
+				l++;
+		 	}
+		 	
+		 	String[] tache = new String[listTaches.size()];
+		 	Tache[] taches = new Tache[listTaches.size()];
+		 	int index = 0;
+		 	for(Tache tacheTmp : listTaches)
+		 	{
+		 		tache[index] = tacheTmp.getTag();
+		 		taches[index] = tacheTmp;
+		 		index++;
+		 	}
+		 	
 			// Tache
-		 
-		    
-			Tache tA = new Tache("A","", 10, "", -1);
+			/*Tache tA = new Tache("A","", 10, "", -1);
 			Tache tB = new Tache("B","", 10, "", -1);
 			Tache tC = new Tache("C","", 10, "", -1);
 			Tache tD = new Tache("D","", 10, "", -1);
@@ -63,15 +104,15 @@ public class Main extends JApplet{
 			String F = "F";
 			String G = "G";
 			String H = "H";
-			String I = "I";
+			String I = "I";*/
 
 			HashMap<String, Tache> Relation = new HashMap<>();
 			//Table de Dependance 
-			String dependance[][] = {{D,A},{D,B},{D,C},{E,A},{E,C},{F,B},{F,C},{G,D},{G,E},{H,D},{H,E},{I,F}};
-			String tache[]={A,B,C,D,E,F,G,H,I};
+			//String dependance[][] = {{D,A},{D,B},{D,C},{E,A},{E,C},{F,B},{F,C},{G,D},{G,E},{H,D},{H,E},{I,F}};
+			//String tache[]={A,B,C,D,E,F,G,H,I};
 			PertTemporaire pt = CalculPert.calculPert(dependance,tache);
 			
-			Tache[] taches= {tA,tB,tC,tD,tE,tF,tG,tH,tI};
+			//Tache[] taches= {tA,tB,tC,tD,tE,tF,tG,tH,tI};
 			Pert pert = new Pert(pt, taches);
 			
 	    	// create a JGraphT graph
