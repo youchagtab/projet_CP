@@ -63,7 +63,7 @@ background-repeat:no-repeat;
 #tete-menus ul li ul a{
 	display :block;
 	text-align:center;
-	width:250px;
+	width:145px;
 	height:30px;
 	color:#003366;
 	
@@ -71,7 +71,7 @@ background-repeat:no-repeat;
 
 #tete-menus ul ul{
 	position: absolute;
-	top:30px;
+	top:20px;
 	visibility:hidden;
 	
 	/*derouler le menu à gauche*/

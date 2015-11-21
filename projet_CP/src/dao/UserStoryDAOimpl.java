@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import beans.UserStory;
@@ -27,9 +28,9 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 
 			Statement statement = conn.createStatement();
 			ResultSet resultat = statement.executeQuery( "SELECT idUS  FROM CP_UserStory WHERE description = '"+userStory.getDescription()+"'"
-					                                                                   + "AND difficulte = '"+ userStory.getDifficulte()+"'"
-					                                                                   + "AND priorite = '"+ userStory.getPriorite()+"'"
-					                                                                   + "AND id_Projet = '"+userStory.getIdProjet()+"'");
+					+ "AND difficulte = '"+ userStory.getDifficulte()+"'"
+					+ "AND priorite = '"+ userStory.getPriorite()+"'"
+					+ "AND id_Projet = '"+userStory.getIdProjet()+"'");
 			resultat.next();
 			userStory.setIdUS(resultat.getInt("idUS"));
 			statement.close();
@@ -68,14 +69,14 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		try {
 			Statement statement = conn.createStatement();
 			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_UserStory WHERE id_Projet = '"+ idProjet +"'");
-			
+
 			while (resultat.next()){
-				
+
 				UserStory us = new UserStory(resultat.getInt("idUS"),
-					resultat.getString("description"), 
-					resultat.getInt("difficulte"), 
-					resultat.getInt("priorite"),
-					resultat.getInt("id_Projet"));
+						resultat.getString("description"), 
+						resultat.getInt("difficulte"), 
+						resultat.getInt("priorite"),
+						resultat.getInt("id_Projet"));
 				listUS.add(us);
 			}
 			statement.close();
@@ -119,7 +120,7 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -129,14 +130,14 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		try {
 			Statement statement = conn.createStatement();
 			ResultSet resultat = statement.executeQuery( "SELECT  us.idUS,us.description,us.difficulte,us.priorite,us.id_Projet,us.place,us.status FROM CP_Sprint_UserStory s, CP_UserStory us WHERE s.idUS = us.idUS AND s.idSprint ='"+ idSprint +"'");
-			
+
 			while (resultat.next()){
-				
+
 				UserStory us = new UserStory(resultat.getInt("idUS"),
-					resultat.getString("description"), 
-					resultat.getInt("difficulte"), 
-					resultat.getInt("priorite"),
-					resultat.getInt("id_Projet"));
+						resultat.getString("description"), 
+						resultat.getInt("difficulte"), 
+						resultat.getInt("priorite"),
+						resultat.getInt("id_Projet"));
 				listUS.add(us);
 			}
 			statement.close();
@@ -146,6 +147,45 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		}
 		return listUS;
 	}
+
+
+    @Override
+	public int getTotalDifficultesParSprint(int idSprint){
+		
+		List<UserStory> userStories = new ArrayList<UserStory>();
+		userStories = this.listerParSprint(idSprint);
+		
+		// diffixcultés totales
+		int difficultés_Totale = 0;
+		Iterator<UserStory> iter1 = userStories.iterator();
+
+		while (iter1.hasNext()) {
+			difficultés_Totale+=iter1.next().getDifficulte();
+		   
+		}
+
+		return difficultés_Totale;
+	}
+
+    
+    @Override
+	public int getTotalDifficultes(int idProjet){
+		
+		List<UserStory> userStories = new ArrayList<UserStory>();
+		userStories = this.lister(idProjet);
+		
+		// diffixcultés totales
+		int difficultés_Totale = 0;
+		Iterator<UserStory> iter1 = userStories.iterator();
+
+		while (iter1.hasNext()) {
+			difficultés_Totale+=iter1.next().getDifficulte();
+		   
+		}
+
+		return difficultés_Totale;
+	}
+
 
 	@Override
 	public void ajouterUserStoryToSprint(int idSprint, int idUserStory) {
@@ -167,20 +207,20 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		}
 		finally
 		{
-		    if ( resultat != null ) {
-		        try {
-		            /* On commence par fermer le ResultSet */
-		            resultat.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
-		    if ( statement != null ) {
-		        try {
-		            /* Puis on ferme le Statement */
-		            statement.close();
-		        } catch ( SQLException ignore ) {
-		        }
-		    }
+			if ( resultat != null ) {
+				try {
+					/* On commence par fermer le ResultSet */
+					resultat.close();
+				} catch ( SQLException ignore ) {
+				}
+			}
+			if ( statement != null ) {
+				try {
+					/* Puis on ferme le Statement */
+					statement.close();
+				} catch ( SQLException ignore ) {
+				}
+			}
 		}		
 	}
 
@@ -192,14 +232,14 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		try {
 			Statement statement = conn.createStatement();
 			ResultSet resultat = statement.executeQuery( "SELECT * FROM CP_UserStory WHERE idUS not in (SELECT  us.idUS FROM CP_Sprint_UserStory s, CP_UserStory us WHERE s.idUS = us.idUS AND s.idSprint = '"+ idSprint +"' ) AND id_Projet = '"+ idProjet +"'");
-			
+
 			while (resultat.next()){
-				
+
 				UserStory us = new UserStory(resultat.getInt("idUS"),
-					resultat.getString("description"), 
-					resultat.getInt("difficulte"), 
-					resultat.getInt("priorite"),
-					resultat.getInt("id_Projet"));
+						resultat.getString("description"), 
+						resultat.getInt("difficulte"), 
+						resultat.getInt("priorite"),
+						resultat.getInt("id_Projet"));
 				listUS.add(us);
 			}
 			statement.close();

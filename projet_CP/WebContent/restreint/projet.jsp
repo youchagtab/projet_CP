@@ -9,6 +9,34 @@
 <link rel="stylesheet" type="text/css" href="css/projet.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>projet</title>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+    google.load('visualization', '1.1', {packages: ['line']});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Sprints');
+      data.addColumn('number', 'Difficultés par sprint');
+      
+      //recuperation de donnees
+      var listePointsDifficultes=${listPointsDifficultes};
+      
+      //ajout des donnees
+      var numRows = listePointsDifficultes.length;      
+      for (var i = 0 ; i < numRows; i++) {
+    	   data.addRow(["sprint "+(i+1), listePointsDifficultes[i]]);   	   
+       }
+   
+      var options = {chart: {title: 'BurnDown chart',subtitle: 'en jours de la semaines'}, width: 900,height: 400,axes: { y: {all: {range: { min: 0 } } } }};
+      
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+      chart.draw(data, options);
+   }
+    
+</script>
 <script type="text/javascript">
 	function confirmer(url) {
 		var repo = confirm("etes vous sure de vouloir supprimer cet user story?");
@@ -21,15 +49,15 @@
 <body>
 
 	<header>
-		<%@ include file="header.jsp" %>
+		<%@ include file="header.jsp"%>
 
 	</header>
 	<nav id="barre-menus" class="nav-conteneur">
 		<ul>
-			<li><a href="restreint/acceuil.jsp" class="menu-horizontale">accueil</a></li>
-			<li><a href="restreint/ajouterprojet.jsp"
+			<li><a href="../restreint/acceuil.jsp" class="menu-horizontale">accueil</a></li>
+			<li><a href="../restreint/ajouterprojet.jsp"
 				class="menu-horizontale">ajouter un projet</a></li>
-			<li><a href="restreint/contacts.jsp" class="menu-horizontale">contact
+			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact
 			</a></li>
 		</ul>
 	</nav>
@@ -44,11 +72,9 @@
 
 		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
-			class="menu-ppale">Ajouter une US</a> <br/> &nbsp;
-			<a
+			class="menu-ppale">Ajouter une US</a> <br /> &nbsp; <a
 			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
-			class="menu-ppale">Collaborateurs</a> <br />
-		<br />
+			class="menu-ppale">Collaborateurs</a> <br /> <br />
 		<article>
 			<table class="table1">
 				<tr>
@@ -78,8 +104,7 @@
 
 		<aside id="aside-sprint" class="aside-sprintConteneur">
 
-			<a
-				href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}"
+			<a href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}"
 				id="a-ajouterSprint" class="a-sprint">Ajouter un sprint</a> <br />
 			<br />
 			<c:forEach var="sprint" items="${sprints}">
@@ -94,14 +119,22 @@
 
 		</aside>
 	</section>
-
-
-
-	    <br> <br><br><br><br><br><br>
 	
-	
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer>
+	<div id="linechart_material" class="div-conteneur"></div>
+
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<footer> outil de de gestion de projet réalisé dans le cadre
+		du module Conduite de projet </footer>
 
 </body>
 </html>

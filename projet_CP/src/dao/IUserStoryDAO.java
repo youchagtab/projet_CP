@@ -15,4 +15,6 @@ public interface IUserStoryDAO
 	public void supprimer(int idSprint, int idUS);
 	public void modifier(UserStory userStory);
 	public void ajouterUserStoryToSprint(int idSprint, int idUserStory);
+	public int getTotalDifficultesParSprint(int idSprint);
+	public int getTotalDifficultes(int idProjet);
 }
