@@ -12,30 +12,42 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
-    google.load('visualization', '1.1', {packages: ['line']});
-    google.setOnLoadCallback(drawChart);
+google.load('visualization', '1.1', { packages: ['corechart'] });
+google.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Sprints');
+    data.addColumn('number', 'Tendance previsionnelle');
+    data.addColumn('number', 'Tendance réelle');
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Sprints');
-      data.addColumn('number', 'Difficultés par sprint');
-      
-      //recuperation de donnees
-      var listePointsDifficultes=${listPointsDifficultes};
-      
-      //ajout des donnees
-      var numRows = listePointsDifficultes.length;      
-      for (var i = 0 ; i < numRows; i++) {
-    	   data.addRow(["sprint "+(i+1), listePointsDifficultes[i]]);   	   
-       }
-   
-      var options = {chart: {title: 'BurnDown chart',subtitle: 'en jours de la semaines'}, width: 900,height: 400,axes: { y: {all: {range: { min: 0 } } } }};
-      
-      var chart = new google.charts.Line(document.getElementById('linechart_material'));
-      chart.draw(data, options);
-   }
+    //recuperation de donnees
+    var listePointsDifficultes=${listPointsDifficultes};
     
+    //ajout des donnees
+    var numRows = listePointsDifficultes.length;      
+  
+    for (var i = 0 ; i < numRows; i++) {
+        if(i==0){
+     	   data.addRow(["sprint "+(i+1), listePointsDifficultes[i], listePointsDifficultes[i]]); 
+        }else if(i==(numRows-1)){
+     	   data.addRow(["sprint "+(i+1), 0, listePointsDifficultes[i]]); 
+        }else{
+     	   data.addRow(["sprint "+(i+1), null, listePointsDifficultes[i]]); 
+        }
+    }
+    	
+    var options = {
+        title: 'Burn down chart',
+        subtitle: 'en difficultés par sprint',
+        interpolateNulls: true,
+        width: 900,
+        height: 500
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+    chart.draw(data, options);
+}
 </script>
 <script type="text/javascript">
 	function confirmer(url) {
