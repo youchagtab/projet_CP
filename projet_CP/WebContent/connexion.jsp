@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,14 +12,14 @@
 </head>
 <body>
 
-	<dv> <header>
+	<div> <header>
 	<h1>Gérez vos projets avec SCRUM</h1>
-	</header> </dv>
+	</header> </div>
 
 	<br>
 	<br>
 
-	<di class="autourConnexion"> <br>
+	<div class="autourConnexion"> <br>
 
 	<div class="msg-erreurs">
 		<c:out value="${requestScope.erreur }" />
@@ -50,7 +50,7 @@
 
 
 
-	</di>
+	</div>
 
 	<a type="submit" href="inscription.jsp" class="sansLabel"><button>Inscription</button></a>
 
@@ -61,8 +61,8 @@
 	<br>
 	<br>
 	<br>
-	<dv> <footer> outil de de gestion de projet réalisé dans
-	le cadre du module Conduite de projet </footer> </dv>
+	<div> <footer> outil de de gestion de projet réalisé dans
+	le cadre du module Conduite de projet </footer> </div>
 
 </body>
 </html>

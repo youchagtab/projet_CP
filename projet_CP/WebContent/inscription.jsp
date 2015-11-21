@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +8,7 @@
  <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <di class="autour">
+    <div class="autour">
     <br><br><br>
     <c:out value="${requestScope.erreur }"/> 
         <form method="post" action="inscription">
@@ -43,12 +43,12 @@
             </fieldset>
         </form>
         
-      </di>
+      </div>
       
  
          <br> <br><br>
-	<dv> <footer> outil de de gestion de projet réalisé dans
-	le cadre du module Conduite de projet </footer> </dv>
+	<div> <footer> outil de de gestion de projet réalisé dans
+	le cadre du module Conduite de projet </footer> </div>
     
 
 </body>

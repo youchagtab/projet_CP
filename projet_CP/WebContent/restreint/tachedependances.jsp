@@ -49,8 +49,8 @@
 						<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
 					    </c:forEach>
 						<p><input type="submit" value="<<<<<"/></p>
-						<input type="hidden" value="${param.idSprint}" name="idSprint"/></p>
-						<input type="hidden" value="${param.idTache}" name="idTache"/></p>
+						<input type="hidden" value="${param.idSprint}" name="idSprint"/>
+						<input type="hidden" value="${param.idTache}" name="idTache"/>
 					</form>
 				</td>
 			</tr>

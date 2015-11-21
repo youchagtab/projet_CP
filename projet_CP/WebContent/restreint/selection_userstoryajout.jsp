@@ -37,7 +37,7 @@
 			<tr>
 				<!-- Form ajouter us au sprint -->
 				<td>
-					<form actione="#" method="post">
+					<form action="#" method="post">
 						<p> u s à ajouter 1 <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
 						<p>u s à ajouter 2 <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
 						<p>u s à ajouter 3<input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
@@ -48,7 +48,7 @@
 				</td>
 				<!-- Form supprimer us du sprint -->
 				<td>
-					<form actione="#" method="post">
+					<form action="#" method="post">
 						<p>u s 1  déjà dans le sprint  <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
 						<p>u s 2  déjà dans le sprint <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
 						<p>u s 3  déjà dans le sprint <input type="checkbox" name="userStories" value="<c:out value="userStory.idUS"/>"/></p>
