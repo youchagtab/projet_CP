@@ -156,15 +156,15 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		userStories = this.listerParSprint(idSprint);
 		
 		// diffixcultés totales
-		int difficultés_Totale = 0;
+		int difficulte_Totale = 0;
 		Iterator<UserStory> iter1 = userStories.iterator();
 
 		while (iter1.hasNext()) {
-			difficultés_Totale+=iter1.next().getDifficulte();
+			difficulte_Totale+=iter1.next().getDifficulte();
 		   
 		}
 
-		return difficultés_Totale;
+		return difficulte_Totale;
 	}
 
     
@@ -175,15 +175,15 @@ public class UserStoryDAOimpl implements IUserStoryDAO{
 		userStories = this.lister(idProjet);
 		
 		// diffixcultés totales
-		int difficultés_Totale = 0;
+		int difficulte_Totale = 0;
 		Iterator<UserStory> iter1 = userStories.iterator();
 
 		while (iter1.hasNext()) {
-			difficultés_Totale+=iter1.next().getDifficulte();
+			difficulte_Totale+=iter1.next().getDifficulte();
 		   
 		}
 
-		return difficultés_Totale;
+		return difficulte_Totale;
 	}
 
 
