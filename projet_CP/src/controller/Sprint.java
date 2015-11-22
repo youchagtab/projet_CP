@@ -87,6 +87,10 @@ public class Sprint extends HttpServlet {
 		List<Tache> aFaire = tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE");
 		List<Tache> enCours = tacheDAO.listerTache(Integer.parseInt(idSprint), "EN_COURS");
 		List<Tache> fait= tacheDAO.listerTache(Integer.parseInt(idSprint), "FAIT");
+		List<Tache> tachesKanabn = new ArrayList<Tache>();
+		tachesKanabn.addAll(aFaire);
+		tachesKanabn.addAll(enCours);
+		tachesKanabn.addAll(fait);
 		
 		int taillemax =0;
 		if(aFaire.size() > taillemax)
@@ -96,9 +100,11 @@ public class Sprint extends HttpServlet {
 		if(fait.size()>taillemax)
 			taillemax= fait.size();
 			
-		request.setAttribute("tacheAFaire", tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE"));
+		/*request.setAttribute("tacheAFaire", tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE"));
 		request.setAttribute("tacheEnCours", tacheDAO.listerTache(Integer.parseInt(idSprint), "EN_COURS"));
-		request.setAttribute("tacheFinis", tacheDAO.listerTache(Integer.parseInt(idSprint), "FAIT"));
+		request.setAttribute("tacheFinis", tacheDAO.listerTache(Integer.parseInt(idSprint), "FAIT"));*/
+		System.out.println("SIZE OF KANBAN"+tachesKanabn.size());
+		request.setAttribute("tachesKanabn", tachesKanabn);
 		request.setAttribute("tailleListeLongue", taillemax);
 		
 		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 

@@ -210,8 +210,8 @@ public class TestBD {
 		
 		for(Tache t: aFaire){
 			System.out.println("idTache:"+ t.getIdTache()+", Tag"+t.getTag()+", Status:"+t.getStatus());
-			if(t.getDevellopeur()!=null)
-			System.out.println("Dev:" +t.getDevellopeur());
+			if(t.getDeveloppeur()!=null)
+			System.out.println("Dev:" +t.getDeveloppeur());
 		}
 		
 	}

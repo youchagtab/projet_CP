@@ -18,6 +18,7 @@ public interface ITacheDAO
 	void supprimer(int idTache , int idTacheDep);
 	public List<Tache> listerTache(int idSprint,String status);
 	public List<Tache> listerTache(int idSprint);
+	void setUtilisateurKanaban(int idUtilisateur, int idSprint, int idTache);
 	
 	
 }

@@ -98,7 +98,26 @@
 					<th>EN COURS</th>
 					<th>FAIT</th>
 				</tr>
-				<tr>
+				<c:forEach var="tache" items="${tachesKanabn}">
+					<tr>
+						<c:if test="${tache.status == 'A_FAIRE'}">
+							<td>${tache.description} [<a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS">></a>]</td>
+							<td></td>
+							<td></td>
+						</c:if>
+						<c:if test="${tache.status == 'EN_COURS'}">
+							<td></td>
+							<td>${tache.description} [${tache.developpeur.nom} ${tache.developpeur.prenom}  | <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=A_FAIRE"><</a> <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=FAIT">></a>]</td>
+							<td></td>
+						</c:if>
+						<c:if test="${tache.status == 'FAIT'}">
+							<td></td>
+							<td></td>
+							<td>${tache.description}  [${tache.developpeur.nom} ${tache.developpeur.prenom} | <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS"><</a>]</td>
+						</c:if>
+					</tr>
+				</c:forEach>
+				<!-- tr>
 					<td>Tache 5 [<a href="#">></a>]</td>
 					<td>Tache 3 [Developpeur 1 | <a href="#"><</a> <a href="#">></a>]</td>
 					<td>Tache 1 [Developpeur 1 | <a href="#"><</a>]</td>
@@ -122,7 +141,7 @@
 					<td>Tache 9 [<a href="#">></a>]</td>
 					<td></td>
 					<td></td>
-				</tr>
+				</tr-->
 			</table>	
 		<br/>
 		

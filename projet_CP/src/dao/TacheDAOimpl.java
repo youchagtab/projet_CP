@@ -396,7 +396,7 @@ public class TacheDAOimpl implements ITacheDAO {
 				
 				if(resultat.getInt("idUtilisateur")!=0){
 				Utilisateur d = utilisateurDAO.recupererUtilisateur(resultat.getInt("idUtilisateur"));
-				tache.setDevellopeur(d);
+				tache.setDevelopeur(d);
 				}
 				
 				taches.add(tache);
@@ -462,6 +462,46 @@ public class TacheDAOimpl implements ITacheDAO {
 		}
 		return taches;
 	
+	}
+
+	@Override
+	public void setUtilisateurKanaban(int idUtilisateur, int idSprint, int idTache) {
+		// TODO Auto-generated method stub
+		Connection connexion = SingletonConnection.getConnection();
+		PreparedStatement statement = null;
+		ResultSet resultat = null;
+		try
+		{
+			System.out.println("SQL IN");
+			statement = connexion.prepareStatement("UPDATE CP_Sprint_Tache SET idUtilisateur = ? WHERE idSprint = ? AND idTache = ?");
+			statement.setInt(1, idUtilisateur);
+			statement.setInt(2, idSprint);
+			statement.setInt(3, idTache);
+			statement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			System.out.println("SQl ERREUR");
+			e.printStackTrace();
+		}
+		finally
+		{
+		    if ( resultat != null ) {
+		        try {
+		            /* On commence par fermer le ResultSet */
+		            resultat.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		    if ( statement != null ) {
+		        try {
+		            /* Puis on ferme le Statement */
+		            statement.close();
+		        } catch ( SQLException ignore ) {
+		        }
+		    }
+		}
+		
 	}
 
 }

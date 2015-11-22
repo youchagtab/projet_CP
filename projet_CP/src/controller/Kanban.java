@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.xalan.xsltc.compiler.sym;
 
@@ -39,8 +40,9 @@ public class Kanban extends HttpServlet{
 	public static final String VUE_SPRINT = "/restreint/sprint.jsp";
 	public static final String PARAM_ID_TACHE = "idTache";
 	public static final String PARAM_ID_SPRINT = "idSprint";
-	public static final String PARAM_ID_UTILISATEUR = "idUtilisateur";
+	public static final String PARAM_ID_PROJET = "idProjet";
 	public static final String PARAM_STATUS = "status";
+	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,17 +50,24 @@ public class Kanban extends HttpServlet{
 		
 		int idTache = Integer.parseInt(request.getParameter(PARAM_ID_TACHE));
 		int idSprint = Integer.parseInt(request.getParameter(PARAM_ID_SPRINT));
-		int idUtilisateur = Integer.parseInt(request.getParameter(PARAM_ID_UTILISATEUR));
+		int idProjet = Integer.parseInt(request.getParameter(PARAM_ID_PROJET));
 		String status = request.getParameter(PARAM_STATUS);
 		
 		ITacheDAO tacheDAO = new TacheDAOimpl();
+		
+		//Set Utilisateur
+		HttpSession session = request.getSession();
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute(ATT_SESSION_UTILISATEUR);
+		tacheDAO.setUtilisateurKanaban(utilisateur.getIdUtilisateur(), idSprint, idTache);
+		
 		Tache t = tacheDAO.recupererTache(idTache);
+		System.out.println("STATUSSS ! : "+status);
 		t.setStatus(status);
+		t.setDevelopeur(utilisateur);
 		tacheDAO.modifier(t);
 		
 		
-		
-		this.getServletContext().getRequestDispatcher(VUE_SPRINT).forward(request, response);
+		response.sendRedirect("Sprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}
 	
 	@Override
