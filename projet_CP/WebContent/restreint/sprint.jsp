@@ -98,50 +98,39 @@
 					<th>EN COURS</th>
 					<th>FAIT</th>
 				</tr>
-				<c:forEach var="tache" items="${tachesKanabn}">
+				<c:forEach begin="0" end="${tailleListeLongue-1}" var="val">
 					<tr>
-						<c:if test="${tache.status == 'A_FAIRE'}">
-							<td>${tache.description} [<a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS">></a>]</td>
-							<td></td>
+						<c:if test="${ val < tacheAFaire.size()}">
+							<td>${tacheAFaire.get(val).description} <br/>
+							[<a href="Kanban?idTache=${tacheAFaire.get(val).idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS">></a>]</td>
+						</c:if>
+						<c:if test="${ val >= tacheAFaire.size()}">
 							<td></td>
 						</c:if>
-						<c:if test="${tache.status == 'EN_COURS'}">
-							<td></td>
-							<td>${tache.description} [${tache.developpeur.nom} ${tache.developpeur.prenom}  | <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=A_FAIRE"><</a> <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=FAIT">></a>]</td>
+						
+						<c:if test="${ val <tacheEnCours.size()}">
+							<td>${tacheEnCours.get(val).description} <br/>
+							 ${tacheEnCours.get(val).developpeur.nom} ${tacheEnCours.get(val).developpeur.prenom}  
+							 [<a href="Kanban?idTache=${tacheEnCours.get(val).idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=A_FAIRE"><</a> 
+							 <a href="Kanban?idTache=${tacheEnCours.get(val).idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=FAIT">></a>]
+							 </td>
+						</c:if>
+						<c:if test="${ val >= tacheEnCours.size()}">
 							<td></td>
 						</c:if>
-						<c:if test="${tache.status == 'FAIT'}">
+						
+						
+						<c:if test="${ val <tacheFinis.size()}">
+							<td>${tacheFinis.get(val).description} <br/>
+							 ${tacheFinis.get(val).developpeur.nom} ${tacheFinis.get(val).developpeur.prenom}  
+							 [<a href="Kanban?idTache=${tacheFinis.get(val).idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS"><</a>]
+							 </td>
+						</c:if>
+						<c:if test="${ val >= tacheFinis.size()}">
 							<td></td>
-							<td></td>
-							<td>${tache.description}  [${tache.developpeur.nom} ${tache.developpeur.prenom} | <a href="Kanban?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}&status=EN_COURS"><</a>]</td>
 						</c:if>
 					</tr>
 				</c:forEach>
-				<!-- tr>
-					<td>Tache 5 [<a href="#">></a>]</td>
-					<td>Tache 3 [Developpeur 1 | <a href="#"><</a> <a href="#">></a>]</td>
-					<td>Tache 1 [Developpeur 1 | <a href="#"><</a>]</td>
-				</tr>
-				<tr>
-					<td>Tache 6 [<a href="#">></a>]</td>
-					<td>Tache 4 [Developpeur 2 | <a href="#"><</a> <a href="#">></a>]</td>
-					<td>Tache 2 [Developpeur 2 | <a href="#"><</a>]</td>
-				</tr>
-				<tr>
-					<td>Tache 7 [<a href="#">></a>]</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Tache 8 [<a href="#">></a>]</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Tache 9 [<a href="#">></a>]</td>
-					<td></td>
-					<td></td>
-				</tr-->
 			</table>	
 		<br/>
 		
