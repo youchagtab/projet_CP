@@ -91,6 +91,7 @@
 		</table>
 		
 		<br/>
+		<c:if test="${tailleListeLongue!= 0}">
 		<h2>Kanaban</h2>
 			<table class="table1">
 				<tr>
@@ -132,15 +133,20 @@
 					</tr>
 				</c:forEach>
 			</table>	
+		</c:if>
 		<br/>
 		
 		<br/>
-		<h2>Pert</h2>
-		<object type="application/x-java-applet" height="500" width="700">
-		  <param name="code" value="Main" />
-		  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar,commons-logging-1.2.jar,httpclient-4.5.1.jar,httpcore-4.4.4.jar,json-20150729.jar" />
-		  Pert :: Applet failed to run.  No Java plug-in was found.
-		</object>
+		<c:if test="${not empty stringListTaches }">
+			<h2>Pert</h2>
+			<object type="application/x-java-applet" height="500" width="700">
+			  <param name="code" value="Main" />
+			  <param name="stringListTaches" value="${stringListTaches}"/>
+			  <param name="stringListDependance" value="${stringListDependance}"/>
+			  <param name="archive" value="pert.jar,jgrapht-core-0.9.1.jar,jgrapht-ext-0.9.2.jar,jgraphx-1.10.1.3.jar" />
+			  Pert :: Applet failed to run.  No Java plug-in was found.
+			</object>
+		</c:if>	
 		<br/>
 		
 	 <c:if test="${Ganttexist == true}">

@@ -30,6 +30,7 @@ import dao.SprintDAOimpl;
 import dao.TacheDAOimpl;
 import dao.UserStoryDAOimpl;
 import dao.UtilisateurDAOimpl;
+import util.TacheUtils;
 @WebServlet("/Sprint")
 public class Sprint extends HttpServlet {
 
@@ -162,7 +163,12 @@ public class Sprint extends HttpServlet {
 		request.setAttribute("GanttParIdCollaborateur", ganttParIdCollaborateur);
 		}
 		request.setAttribute("Ganttexist", exist);
-			
+		
+		
+		//PERT
+		List<Tache> listTaches = tacheDAO.listerTache(Integer.parseInt(idSprint));
+		request.setAttribute("stringListTaches", TacheUtils.tacheListToString(listTaches));
+		request.setAttribute("stringListDependance",TacheUtils.tacheListDependanceToString(listTaches));
 		
 		
 		
