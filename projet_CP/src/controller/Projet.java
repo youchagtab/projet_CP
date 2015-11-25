@@ -34,6 +34,7 @@ public class Projet extends HttpServlet {
 	public static final String ATT_USER_STORIES = "userStories";
 	public static final String TOTAL_DIFFICULTeS = "totalDifficultes";
 	public static final String LIST_POINTS_DIFFICULTeS = "listPointsDifficultes";
+	public static final String DERNIER_POINT = "dernierPoint";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -92,18 +93,23 @@ public class Projet extends HttpServlet {
 		List<Integer> pointsDifficulte=new ArrayList<Integer>();
 		pointsDifficulte.add(totalDiffucultes);
 
+		int totalDiffSprints=0;
 
 		Iterator<Sprint> iter3 = sprints.iterator();
 		while (iter3.hasNext()) {
 			int diff= userStoryDAO.getTotalDifficultesParSprint(iter3.next().getIdSprint());
 			if(diff != 0){
+				totalDiffSprints+=diff;
 				totalDiffucultes=totalDiffucultes-diff;
 				pointsDifficulte.add(totalDiffucultes);
-			} else{
-				pointsDifficulte.add(null);
-			}
+			} 
 		}
+		
+		int totalDifficultRestantes=pointsDifficulte.get(pointsDifficulte.size()-1);
 
+		double dernierPoint=(double)((pointsDifficulte.size()-1)* totalDifficultRestantes) / totalDiffSprints;
+		
+		request.setAttribute(DERNIER_POINT,dernierPoint);
 		request.setAttribute(TOTAL_DIFFICULTeS, totalDiffucultes);
 		request.setAttribute(LIST_POINTS_DIFFICULTeS, pointsDifficulte);
 

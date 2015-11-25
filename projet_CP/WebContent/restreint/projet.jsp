@@ -17,25 +17,28 @@ google.setOnLoadCallback(drawChart);
 
 function drawChart() {
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Sprints');
-    data.addColumn('number', 'Tendance previsionnelle');
-    data.addColumn('number', 'Tendance réelle');
+    data.addColumn('number', 'Sprints');
+    data.addColumn('number', 'Tendance');
+    data.addColumn('number', 'Difficultés');
 
     //recuperation de donnees
     var listePointsDifficultes=${listPointsDifficultes};
     
+    var dernier=${dernierPoint};
+    
     //ajout des donnees
-    var numRows = listePointsDifficultes.length;      
+    var numRows = listePointsDifficultes.length; 
   
     for (var i = 0 ; i < numRows; i++) {
         if(i==0){
-     	   data.addRow(["sprint "+(i+1), listePointsDifficultes[i], listePointsDifficultes[i]]); 
-        }else if(i==(numRows-1)){
-     	   data.addRow(["sprint "+(i+1), 0, listePointsDifficultes[i]]); 
+     	   data.addRow([ i, listePointsDifficultes[i], listePointsDifficultes[i]]); 
         }else{
-     	   data.addRow(["sprint "+(i+1), null, listePointsDifficultes[i]]); 
+     	   data.addRow([ i, null, listePointsDifficultes[i]]); 
         }
     }
+    
+    data.addRow([ (dernier+numRows)-1, 0, null]);
+   
     	
     var options = {
         title: 'Burn down chart',
