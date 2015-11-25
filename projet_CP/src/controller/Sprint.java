@@ -16,7 +16,9 @@ import org.apache.xalan.xsltc.compiler.sym;
 import beans.Tache;
 import beans.UserStory;
 import beans.Utilisateur;
+import dao.GanttEffectifDAOImpl;
 import dao.GanttPrevisionelDAOimpl;
+import dao.IGanttEffectifDAO;
 import dao.IGanttPrevisionelDAO;
 import dao.IProjetDAO;
 import dao.IProjetUtilisateurDAO;
@@ -112,7 +114,7 @@ public class Sprint extends HttpServlet {
 		IProjetUtilisateurDAO projetUtilisateurDAO = new ProjetUtilisateurDAOimpl(); 
 		List<Integer> idCollaborateur = projetUtilisateurDAO.listerIdUtilisateurs(Integer.parseInt(idProjet));
 	
-		
+		//Gantt Previsionnel
 		IGanttPrevisionelDAO ganttPrevisionelDAO = new GanttPrevisionelDAOimpl();
 		boolean exist =ganttPrevisionelDAO.exist(Integer.parseInt(idSprint));
 		if(exist){
@@ -164,6 +166,57 @@ public class Sprint extends HttpServlet {
 		}
 		request.setAttribute("Ganttexist", exist);
 		
+		//Gantt Effectif
+		IGanttEffectifDAO ganttEffectifDAO = new GanttEffectifDAOImpl();
+		boolean existEff =ganttEffectifDAO.exist(Integer.parseInt(idSprint));
+		if(existEff){
+			
+		HashMap<Integer, List<Tache>> ListTachedeIdCollaborateur = new HashMap<Integer, List<Tache>>();
+		
+		int maxdate =0;
+		for(Integer i:idCollaborateur){
+			List<Tache>tachesPartielDuGantt = ganttEffectifDAO.recuperer(Integer.parseInt(idSprint),i);
+			List<Tache>tachesDuGantt = new ArrayList<Tache>();
+			for(Tache t: tachesPartielDuGantt){
+				Tache tacheTotale = tacheDAO.recupererTache(t.getIdTache());
+				tacheTotale.setDebut(t.getDebut());
+				tacheTotale.setDuree(t.getDuree());
+				if(maxdate<t.getDebut()+t.getDuree()){
+					maxdate = t.getDebut()+t.getDuree();
+				}
+				tachesDuGantt.add(tacheTotale);
+			}
+			ListTachedeIdCollaborateur.put(i, tachesDuGantt);
+		}
+		
+		HashMap<Integer, Tache[]> ganttParIdCollaborateur = new HashMap<Integer, Tache[]>();
+		for(Integer i:idCollaborateur){
+			Tache[] tableau = new Tache[maxdate];
+			
+			for(int j=0; j<maxdate;j++){
+				Tache vide = new Tache("", "", 0, "", 0);
+			    vide.setDebut(0);
+			    vide.setDuree(1);
+				tableau[j]=vide;
+			}
+			for(Tache t : ListTachedeIdCollaborateur.get(i)){
+				for(int j=t.getDebut();j<t.getDebut()+t.getDuree();j++){
+					tableau[j]=t;
+				}
+			}
+			ganttParIdCollaborateur.put(i, tableau);
+		}
+		IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
+		List<Utilisateur> collaborateurs= new ArrayList<Utilisateur>();
+		for(Integer i:idCollaborateur){
+			Utilisateur c = utilisateurDAO.recupererUtilisateur(i);
+			collaborateurs.add(c);
+		}
+		request.setAttribute("maxdateEff", maxdate);
+		request.setAttribute("collaborateursEff", collaborateurs);
+		request.setAttribute("GanttParIdCollaborateurEff", ganttParIdCollaborateur);
+		}
+		request.setAttribute("GanttexistEff", existEff);		
 		
 		//PERT
 		List<Tache> listTaches = tacheDAO.listerTache(Integer.parseInt(idSprint));

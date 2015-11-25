@@ -151,7 +151,7 @@
 		
 	 <c:if test="${Ganttexist == true}">
      <br />
-     <h2>Gantt</h2>
+     <h2>Gantt Previsionnel</h2>
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>
@@ -180,7 +180,41 @@
 		</c:forEach>
 	</table>
 	</c:if>
-
+	
+	<br/>
+	
+	<c:if test="${GanttexistEff == true}">
+     <br />
+     <h2>Gantt Effectif</h2>
+	<table class="table1">
+		<tr>
+			<td class="thprojet">Developeur</td>
+			<c:forEach begin="0" end="${maxdateEff-1}" var="val">
+				<td class="thprojet"><c:out value="${val}" /></td>
+			</c:forEach>
+		<tr />
+		<c:forEach var="utilisateur" items="${ collaborateursEff }">
+			<tr>
+				<td>${ utilisateur.getNom()}</td>
+				<c:forEach begin="0" end="${maxdateEff-1}" var="val">
+				<c:if test="${val==0}">
+				   <td colspan="${GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	 <c:out value="${GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		           </td>
+				</c:if>
+				<c:if test="${val!=0}">
+					<c:if test="${GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val] != GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val-1]}">
+				         <td colspan="${GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val].getDuree() }" >
+		              	      <c:out value="${GanttParIdCollaborateurEff.get(utilisateur.getIdUtilisateur())[val].getTag()}"/>
+		              	 </td>
+					</c:if>
+				</c:if>
+				
+                </c:forEach>
+		</c:forEach>
+	</table>
+	</c:if>
+	
 	</div>
 
 	<br>
