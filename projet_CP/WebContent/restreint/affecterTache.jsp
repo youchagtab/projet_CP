@@ -27,45 +27,94 @@
 
 	<br />
 	<div class="div-conteneur" id="div-ajoutTache">
-		<h3>Affecter la tâche : </h3>
-
-
-		<form action="AffectationTache" method="post">
-			<table class="table1">
-				<tr>
-					<td>Tâche :</td>
-					<td>
-						<c:out value="${tache.description}"/>
-					</td>
-				</tr>
-				<tr>
-					<td>Développeur :</td>
-					<td>
-						<select name="idUtilisateur">
-							<c:forEach var="developpeur" items="${developpeurs}">
-								<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Debut :</td>
-					<td><input type="text" name="debut"/></td>
-				</tr>
-				<tr>
-					<td>Durée :</td>
-					<td><input type="text" name="duree"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
-						<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
-						<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
-						<input type="submit" value="Affecter" class="input-bouton" /> 
-						<input type="reset" value="Effacer" class="input-bouton" /></td>
-				</tr>
-			</table>
-		</form>
+		<h3>Affectation : </h3>
+		
+		<table class="table1">
+			<tr>
+				<th>Gantt Prévisionnel</th>
+				<th></th>
+				<th>Gantt Effectif</th>
+			</tr>
+			<tr>
+				<td><!-- GANTT PREVISIONELLE -->
+					<form action="AffectationTache" method="post">
+						<table class="table1">
+							<tr>
+								<td>Tâche :</td>
+								<td>
+									<c:out value="${tache.description}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>Développeur :</td>
+								<td>
+									<select name="idUtilisateur">
+										<c:forEach var="developpeur" items="${developpeurs}">
+											<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
+										</c:forEach>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Debut :</td>
+								<td><input type="text" name="debut"/></td>
+							</tr>
+							<tr>
+								<td>Durée :</td>
+								<td><input type="text" name="duree"/></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
+									<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
+									<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
+									<input type="submit" value="Affecter" class="input-bouton" /> 
+									<input type="reset" value="Effacer" class="input-bouton" /></td>
+							</tr>
+						</table>
+					</form>
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><!-- GANTT EFFECTIF -->
+					<form action="AffectationTacheEff" method="post">
+						<table>
+							<tr>
+								<td>Tâche :</td>
+								<td>
+									<c:out value="${tache.description}"/>
+								</td>
+							</tr>
+							<tr>
+								<td>Développeur :</td>
+								<td>
+									<select name="idUtilisateur">
+										<c:forEach var="developpeur" items="${developpeurs}">
+											<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
+										</c:forEach>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Debut :</td>
+								<td><input type="text" name="debut"/></td>
+							</tr>
+							<tr>
+								<td>Durée :</td>
+								<td><input type="text" name="duree"/></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
+									<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
+									<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
+									<input type="submit" value="Affecter" class="input-bouton" /> 
+									<input type="reset" value="Effacer" class="input-bouton" /></td>
+							</tr>
+						</table>
+					</form>					
+				</td>
+			</tr>
+		</table>
 
 	</div>
 
