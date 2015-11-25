@@ -31,7 +31,7 @@ public class SupprimerDependanceEntreTaches extends HttpServlet {
 		ITacheDAO tacheDAO =new TacheDAOimpl();
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idTache = Integer.parseInt(request.getParameter("idTache"));
-		
+		if(request.getParameterValues("tachescheckbox")!= null){
 		String[] taches = request.getParameterValues("tachescheckbox");
 		for(String t : taches)
 		{
@@ -39,6 +39,7 @@ public class SupprimerDependanceEntreTaches extends HttpServlet {
 			
 			tacheDAO.supprimer(idTache, Integer.parseInt(t));
 			
+		}
 		}
 		response.sendRedirect("DependanceEntreTaches?idSprint="+idSprint+"&idTache="+idTache);
 		

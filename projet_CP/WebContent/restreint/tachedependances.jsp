@@ -12,19 +12,12 @@
 </head>
 <body>
 
-	<header>
+	
 		<%@ include file="header.jsp" %>
-	</header>
-	<nav id="barre-menus" class="nav-conteneur">
-		<ul>
-			<li><a href="accueil.jsp" class="menu-horizontale">accueil</a></li>
-			<li><a href="../restreint/ajouterprojet.jsp" class="menu-horizontale">ajouter un projet</a></li>
-			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact  </a></li>
-		</ul>
-	</nav>
+	
 	<div>
-		<h2>Projet : <c:out value="${projet.description}"/></h2>
-		<h2>Tâche : <c:out value="${tache.description}"/></h2>
+		
+		<h2>Tâche : ${tache.description} </h2>
 		<table class="table1">
 			<tr>
 				<td class="thprojet">Liste des tâches</td>

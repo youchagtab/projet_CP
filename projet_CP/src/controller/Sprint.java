@@ -83,6 +83,7 @@ public class Sprint extends HttpServlet {
 		
 		
 		request.setAttribute("sprint", sprint);
+	
 		request.setAttribute("projet", projet);
 		
 		List<Tache> aFaire = tacheDAO.listerTache(Integer.parseInt(idSprint), "A_FAIRE");

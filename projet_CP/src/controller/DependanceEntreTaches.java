@@ -60,8 +60,14 @@ public class DependanceEntreTaches extends HttpServlet {
 		request.setAttribute(ATT_TACHES_DEP, tachesDep);
 		
 		request.setAttribute("sprint", sprint);
-		request.setAttribute("ATT_TACHE ", tache);
-		
+		request.setAttribute(ATT_TACHE, tache);
+		System.out.println("tache:" + tache.getDescription());
+		/*
+		String idProjet = request.getParameter("PARAM_ID_PROJET");
+		IProjetDAO projetDAO = new ProjetDAOimpl();
+		beans.Projet projet = projetDAO.recupererProjet(Integer.parseInt(idProjet));
+		request.setAttribute("projet ", projet);
+		*/
 		
 		
 		
@@ -74,7 +80,7 @@ public class DependanceEntreTaches extends HttpServlet {
 		ITacheDAO tacheDAO =new TacheDAOimpl();
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idTache = Integer.parseInt(request.getParameter("idTache"));
-		
+		if(request.getParameterValues("tachescheckbox")!= null){
 		String[] taches = request.getParameterValues("tachescheckbox");
 		for(String t : taches)
 		{
@@ -84,7 +90,7 @@ public class DependanceEntreTaches extends HttpServlet {
 			
 			
 		}
-		
+		}
 		response.sendRedirect("DependanceEntreTaches?idSprint="+idSprint+"&idTache="+idTache);
 
 	}

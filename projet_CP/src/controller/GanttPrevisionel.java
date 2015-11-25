@@ -49,6 +49,7 @@ public class GanttPrevisionel extends HttpServlet {
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idUtilisateur =Integer.parseInt(request.getParameter("idUtilisateur"));
 		int idTache = Integer.parseInt(request.getParameter("idTache"));
+		if(request.getParameter("debut") != null && request.getParameter("duree")!=null && !request.getParameter("debut").isEmpty() && !request.getParameter("duree").isEmpty()){
 		int debut = Integer.parseInt(request.getParameter("debut"));
 		int duree = Integer.parseInt(request.getParameter("duree"));
 		
@@ -59,6 +60,7 @@ public class GanttPrevisionel extends HttpServlet {
 				+ "duree : "+duree);
 		
 		ganttDAO.ajouter(idSprint, idUtilisateur, idTache, debut, duree);
+		}
 		response.sendRedirect("Sprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}
 

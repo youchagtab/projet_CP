@@ -10,20 +10,10 @@
 </head>
 <body>
 
-	<header>
+	
 		<%@ include file="header.jsp" %>
 
-	</header>
-	<nav id="barre-menus" class="nav-conteneur">
-		<ul>
-			<li><a href="accueil.jsp" class="menu-horizontale">accueil</a></li>
-			<li><a href="../restreint/ajouterprojet.jsp"
-				class="menu-horizontale">ajouter un projet</a></li>
-			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact
-			</a></li>
-		</ul>
-	</nav>
-
+	
 	<br />
 
 	<div class="div-conteneur" id="div-modifTache">

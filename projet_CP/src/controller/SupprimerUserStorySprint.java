@@ -27,6 +27,8 @@ public class SupprimerUserStorySprint extends HttpServlet {
 		IUserStoryDAO userStoryDAO = new UserStoryDAOimpl();
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
+		
+		if(request.getParameterValues("userstories") != null){
 		String[] idUserStories = request.getParameterValues("userstories");
 		for(String idUserStory : idUserStories)
 		{
@@ -35,6 +37,7 @@ public class SupprimerUserStorySprint extends HttpServlet {
 			
 		}
 		System.out.println(">>> "+idUserStories.length);
+		}	
 		response.sendRedirect("AjouterUserStorySprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}
 

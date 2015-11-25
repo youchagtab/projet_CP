@@ -69,14 +69,17 @@ public class AjouterUserStorySprint extends HttpServlet {
 		IUserStoryDAO userStoryDAO = new UserStoryDAOimpl();
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
-		String[] idUserStories = request.getParameterValues("userstories");
-		for(String idUserStory : idUserStories)
+		if(request.getParameterValues("userstories") != null)
 		{
-			System.out.println(Integer.parseInt(idUserStory)+" > "+idSprint);
-			userStoryDAO.ajouterUserStoryToSprint(idSprint, Integer.parseInt(idUserStory));
-			
+			String[] idUserStories = request.getParameterValues("userstories");
+			for(String idUserStory : idUserStories)
+			{
+				System.out.println(Integer.parseInt(idUserStory)+" > "+idSprint);
+				userStoryDAO.ajouterUserStoryToSprint(idSprint, Integer.parseInt(idUserStory));
+				
+			}
+			System.out.println(">>> "+idUserStories.length);
 		}
-		System.out.println(">>> "+idUserStories.length);
 		response.sendRedirect("AjouterUserStorySprint?idSprint="+idSprint+"&idProjet="+idProjet);
 	}
 }

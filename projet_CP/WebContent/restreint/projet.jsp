@@ -54,7 +54,7 @@ function drawChart() {
 </script>
 <script type="text/javascript">
 	function confirmer(url) {
-		var repo = confirm("etes vous sure de vouloir supprimer cet user story?");
+		var repo = confirm("etes vous sure de vouloir supprimer cette user story?");
 		if (repo == true) {
 			document.location = url;
 		}
@@ -63,19 +63,10 @@ function drawChart() {
 </head>
 <body>
 
-	<header>
-		<%@ include file="header.jsp"%>
+	
+<%@ include file="header.jsp"%>
 
-	</header>
-	<nav id="barre-menus" class="nav-conteneur">
-		<ul>
-			<li><a href="../restreint/acceuil.jsp" class="menu-horizontale">accueil</a></li>
-			<li><a href="../restreint/ajouterprojet.jsp"
-				class="menu-horizontale">ajouter un projet</a></li>
-			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact
-			</a></li>
-		</ul>
-	</nav>
+	
 
 	<h2 id="h2-projet">
 		Projet :
@@ -87,7 +78,7 @@ function drawChart() {
 
 		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
-			class="menu-ppale">Ajouter une US</a> <br /> &nbsp; <a
+			class="menu-ppale">Ajouter une US</a>  &nbsp; <a
 			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
 			class="menu-ppale">Collaborateurs</a> <br /> <br />
 		<article>
@@ -128,9 +119,6 @@ function drawChart() {
 					id="a-afficherSprint" class="a-sprint">sprint ${sprint.numero}</a>
 
 			</c:forEach>
-
-			<br> <a href="AjouterSprint1" class="a-afficherSprintTest"
-				class="a-sprint">sprint test</a>
 
 		</aside>
 	</section>

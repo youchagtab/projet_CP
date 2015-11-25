@@ -12,17 +12,10 @@
 </head>
 <body>
 
-	<header>
+	
 
 		<%@ include file="header.jsp" %>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="restreint/accueil.jsp">accueil</a></li>
-			<li><a href="restreint/ajouterprojet.jsp">ajouter un projet</a></li>
-			<li><a href="restreint/contacts.jsp">contact </a></li>
-		</ul>
-	</nav>
+
 	<div>
 
 

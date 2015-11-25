@@ -35,6 +35,9 @@ public class AjouterTache extends HttpServlet {
 		int idSprint = Integer.parseInt(request.getParameter("idSprint"));
 		int idProjet = Integer.parseInt(request.getParameter("idProjet"));
 		int idUS = Integer.parseInt(request.getParameter("idUserStory"));
+		
+		if(request.getParameter("description") != null && request.getParameter("cout")!= null && request.getParameter("tag") != null && !request.getParameter("description").isEmpty() && !request.getParameter("cout").isEmpty() && !request.getParameter("tag").isEmpty() ){
+		
 		String description = request.getParameter("description");
 		int cout = Integer.parseInt(request.getParameter("cout"));
 		String tag = request.getParameter("tag");
@@ -45,7 +48,9 @@ public class AjouterTache extends HttpServlet {
 		tacheDAO.ajouterTacheSprint(idSprint,tache.getIdTache());
 		
 		
+		}
 		response.sendRedirect("Sprint?idSprint="+idSprint+"&idProjet="+idProjet);
-	}
+		
+		}
 
 }

@@ -18,16 +18,11 @@
 
 </head>
 <body>
-	<header>
-		<%@ include file="header.jsp" %>
+	
+<%@ include file="header.jsp" %>
 
-	</header>
-	<nav id="barre-menus" class="nav-conteneur">
-		<ul>
-			<li><a href="../restreint/ajouterprojet.jsp" class="menu-horizontale">ajouter un projet</a></li>
-			<li><a href="../restreint/contacts.jsp" class="menu-horizontale">contact  </a></li>
-		</ul>
-	</nav>
+
+
 
 	<br>
 	<br>
