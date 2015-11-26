@@ -223,10 +223,10 @@ public class TestBD {
 		
 		ICommitDAO commitDAO = new CommitDAOImpl();
 		commitDAO.ajouter(c1);
-		commitDAO.ajouter(c2);
-		//c1.setDescription("Modification 1");
-		//commitDAO.modifier(c1);
-		
+		//commitDAO.ajouter(c2);
+		c1.setDescription("Modification 1");
+		commitDAO.modifier(c1);
+		//Commit c = commitDAO.recuperer(20);
 		List<Commit> l = commitDAO.recupererListCommit(0);
 		
 		for(Commit c: l){

@@ -49,6 +49,7 @@ public class CommitDAOImpl implements ICommitDAO {
 			ps.setInt(2, commit.getIdTache());
 			ps.setString(3, commit.getDescription());
 			ps.setInt(4, commit.getId());
+			ps.executeUpdate();
 			ps.close();
 
 		} catch (SQLException e) {
@@ -78,7 +79,7 @@ public class CommitDAOImpl implements ICommitDAO {
 		Commit c = null;
 		try {
 			PreparedStatement ps = connection.prepareStatement(
-					"SELECT * FROM CP_Commmit WHERE idCommit = ?");
+					"SELECT * FROM CP_Commit WHERE idCommit = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
