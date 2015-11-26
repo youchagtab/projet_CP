@@ -64,7 +64,8 @@ input {
 
 body {
 	background-color: #F0FAFF;
-	margin: 0%;
+	padding: auto;
+	margin:auto;
 	height: 100%;
 	width: 100%;
 }
@@ -87,10 +88,12 @@ img {
 
 footer {
 	text-align: center;
-	font-size: 10px;
-	background-color: #FFD6CC;
+	font-size: 15px;
+	background-color: #003366;
 	margin: 0%;
 	bottom: 0%;
+	padding: 60px 40px 60px 60px;
+	color : white;
 }
 
 a.menu-ppale:link {

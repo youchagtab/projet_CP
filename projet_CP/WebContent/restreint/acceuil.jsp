@@ -48,13 +48,10 @@
 			</c:forEach>
 		</table>
 	</div>
-	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action" id="input-deconnexion" class="input-bouton"/>
-	</form>
+
     <br> <br><br><br><br><br><br>
-	
-	
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer>
+    
+    <%@ include file="footer.jsp" %>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-		<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 
 	<br />
 	<div class="div-conteneur" id="div-ajoutProjet">
@@ -34,10 +35,15 @@
 			</table>
 		</form>
 	</div>
-	    <br> <br><br><br><br><br><br>
-	
-	
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

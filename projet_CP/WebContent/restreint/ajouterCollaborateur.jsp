@@ -12,10 +12,10 @@
 <body>
 
 
-<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 
-	
-	
+
+
 
 
 
@@ -23,7 +23,7 @@
 	<div class="div-conteneur" id="div-ajoutCollaborateur">
 		<h3>Ajouter un collaborateur</h3>
 
-        <table class="table1">
+		<table class="table1">
 			<tr>
 				<td class="thprojet">Liste des Utilisateurs</td>
 				<td class="thprojet">Collaborateurs du projet</td>
@@ -31,29 +31,43 @@
 			<tr>
 				<!-- Form ajouter un utilisateur au projet -->
 				<td>
-					<form action="AjouterCollaborateurs?idProjet=${projet.idProjet}" method="post">
+					<form action="AjouterCollaborateurs?idProjet=${projet.idProjet}"
+						method="post">
 						<c:forEach var="utilisateur" items="${utilisateurs}">
-								
-						<p > <c:out value="${utilisateur.nom}" /> <input type="checkbox" name="ajoutUtilisateurs" value="<c:out value="${utilisateur.idUtilisateur}"/>"/></p>
+
+							<p>
+								<c:out value="${utilisateur.nom}" />
+								<input type="checkbox" name="ajoutUtilisateurs"
+									value="<c:out value="${utilisateur.idUtilisateur}"/>" />
+							</p>
 						</c:forEach>
-						<p><input type="submit" value=">>>>>"/></p>
+						<p>
+							<input type="submit" value=">>>>>" />
+						</p>
 					</form>
 				</td>
 				<!-- Form supprimer utilisateur du du projet -->
 				<td>
-					<form action="SupprimerCollaborateurs?idProjet=${projet.idProjet}" method="post">
-					    <c:forEach var="collaborateur" items="${collaborateurs}">
-						    <p><c:out value="${collaborateur.nom}" /> <input type="checkbox" name="ajoutCollaborateurs" value="<c:out value="${collaborateur.idUtilisateur}"/>"/></p>
+					<form action="SupprimerCollaborateurs?idProjet=${projet.idProjet}"
+						method="post">
+						<c:forEach var="collaborateur" items="${collaborateurs}">
+							<p>
+								<c:out value="${collaborateur.nom}" />
+								<input type="checkbox" name="ajoutCollaborateurs"
+									value="<c:out value="${collaborateur.idUtilisateur}"/>" />
+							</p>
 						</c:forEach>
-						<p><input type="submit" value="<<<<<"/></p>
+						<p>
+							<input type="submit" value="<<<<<" /></p>
 					</form>
 				</td>
 			</tr>
 		</table>
 
-		
-	<br><br>
-		
+
+		<br>
+		<br>
+
 	</div>
 
 
@@ -63,8 +77,8 @@
 	<br>
 	<br>
 	<br>
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> 
+
+	<%@ include file="footer.jsp" %>
 	
 
 </body>

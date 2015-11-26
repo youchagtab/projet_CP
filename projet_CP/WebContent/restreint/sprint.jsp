@@ -83,7 +83,7 @@
 		
 		<br/>
 		<c:if test="${tailleListeLongue!= 0}">
-		<h2>Kanaban</h2>
+		<h2>Kanban</h2>
 			<table class="table1">
 				<tr>
 					<th>A FAIRE</th>
@@ -211,14 +211,10 @@
 	<br>
 	<br>
 	<br>
-	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action" />
-	</form>
 	<br>
 	<br>
 	<br>
-	 <footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> 
+	 <%@ include file="footer.jsp" %>
 	
 
 </body>

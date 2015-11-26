@@ -10,8 +10,8 @@
 </head>
 <body>
 
-	
-		<%@ include file="header.jsp" %>
+
+	<%@ include file="header.jsp"%>
 
 
 	<br />
@@ -23,25 +23,25 @@
 			<table class="table1">
 				<tr>
 					<td>Description :</td>
-					<td>
-						<textarea name="description"></textarea>
-					</td>
+					<td><textarea name="description"></textarea></td>
 				</tr>
 				<tr>
 					<td>Tag :</td>
-					<td><input type="text" name="tag"/></td>
+					<td><input type="text" name="tag" /></td>
 				</tr>
 				<tr>
 					<td>Coût :</td>
-					<td><input type="text" name="cout"/></td>
+					<td><input type="text" name="cout" /></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="hidden" name="idUserStory" value="${param.idUS}" class="input-bouton"> 
-						<input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
-						<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
-						<input type="submit" value="Ajouter" class="input-bouton" /> 
-						<input type="reset" value="Effacer" class="input-bouton" /></td>
+					<td><input type="hidden" name="idUserStory"
+						value="${param.idUS}" class="input-bouton"> <input
+						type="hidden" name="idSprint" value="${param.idSprint}"
+						class="input-bouton"> <input type="hidden" name="idProjet"
+						value="${param.idProjet}" class="input-bouton"> <input
+						type="submit" value="Ajouter" class="input-bouton" /> <input
+						type="reset" value="Effacer" class="input-bouton" /></td>
 				</tr>
 			</table>
 		</form>
@@ -54,9 +54,10 @@
 	<br>
 	<br>
 	<br>
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> 
-	
+
+
+	<%@ include file="footer.jsp"%>
+
 
 </body>
 </html>

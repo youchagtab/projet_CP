@@ -28,7 +28,7 @@ public class Inscription extends HttpServlet {
 	public static final String ATT_SESSION_UTILISATEUR = "utilisateur";
 	public static final String ATT_ERREUR = "erreur";
 	public static final String VUE_INSCRIPTION = "/inscription.jsp";
-	public static final String Vue_Accueil = "/acceuil";
+	public static final String Vue_Accueil = "/restreint/acceuil.jsp";
 
 	IUtilisateurDAO utilisateurDAO = new UtilisateurDAOimpl();
 

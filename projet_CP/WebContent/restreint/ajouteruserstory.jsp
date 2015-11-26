@@ -10,9 +10,9 @@
 </head>
 <body>
 
-	
-		<%@ include file="header.jsp" %>
-	
+
+	<%@ include file="header.jsp"%>
+
 	<br />
 	<div class="div-conteneur" id="div-ajoutUSProjet">
 		<h3>Ajouter une UserStroy</h3>
@@ -51,16 +51,11 @@
 	<br>
 	<br>
 	<br>
-	<form action="deconnexion" method="post">
-		<input type="submit" value="deconnexion" name="action"
-			class="input-bouton" />
-	</form>
 	<br>
 	<br>
 	<br>
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> 
-	
+
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

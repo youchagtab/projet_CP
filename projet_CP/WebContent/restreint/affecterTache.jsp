@@ -11,13 +11,13 @@
 </head>
 <body>
 
-<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 
 
 	<br />
 	<div class="div-conteneur" id="div-ajoutTache">
-		<h3>Affectation : </h3>
-		
+		<h3>Affectation :</h3>
+
 		<table class="table1">
 			<tr>
 				<th>Gantt Prévisionnel</th>
@@ -25,82 +25,82 @@
 				<th>Gantt Effectif</th>
 			</tr>
 			<tr>
-				<td><!-- GANTT PREVISIONELLE -->
+				<td>
+					<!-- GANTT PREVISIONELLE -->
 					<form action="AffectationTache" method="post">
 						<table class="table1">
 							<tr>
 								<td>Tâche :</td>
-								<td>
-									<c:out value="${tache.description}"/>
-								</td>
+								<td><c:out value="${tache.description}" /></td>
 							</tr>
 							<tr>
 								<td>Développeur :</td>
-								<td>
-									<select name="idUtilisateur">
+								<td><select name="idUtilisateur">
 										<c:forEach var="developpeur" items="${developpeurs}">
-											<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
+											<option value="${developpeur.idUtilisateur }">${developpeur.nom }
+												${developpeur.prenom }</option>
 										</c:forEach>
-									</select>
-								</td>
+								</select></td>
 							</tr>
 							<tr>
 								<td>Debut :</td>
-								<td><input type="text" name="debut"/></td>
+								<td><input type="text" name="debut" /></td>
 							</tr>
 							<tr>
 								<td>Durée :</td>
-								<td><input type="text" name="duree"/></td>
+								<td><input type="text" name="duree" /></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
-									<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
-									<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
-									<input type="submit" value="Affecter" class="input-bouton" /> 
+								<td><input type="hidden" name="idSprint"
+									value="${param.idSprint}" class="input-bouton"> <input
+									type="hidden" name="idTache" value="${param.idTache}"
+									class="input-bouton"> <input type="hidden"
+									name="idProjet" value="${param.idProjet}" class="input-bouton">
+									<input type="submit" value="Affecter" class="input-bouton" />
 									<input type="reset" value="Effacer" class="input-bouton" /></td>
 							</tr>
 						</table>
 					</form>
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td><!-- GANTT EFFECTIF -->
+				<td>
+					<!-- GANTT EFFECTIF -->
 					<form action="AffectationTacheEff" method="post">
 						<table>
 							<tr>
 								<td>Tâche :</td>
-								<td>
-									<c:out value="${tache.description}"/>
-								</td>
+								<td><c:out value="${tache.description}" /></td>
 							</tr>
 							<tr>
 								<td>Développeur :</td>
-								<td>
-									<select name="idUtilisateur">
+								<td><select name="idUtilisateur">
 										<c:forEach var="developpeur" items="${developpeurs}">
-											<option value="${developpeur.idUtilisateur }">${developpeur.nom } ${developpeur.prenom }</option>
+											<option value="${developpeur.idUtilisateur }">${developpeur.nom }
+												${developpeur.prenom }</option>
 										</c:forEach>
-									</select>
-								</td>
+								</select></td>
 							</tr>
 							<tr>
 								<td>Debut :</td>
-								<td><input type="text" name="debut"/></td>
+								<td><input type="text" name="debut" /></td>
 							</tr>
 							<tr>
 								<td>Durée :</td>
-								<td><input type="text" name="duree"/></td>
+								<td><input type="text" name="duree" /></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td><input type="hidden" name="idSprint" value="${param.idSprint}" class="input-bouton"> 
-									<input type="hidden" name="idTache" value="${param.idTache}" class="input-bouton"> 
-									<input type="hidden" name="idProjet" value="${param.idProjet}" class="input-bouton"> 
-									<input type="submit" value="Affecter" class="input-bouton" /> 
+								<td><input type="hidden" name="idSprint"
+									value="${param.idSprint}" class="input-bouton"> <input
+									type="hidden" name="idTache" value="${param.idTache}"
+									class="input-bouton"> <input type="hidden"
+									name="idProjet" value="${param.idProjet}" class="input-bouton">
+									<input type="submit" value="Affecter" class="input-bouton" />
 									<input type="reset" value="Effacer" class="input-bouton" /></td>
 							</tr>
 						</table>
-					</form>					
+					</form>
 				</td>
 			</tr>
 		</table>
@@ -113,9 +113,8 @@
 	<br>
 	<br>
 	<br>
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer> 
-	
+
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

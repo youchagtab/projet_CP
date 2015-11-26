@@ -12,12 +12,12 @@
 </head>
 <body>
 
-	
-		<%@ include file="header.jsp" %>
-	
-	<div>
-		
-		<h2>Tâche : ${tache.description} </h2>
+
+	<%@ include file="header.jsp"%>
+
+	<div class="div-conteneur" >
+
+		<h2>Tâche : ${tache.description}</h2>
 		<table class="table1">
 			<tr>
 				<td class="thprojet">Liste des tâches</td>
@@ -28,48 +28,47 @@
 				<td>
 					<form action="DependanceEntreTaches" method="post">
 						<c:forEach var="p" items="${taches}">
-							<p><input type="checkbox" name="tachescheckbox" value="${p.idTache}" />&nbsp;${ p.description }</p>
+							<p>
+								<input type="checkbox" name="tachescheckbox"
+									value="${p.idTache}" />&nbsp;${ p.description }
+							</p>
 						</c:forEach>
-						<p><input type="submit" value=">>>>>"/></p>
-						<input type="hidden" value="${param.idSprint}" name="idSprint"/></p>
-						<input type="hidden" value="${param.idTache}" name="idTache"/></p>
+						<p>
+							<input type="submit" value=">>>>>" />
+						</p>
+						<input type="hidden" value="${param.idSprint}" name="idSprint" />
+						</p>
+						<input type="hidden" value="${param.idTache}" name="idTache" />
+						</p>
 					</form>
 				</td>
 				<!-- Form supprimer tâches from dependance liste -->
 				<td>
 					<form action="SupprimerDependanceEntreTaches" method="post">
 						<c:forEach var="p" items="${ tachesDep}">
-						<p><input type="checkbox" name="tachescheckbox" value="${ p.idTache}" />&nbsp;${ p.description }</p>
-					    </c:forEach>
-						<p><input type="submit" value="<<<<<"/></p>
-						<input type="hidden" value="${param.idSprint}" name="idSprint"/>
-						<input type="hidden" value="${param.idTache}" name="idTache"/>
+							<p>
+								<input type="checkbox" name="tachescheckbox"
+									value="${ p.idTache}" />&nbsp;${ p.description }
+							</p>
+						</c:forEach>
+						<p>
+							<input type="submit" value="<<<<<" /></p>
+						<input type="hidden" value="${param.idSprint}" name="idSprint" />
+						<input type="hidden" value="${param.idTache}" name="idTache" />
 					</form>
 				</td>
 			</tr>
 		</table>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	    <br> <br><br><br><br><br><br>
-	
-	
-	<footer> outil de de gestion de projet réalisé dans
-		le cadre du module Conduite de projet </footer>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	 <%@ include file="footer.jsp" %>
 </body>
 </html>

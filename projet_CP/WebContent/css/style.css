@@ -80,10 +80,13 @@ form .requis {
 
 
 footer{
+ background-color: #003366;
  text-align: center;
- font-size: 10px;
- background-color: #FFD6CC;
+ font-size: 15px;
+ color:white;
+ padding: 60px 40px 60px 60px;
 }
+
 
 
 

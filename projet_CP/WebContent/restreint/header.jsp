@@ -1,7 +1,7 @@
 <header>
 	<img src="img/logo-bdx.png" alt='logo-bdx.img' align="center" />
 	<aside id="tete-aside" class="aside-conteneur">
-		Bienvenu ${utilisateur.nom} ${utilisateur.prenom}&nbsp;
+		${utilisateur.nom} ${utilisateur.prenom}&nbsp;
 		<aside id="tete-menus" class="aside-conteneur">
 			<ul>
 				<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
