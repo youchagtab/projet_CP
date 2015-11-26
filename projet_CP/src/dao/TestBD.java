@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import beans.Commit;
 import beans.Projet;
 import beans.Sprint;
 import beans.Tache;
@@ -14,7 +15,7 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		System.out.println("test bdd");
-		testListerTacheParStatus();
+		testCommit();
 	    //testGranttPrevisionelDAO();
 		/*test sprint*/
 		//testTache();
@@ -214,5 +215,23 @@ public class TestBD {
 			System.out.println("Dev:" +t.getDeveloppeur());
 		}
 		
+	}
+	
+	public static void testCommit(){
+		Commit c1 = new Commit(0, "Test 1", "80002ere5");
+		Commit c2 = new Commit(0, "Test 2", "80002ere5");
+		
+		ICommitDAO commitDAO = new CommitDAOImpl();
+		commitDAO.ajouter(c1);
+		commitDAO.ajouter(c2);
+		//c1.setDescription("Modification 1");
+		//commitDAO.modifier(c1);
+		
+		List<Commit> l = commitDAO.recupererListCommit(0);
+		
+		for(Commit c: l){
+			System.out.println("Commit, id: "+c.getId()+", description: "+c.getDescription()+",numero: "+c.getNumero());
+		}
+		commitDAO.supprimer(c1.getId());
 	}
 }
