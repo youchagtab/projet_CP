@@ -9,7 +9,7 @@ import beans.Projet;
 
 public interface IProjetDAO {
 
-	public void ajouter(Projet projet);
+	public int ajouter(Projet projet);
 	
 	public void supprimer(int idprojet);
 	

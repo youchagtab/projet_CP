@@ -1,15 +1,21 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Projet;
+import beans.Utilisateur;
 import dao.IProjetDAO;
+import dao.IProjetUtilisateurDAO;
 import dao.ProjetDAOimpl;
+import dao.ProjetUtilisateurDAOimpl;
 
 /**
  * Servlet implementation class AjouterProjet
@@ -35,7 +41,15 @@ public class AjouterProjet extends HttpServlet {
 		
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		Projet projet = new Projet(noms, description);
-		projetDAO.ajouter(projet);
+		int idprojet=projetDAO.ajouter(projet);
+		
+		HttpSession session = request.getSession();
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		
+		System.out.println(idprojet+" "+u.getIdUtilisateur());
+		
+		IProjetUtilisateurDAO projetutilisateur = new ProjetUtilisateurDAOimpl();
+		projetutilisateur.ajouter(idprojet, u.getIdUtilisateur());
 		
 		response.sendRedirect(VUE_ACCEUIL);
 	}

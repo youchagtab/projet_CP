@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 <link rel="import" href="entete.jsp" />
-<title>Insert title here</title>
+<title>Ajouter un projet</title>
 </head>
 <body>
 

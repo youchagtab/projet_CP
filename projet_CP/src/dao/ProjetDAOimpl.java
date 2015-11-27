@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class ProjetDAOimpl implements IProjetDAO{
 
 	@Override
-	public void ajouter(Projet projet) {
+	public int ajouter(Projet projet) {
 		Connection conn = SingletonConnection.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(
@@ -31,6 +31,8 @@ public class ProjetDAOimpl implements IProjetDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		return projet.getIdProjet();
 	}
 
 	@Override

@@ -42,7 +42,7 @@
 							</p>
 						</c:forEach>
 						<p>
-							<input type="submit" value=">>>>>" />
+							<input type="submit" value="Ajouter>>>" />
 						</p>
 					</form>
 				</td>
@@ -58,7 +58,7 @@
 							</p>
 						</c:forEach>
 						<p>
-							<input type="submit" value="<<<<<" /></p>
+							<input type="submit" value="<<<Supprimer" /></p>
 					</form>
 				</td>
 			</tr>

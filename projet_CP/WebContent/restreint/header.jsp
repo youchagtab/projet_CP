@@ -7,8 +7,8 @@
 				<li><a href="#" id="menu-ppale" class="menu-ppale">__</a>
 
 					<ul>
-						<li><a href="#" class="menu-ppale">Mes infos test </a></li>
-						<li><a href="#" class="menu-ppale">Mes groupes</a></li>
+						<li><a href="redirection?page=infos" class="menu-ppale">Mes infos</a></li>
+						<li><a href="redirection?page=groupes" class="menu-ppale">Mes groupes</a></li>
 						<li><a href="#" class="menu-ppale">Historique</a></li>
 						<li><form action="deconnexion" method="post">
 								<input type="submit" value="deconnexion" name="action"
@@ -21,7 +21,8 @@
 </header>
 <nav id="barre-menus" class="nav-conteneur">
 	<ul>
-		<li><a href="acceuil" class="menu-horizontale">accueil</a></li>
+     	<li><a href="javascript:history.go(-1)" class="menu-horizontale">Retour</a></li> &nbsp;&nbsp;
+		<li><a href="acceuil" class="menu-horizontale">accueil</a></li>&nbsp;&nbsp;
 		<li><a href="AjouterProjet" class="menu-horizontale">ajouter
 				un projet</a></li>
 
