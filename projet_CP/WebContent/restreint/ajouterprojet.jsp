@@ -17,6 +17,7 @@
 	<br />
 	<div class="div-conteneur" id="div-ajoutProjet">
 		<h3>Ajouter un nouveau projet</h3>
+		<c:out value="${erreur}"></c:out>
 		<form action="AjouterProjet" method="post">
 			<table class="table1">
 				<tr>
