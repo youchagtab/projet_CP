@@ -70,6 +70,8 @@
 															Affecter </a></li>
 													<li><a href="SupprimerAffectation?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}" class="menu-ppale">
 															Supprimer l'affectation </a></li>
+													<li><a href="commit?idTache=${tache.idTache}" class="menu-ppale">
+															liste des commits </a></li>		
 												</ul>
 										</ul>
 									</aside></li>
