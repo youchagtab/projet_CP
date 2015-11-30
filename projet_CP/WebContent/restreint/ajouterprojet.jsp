@@ -28,6 +28,10 @@
 					<td><textarea name="description"></textarea></td>
 				</tr>
 				<tr>
+					<td>Repertoire GitHub (Optionnel) :</td>
+					<td><textarea name="repertoireGitHub"></textarea></td>
+				</tr>
+				<tr>
 					<td></td>
 					<td><input type="submit" value="Ajouter" class="input-bouton" />
 						<input type="reset" value="Effacer	"></td>

@@ -74,8 +74,10 @@
 	</h2>
 
 	<section class="section-conteneur" id="section-projet">
-
-
+<c:if test="${projet.estGitHub() }">
+<a href="ListCommitGitHub?idProjet=${projet.idProjet}" class="menu-ppale"> Commit du GitHub</a>
+</c:if>
+							
 		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
 			class="menu-ppale">Ajouter une US</a> &nbsp; <a
@@ -126,7 +128,6 @@
 	<br>
 	
 	<div id="linechart_material" class="div-conteneur"></div>
-
 
 
 	<br>

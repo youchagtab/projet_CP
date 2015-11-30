@@ -17,25 +17,28 @@
 <br>
 	<br>
 	<br>
+<br>
+	<strong>COMMIT DU GITHUB: </strong> de format Tag_de_la_tache : message
+	<br>
+	<br>
 
-	<div class="div-conteneur" id="div-accueil">
-		&nbsp;<a href="AjouterCommit?idTache=${idTache}&idProjet=${idProjet}" class="menu-ppale">Ajouter un Commit</a> <br/> <br/>
 		<table class="table1">
 			<tr>
 				<th class="thprojet">ID</th>
-				<th class="thprojet">DESCRIPTION</th>
+				<th class="thprojet">DATE</th>
+				<th class="thprojet">AUTHEUR</th>
+				<th class="thprojet">MESSAGE</th>
 				
 			</tr>
-			<c:forEach items="${commits}" var="p">
+			<c:forEach items="${commits}" var="c">
 				<tr>
-
-					<td>${p.numero}</td>
-					<td>${p.description}</td>
-					
+					<td>${c.getSHA1()}</td>
+					<td>${c.getCommitShortInfo().getAuthor().getDate()}</td>
+					<td>${c.getCommitShortInfo().getAuthor().getName()}</td>
+					<td>${c.getCommitShortInfo().getMessage()}</td>
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
 
     <br> <br><br><br><br><br><br>
     

@@ -25,7 +25,7 @@ public class AjouterCommit extends HttpServlet {
 	public static final String PARAM_NUMERO = "numero";
 	public static final String PARAM_ID_COMMIT = "idCommit";
 	public static final String PARAM_ID_TACHE = "idTache";
-
+	public static final String PARAM_ID_PROJET = "idProjet";
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -46,13 +46,14 @@ public class AjouterCommit extends HttpServlet {
 		{
 			String numero = request.getParameter(PARAM_NUMERO);
 			String description = request.getParameter(PARAM_DESCRITPION);
+			String idProjet = request.getParameter(PARAM_ID_PROJET);
 
 			ICommitDAO commitDAO = new CommitDAOImpl();
 			Commit commit = new Commit(idTache, description, numero);
 
 			commitDAO.ajouter(commit);
 			request.setAttribute(PARAM_ID_TACHE, idTache);
-			response.sendRedirect(VUE_COMMIT + "?idTache=" + idTache);
+			response.sendRedirect(VUE_COMMIT + "?idTache=" + idTache +"&idProjet=" + idProjet);
 
 		}
 		else

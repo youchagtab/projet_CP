@@ -31,6 +31,7 @@
 				<tr>
 					<td></td>
 					<td><input type="hidden" name="idTache" value="${param.idTache}"/>
+					    <input type="hidden" name="idProjet" value="${param.idProjet}"/>
 						<input type="submit" value="Ajouter" class="input-bouton" />
 						<input type="reset" value="Effacer	"></td>
 				</tr>
