@@ -27,31 +27,43 @@ public class AjouterProjet extends HttpServlet {
 	public static final String VUE_ACCEUIL = "/projet_CP/acceuil";
 	public static final String PARAM_NOMS = "noms";
 	public static final String PARAM_DESCRIPTION = "description";
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		this.getServletContext().getRequestDispatcher(VUE_AJOUTER_PROJET).forward(request,response);
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		this.getServletContext().getRequestDispatcher(VUE_AJOUTER_PROJET)
+				.forward(request, response);
 	}
 
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		String noms = request.getParameter(PARAM_NOMS);
-		String description = request.getParameter(PARAM_DESCRIPTION);
+		if (request.getParameter(PARAM_NOMS) != null
+				&& request.getParameter(PARAM_DESCRIPTION) != null
+				&& !request.getParameter(PARAM_NOMS).isEmpty()
+				&& !request.getParameter(PARAM_DESCRIPTION).isEmpty()) {
+			String noms = request.getParameter(PARAM_NOMS);
+			String description = request.getParameter(PARAM_DESCRIPTION);
+
+			IProjetDAO projetDAO = new ProjetDAOimpl();
+			Projet projet = new Projet(noms, description);
+			int idprojet = projetDAO.ajouter(projet);
+
+			HttpSession session = request.getSession();
+			Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+
+			System.out.println(idprojet + " " + u.getIdUtilisateur());
+
+			IProjetUtilisateurDAO projetutilisateur = new ProjetUtilisateurDAOimpl();
+			projetutilisateur.ajouter(idprojet, u.getIdUtilisateur());
+			response.sendRedirect(VUE_ACCEUIL);
+			
+		}else{
+			request.setAttribute("erreur", "veuillez remplir tout les champs");
+			this.getServletContext().getRequestDispatcher(VUE_AJOUTER_PROJET)
+			.forward(request, response);
+			
+		}
 		
-		IProjetDAO projetDAO = new ProjetDAOimpl();
-		Projet projet = new Projet(noms, description);
-		int idprojet=projetDAO.ajouter(projet);
-		
-		HttpSession session = request.getSession();
-		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
-		
-		System.out.println(idprojet+" "+u.getIdUtilisateur());
-		
-		IProjetUtilisateurDAO projetutilisateur = new ProjetUtilisateurDAOimpl();
-		projetutilisateur.ajouter(idprojet, u.getIdUtilisateur());
-		
-		response.sendRedirect(VUE_ACCEUIL);
 	}
 
 }
