@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 
+
+
 //import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GitHub;
 
 import beans.Projet;
 import beans.Utilisateur;
@@ -27,7 +32,7 @@ public class AjouterProjet extends HttpServlet {
 	public static final String VUE_ACCEUIL = "/projet_CP/acceuil";
 	public static final String PARAM_NOMS = "noms";
 	public static final String PARAM_DESCRIPTION = "description";
-       
+	public static final String PARAM_GITHUB  = "repertoireGitHub";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		this.getServletContext().getRequestDispatcher(VUE_AJOUTER_PROJET).forward(request,response);
@@ -38,9 +43,18 @@ public class AjouterProjet extends HttpServlet {
 	{
 		String noms = request.getParameter(PARAM_NOMS);
 		String description = request.getParameter(PARAM_DESCRIPTION);
+		String repertoireGitHub = request.getParameter(PARAM_GITHUB);
+		
+		try{
+		GitHub github = GitHub.connectAnonymously();
+		github.getRepository(repertoireGitHub);
+		}catch(IOException e){
+			repertoireGitHub = "";
+		}
 		
 		IProjetDAO projetDAO = new ProjetDAOimpl();
 		Projet projet = new Projet(noms, description);
+		projet.setRepertoireGitHub(repertoireGitHub);
 		int idprojet=projetDAO.ajouter(projet);
 		
 		HttpSession session = request.getSession();

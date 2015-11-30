@@ -15,13 +15,14 @@ public class TestBD {
 
 	public static void main(String[] args) {
 		System.out.println("test bdd");
-		testCommit();
+		//testCommit();
+		
 	    //testGranttPrevisionelDAO();
 		/*test sprint*/
 		//testTache();
 
 		//testTacheDAO();
-		testAjouterTacheSprint();
+		//testAjouterTacheSprint();
 
 		
 
@@ -202,6 +203,8 @@ public class TestBD {
 		if(list_idU.isEmpty())
 			projetDAO.supprimer(idP);
 	}*/
+	
+	
 	
 	public static void testListerTacheParStatus(){
 		ITacheDAO tacheDAO = new TacheDAOimpl();
