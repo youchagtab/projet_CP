@@ -21,13 +21,11 @@ public class ProjetDAOimpl implements IProjetDAO{
 			ps.setString(1, projet.getNoms());
 			ps.setString(2, projet.getDescription());
 			ps.executeUpdate();
+			ResultSet genreatedId= ps.getGeneratedKeys();
+			if( genreatedId.next()){
+				projet.setIdProjet(genreatedId.getInt(1));
+			}
 			ps.close();
-			
-			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT idProjet  FROM CP_Projet WHERE noms='"+projet.getNoms()+"'" );
-			resultat.next();
-			projet.setIdProjet(resultat.getInt("idProjet"));
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
