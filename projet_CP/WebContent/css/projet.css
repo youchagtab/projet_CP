@@ -10,8 +10,6 @@ article, aside.aside-sprintConteneur {
 article {
 	/*width: 625px;*/
 	margin-right: 15px;
-	box-shadow: 0px 2px 5px #1c1a19;
-	border-radius: 5px;
 }
 
 section {
@@ -23,20 +21,18 @@ aside.aside-sprintConteneur {
 	position: relative;
 	width: 235px;
 	/*background-color: #706b64;*/
-	box-shadow: 0px 2px 5px #1c1a19;
-	border-radius: 5px;
 	padding: 10px;
 	font-size: 0.9em;
-	background-color: #003366;
+	border: 1px dotted gray;
+
 }
 
 a.a-sprint {
 	text-decoration: none;
-	border-radius: 5px;
 	text-align: center;
-	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 -1px 0
-		rgba(255, 255, 255, 0.4);
+	border: 1px dotted gray;
+
+
 }
 
 
@@ -59,8 +55,5 @@ section#section-projet{
 	text-align: center;
 	padding:10%;
 	margin:auto;
-	border-radius: 5px;
 	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 -1px 0
-		rgba(255, 255, 255, 0.4);
 }

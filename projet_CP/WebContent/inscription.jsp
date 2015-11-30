@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/erreurs.css" />
 <link type="text/css" rel="stylesheet" href="css/style_connexion.css" />
+<link rel="stylesheet" type="text/css" href="./css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 </head>
 <body>
@@ -27,10 +28,6 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-
 	<div class="autour">
 		<br> <br> <br>
 

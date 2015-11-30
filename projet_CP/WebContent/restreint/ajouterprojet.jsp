@@ -30,7 +30,7 @@
 				<tr>
 					<td></td>
 					<td><input type="submit" value="Ajouter" class="input-bouton" />
-						<input type="reset" value="Effacer	"></td>
+						<input type="reset" value="Effacer" class="input-bouton"></td>
 				</tr>
 			</table>
 		</form>

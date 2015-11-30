@@ -1,166 +1,156 @@
 @CHARSET "UTF-8";
 
-
 /*------------------------------------barre des menus---------------------------------------------*/
-#barre-menus ul{
-
+#barre-menus ul {
 	padding: 0px;
 	margin: 0px;
-	list-style-type:none;
-	
+	list-style-type: none;
 }
 
-#barre-menus li{
-  display:inline-block;
+#barre-menus li {
+	display: inline-block;
 }
 
-#barre-menus{
- text-align: center; 
- background-color: #8f5902; 
- text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
- box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
- margin-left:0%;
- margin-right:0%;
+nav#barre-menus {
+	text-align: center;
+	background-color: #8f5902;
+	margin-left: 0%;
+	margin-right: 0%;
+	line-height: 50px;
 }
 
-a.menu-horizontale{
-	border-radius: 5px;
-	text-decoration:none;
-	text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
-    box-shadow: 0 0 5px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.4);
-	color:white;
+ul#ul-horizontale {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
 }
 
-a.menu-horizontale:hover{
-	color:white;
+a.menu-horizontale {
+	padding-left:15px;
+	padding-right:15px;
+	display: block;
+	line-height: 50px;
+	background: #8f5902;
+	color: #8f5902;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+}
+
+a.menu-horizontale:hover {
+	color: white;
 	background-color: #c17d11;
 }
 
 
-
 /*---------------------------menus utilisateur----------------------------------------------------*/
-#tete-menus ul{
+#tete-menus ul {
 	padding: 0px;
 	margin: 0px;
-	
 }
 
-#tete-menus ul #menu-ppale{
-background: url("../img/icone-portrait.gif");
-background-repeat:no-repeat;
+#tete-menus ul #menu-ppale {
+	background: url("../img/icone-portrait.gif");
+	background-repeat: no-repeat;
 }
 
-
-#tete-menus li{
-	list-style-type:none;
-	position:relative;
+#tete-menus li {
+	list-style-type: none;
+	position: relative;
 	background-color: #999;
 	;
 }
 
-
-
-#tete-menus ul li ul a{
-	display :block;
-	text-align:center;
-	width:145px;
-	height:30px;
-	color:#003366;
-	
+#tete-menus ul li ul a {
+	display: block;
+	text-align: center;
+	width: 145px;
+	height: 30px;
+	color: #003366;
+	background-color:#999;
 }
 
-#tete-menus ul ul{
+#tete-menus ul ul {
 	position: absolute;
-	top:20px;
-	visibility:hidden;
-	
+	top: 20px;
+	visibility: hidden;
 	/*derouler le menu à gauche*/
-    right:0px;
-
+	right: 0px;
 }
 
-#tete-menus ul li:hover ul{
-	visibility:visible;
-
+#tete-menus ul li:hover ul {
+	visibility: visible;
 }
 
-#tete-menus li:hover{
-	background-color: #FFF;
-} 
-
-#tete-menus ul li ul a:hover{
-	color:#FFF;
-	background-color:#003366;
+#tete-menus li:hover {
+	background-color: #003366;
 }
 
-
+#tete-menus ul li ul a:hover {
+	color: #FFF;
+	background-color: #003366;
+}
 
 /* --------------------------liste des us pour selection dans le sprint ------------------------------*/
-
-#liste-us ul{
-	list-style-type:none;
+#liste-us ul {
+	list-style-type: none;
 }
-
-
-
 
 /*-------------------------------------menus des taches ( à optimiser)---------------------------------*/
-
-#taches-menus ul{
+#taches-menus ul {
 	padding: 0px;
 	margin: 0px;
-	
 }
 
-a.menu-Sprint{
-background: url("../img/icone_modifier.gif");
-background-repeat:no-repeat;
-color:white;
-text-decoration:none;
+a.menu-Sprint {
+	background: url("../img/icone_modifier.gif");
+	background-repeat: no-repeat;
+	color: white;
+	text-decoration: none;
 }
 
 
-#taches-menus li{
-	list-style-type:none;
-	position:relative;
+
+#taches-menus li {
+	list-style-type: none;
+	position: relative;
 	background-color: #FFF;
 	;
 }
 
-
-
-#taches-menus ul li ul a{
-	display :block;
-	text-align:center;
-	width:250px;
-	height:30px;
-	color:#003366;
-	
-}
-
-#taches-menus ul ul{
-	position: absolute;
-	
-	/*decalage vers le bas*/
-	top:5px;
-	visibility:hidden;
-	
-	/*decalage le menu à gauche*/
-	left:22px;
-    
-
-}
-
-#taches-menus ul li:hover ul{
-	visibility:visible;
-
-}
-
-#taches-menus li:hover{
+#taches-menus ul li ul a {
+	display: block;
+	text-align: center;
+	width: 250px;
+	height: 30px;
+	color: #003366;
 	background-color: #999;
-} 
-
-#taches-menus ul li ul a:hover{
-	color:#FFF;
-	background-color:#003366;
 }
+
+
+
+
+#taches-menus ul ul {
+	position: absolute;
+	/*decalage vers le bas*/
+	top: 5px;
+	visibility: hidden;
+	/*decalage le menu à gauche*/
+	left: 22px;
+}
+
+#taches-menus ul li:hover ul {
+	visibility: visible;
+	background-color: #999;
+}
+
+#taches-menus li:hover {
+	background-color: #999;
+}
+
+#taches-menus ul li ul a:hover {
+	color: #FFF;
+	background-color: #003366;
+}
+
+

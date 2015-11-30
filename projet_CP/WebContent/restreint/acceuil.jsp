@@ -4,8 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Acceuil</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css"> 
-<link rel="stylesheet" type="text/css" href="css/menus.css">  
+<link rel="stylesheet" type="text/css" href="css/menus.css"> 
+
 
 <script type="text/javascript">
 	function confirmer(url) {
@@ -29,7 +31,7 @@
 	<br>
 
 	<div class="div-conteneur" id="div-accueil">
-		&nbsp;<a href="AjouterProjet" class="menu-ppale">Ajouter un projet</a> <br/> <br/>
+		&nbsp;<a href="AjouterProjet" role="button" class="btn btn-primary btn-large">Ajouter un projet</a> <br/> <br/>
 		<table class="table1">
 			<tr>
 				<th class="thprojet">PROJET</th>
@@ -41,8 +43,8 @@
 
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
-					<td><a href="Projet?idProjet=${p.idProjet }" class="menu-ppale">Afficher</a> <a
-						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')" class="menu-ppale">Se
+					<td><a href="Projet?idProjet=${p.idProjet }" role="button"  class="btn btn-success btn-large">Afficher</a> <a
+						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')" class="btn btn-warning btn-large">Se
 							retirer </a></td>
 				</tr>
 			</c:forEach>

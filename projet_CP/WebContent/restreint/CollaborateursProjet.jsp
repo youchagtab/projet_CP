@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/projet.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
@@ -23,7 +24,7 @@
 
 		<%@ include file="header.jsp" %>
 
-	
+	<br><br><br>
 
 
 	<div class="div-conteneur" id="div-Collabs">
@@ -45,7 +46,7 @@
 		
 			<br><br>
 
-	<a href="AjouterCollaborateurs?idProjet=${projet.idProjet}" class="menu-ppale">Ajouter des collaborateurs</a>
+	<a href="AjouterCollaborateurs?idProjet=${projet.idProjet}" role="button" class="btn btn-primary btn-large">Ajouter des collaborateurs</a>
 	<br>
 
 	</div>

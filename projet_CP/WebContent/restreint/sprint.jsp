@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>sprint</title>
@@ -26,7 +27,7 @@
 	
 
 	<br />
-	<div class="div-conteneur" id="div-sprint">
+	<div class="div-conteneur-sprint" id="div-sprint">
 
 		<h2>
 			Sprint ${ sprint.numero }
@@ -35,11 +36,11 @@
 
 
 		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
-			class="menu-ppale">Ajouter une US</a> <br />
-		<br />
+			type="button" class="btn btn-info">Ajouter une US</a> &nbsp;&nbsp;&nbsp;&nbsp;
+	
 		<a href="AfficherGantt?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
-		class="menu-ppale">Gantt Test</a>
-
+		type="button" class="btn btn-info">Gantt Test</a>
+        <br><br>
 		<table class="table1">
 		<br/>
 			<tr>
@@ -50,16 +51,14 @@
 				end="${fn:length(userStories)}" varStatus="status">
 				<tr>
 					<td><c:out value="${userStory.description}" /></td>
-					<td><a href="restreint/ajoutertache.jsp?idUS=${userStory.idUS }&idSprint=${param.idSprint}&idProjet=${param.idProjet}">
-							<button>ajouter une tache</button>
-					</a>
+					<td><a href="restreint/ajoutertache.jsp?idUS=${userStory.idUS }&idSprint=${param.idSprint}&idProjet=${param.idProjet}" type="button" class="btn btn-info"> ajouter une tache</a>
 
 						<ul>
 							<c:forEach var="tache" items="${taches[(status.count)-1] }">
 								<li><c:out value="${tache.description} [tag : ${tache.tag }, coût : ${tache.cout }]" /> &nbsp;
 									<aside id="taches-menus" class="aside-conteneur">
 										<ul>
-											<li><a href="#" id="menu-tache" class="menu-Sprint">__</a>
+											<li><a href="#" id="menu-tache" class="menu-Sprint">&nbsp;&nbsp;&nbsp;&nbsp;</a>
 
 												<ul>
 													<li><a href="ModifierTache?idUserStory=${userStory.idUS}&idTache=${tache.idTache}&idProjet=${projet.idProjet}&idSprint=${sprint.idSprint}" class="menu-ppale">
@@ -140,9 +139,14 @@
 		</c:if>	
 		<br/>
 		
+	   
 	 <c:if test="${Ganttexist == true}">
      <br />
+  
      <h2>Gantt Previsionnel</h2>
+     
+     <div id="div-gantt" class="div-gantt" >
+     
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>
@@ -177,6 +181,8 @@
 	<c:if test="${GanttexistEff == true}">
      <br />
      <h2>Gantt Effectif</h2>
+     
+    <div  class="div-gantt" >
 	<table class="table1">
 		<tr>
 			<td class="thprojet">Developeur</td>
@@ -205,7 +211,7 @@
 		</c:forEach>
 	</table>
 	</c:if>
-	
+	</div>
 	</div>
 
 	<br>

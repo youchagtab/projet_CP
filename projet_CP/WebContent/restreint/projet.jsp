@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/projet.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
@@ -66,7 +67,7 @@
 
 	<%@ include file="header.jsp"%>
 
-
+    <br><br>
 
 	<h2 id="h2-projet">
 		Projet :
@@ -75,12 +76,11 @@
 
 	<section class="section-conteneur" id="section-projet">
 
-
-		<br /> <strong>Backlog : </strong> <a
+        <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
-			class="menu-ppale">Ajouter une US</a> &nbsp; <a
+			role="button" class="btn btn-primary btn-large">Ajouter une US</a> &nbsp; <a
 			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
-			class="menu-ppale">Collaborateurs</a> <br /> <br />
+			role="button" class="btn btn-primary btn-large">Collaborateurs</a> <br /> <br />
 		<article>
 			<table class="table1">
 				<tr>
@@ -97,10 +97,8 @@
 						<td>${ userStory.difficulte }</td>
 						<td>${ userStory.priorite}</td>
 						<td><a
-							href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}"
-							class="menu-ppale"> Modifier </a>&nbsp;<a
-							href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')"
-							class="menu-ppale"> Supprimer </a></td>
+							href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}" role="button"  class="btn btn-success btn-large"> Modifier </a>&nbsp;<a
+							href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')" role="button" class="btn btn-danger btn-large"> Supprimer </a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -111,12 +109,12 @@
 		<aside id="aside-sprint" class="aside-sprintConteneur">
 
 			<a href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}"
-				id="a-ajouterSprint" class="a-sprint">Ajouter un sprint</a> <br />
+				role="button" class="btn btn-primary btn-large">Ajouter un sprint</a> <br />
 			<br />
 			<c:forEach var="sprint" items="${sprints}">
 				<a
 					href="Sprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
-					id="a-afficherSprint" class="a-sprint">sprint ${sprint.numero}</a>
+					type="button" class="btn btn-info">sprint ${sprint.numero}</a>
 
 			</c:forEach>
 
