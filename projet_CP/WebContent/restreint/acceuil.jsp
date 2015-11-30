@@ -36,6 +36,7 @@
 			<tr>
 				<th class="thprojet">PROJET</th>
 				<th class="thprojet">DESCRIPTION</th>
+				<th class="thprojet">REPERTOIRE GITHUB</th>
 				<th class="thprojet">Actions</th>
 			</tr>
 			<c:forEach items="${model.projets}" var="p">
@@ -43,9 +44,11 @@
 
 					<td>${p.noms}</td>
 					<td>${p.description}</td>
+					<td>${p.repertoireGitHub}</td>
 					<td><a href="Projet?idProjet=${p.idProjet }" role="button"  class="btn btn-success btn-large">Afficher</a> <a
 						href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')" class="btn btn-warning btn-large">Se
-							retirer </a></td>
+					
+					
 				</tr>
 			</c:forEach>
 		</table>

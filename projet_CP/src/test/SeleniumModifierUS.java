@@ -32,7 +32,7 @@ public class SeleniumModifierUS {
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=Modifier");
 		selenium.waitForPageToLoad("30000");
-		selenium.type("name=description", "test modif eclipse");
+		selenium.type("name=description", "test modif eclipse selenium");
 		selenium.click("css=input[type=\"submit\"]");
 		selenium.waitForPageToLoad("30000");
 	}

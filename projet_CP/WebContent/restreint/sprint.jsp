@@ -38,9 +38,6 @@
 		<a href="AjouterUserStorySprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
 			type="button" class="btn btn-info">Ajouter une US</a> &nbsp;&nbsp;&nbsp;&nbsp;
 	
-		<a href="AfficherGantt?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
-		type="button" class="btn btn-info">Gantt Test</a>
-        <br><br>
 		<table class="table1">
 		<br/>
 			<tr>
@@ -71,6 +68,8 @@
 															Affecter </a></li>
 													<li><a href="SupprimerAffectation?idTache=${tache.idTache}&idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}" class="menu-ppale">
 															Supprimer l'affectation </a></li>
+													<li><a href="commit?idTache=${tache.idTache}&idProjet=${projet.idProjet}" class="menu-ppale">
+															liste des commits </a></li>		
 												</ul>
 										</ul>
 									</aside></li>

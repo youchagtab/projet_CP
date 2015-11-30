@@ -34,10 +34,11 @@ public class TacheDAOimpl implements ITacheDAO {
 			statement.setInt(5, tache.getIdUS());
 			statement.executeUpdate();
 			
-			Statement s = connexion.createStatement();
-			ResultSet r = s.executeQuery( "SELECT max(idTache)  FROM CP_Tache WHERE description='"+tache.getDescription()+"'" );
-			r.next();
-			tache.setIdTache(r.getInt("max(idTache)"));  
+			ResultSet genreatedId= statement.getGeneratedKeys();
+			if( genreatedId.next()){
+				tache.setIdTache(genreatedId.getInt(1));
+			}
+			
 		}
 		catch(SQLException e)
 		{

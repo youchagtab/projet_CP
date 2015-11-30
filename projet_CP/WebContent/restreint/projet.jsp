@@ -76,7 +76,11 @@
 
 	<section class="section-conteneur" id="section-projet">
 
-        <strong>Backlog : </strong> <a
+<c:if test="${projet.estGitHub() }">
+<a href="ListCommitGitHub?idProjet=${projet.idProjet}" class="menu-ppale"> Commit du GitHub</a>
+</c:if>
+							
+		<br /> <strong>Backlog : </strong> <a
 			href="AjouterUserStory?idProjet=${projet.idProjet}"
 			role="button" class="btn btn-primary btn-large">Ajouter une US</a> &nbsp; <a
 			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
@@ -124,7 +128,6 @@
 	<br>
 	
 	<div id="linechart_material" class="div-conteneur"></div>
-
 
 
 	<br>

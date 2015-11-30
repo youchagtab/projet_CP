@@ -17,17 +17,16 @@ public class ProjetDAOimpl implements IProjetDAO{
 		Connection conn = SingletonConnection.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"INSERT INTO CP_Projet (noms, description) VALUES (?,?) ");
+					"INSERT INTO CP_Projet (noms, description,repertoireGitHub) VALUES (?,?,?) ");
 			ps.setString(1, projet.getNoms());
 			ps.setString(2, projet.getDescription());
+			ps.setString(3, projet.getRepertoireGitHub());
 			ps.executeUpdate();
+			ResultSet genreatedId= ps.getGeneratedKeys();
+			if( genreatedId.next()){
+				projet.setIdProjet(genreatedId.getInt(1));
+			}
 			ps.close();
-			
-			Statement statement = conn.createStatement();
-			ResultSet resultat = statement.executeQuery( "SELECT idProjet  FROM CP_Projet WHERE noms='"+projet.getNoms()+"'" );
-			resultat.next();
-			projet.setIdProjet(resultat.getInt("idProjet"));
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -65,6 +64,7 @@ public class ProjetDAOimpl implements IProjetDAO{
 				p.setIdProjet(rs.getInt("idProjet"));
 				p.setNoms(rs.getString("noms"));
 				p.setDescription(rs.getString("description"));
+				p.setRepertoireGitHub(rs.getString("repertoireGitHub"));
 				
 			}
 		} catch (SQLException e) {
@@ -91,6 +91,7 @@ public class ProjetDAOimpl implements IProjetDAO{
 				p = new Projet();
 				p.setIdProjet(rs.getInt("idProjet"));
 				p.setNoms(rs.getString("noms"));
+				p.setRepertoireGitHub(rs.getString("repertoireGitHub"));
 				
 			}
 		} catch (SQLException e) {
@@ -107,12 +108,14 @@ public class ProjetDAOimpl implements IProjetDAO{
 		List<Projet> projet = new ArrayList<Projet>();
 		Connection conn = SingletonConnection.getConnection();
 		try {
-			PreparedStatement ps = conn.prepareStatement("select noms , description FROM CP_Projet");
+			PreparedStatement ps = conn.prepareStatement("select * FROM CP_Projet");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()){
 				Projet p = new Projet();
+				p.setIdProjet(rs.getInt("idProjet"));
 				p.setNoms(rs.getString("noms"));
 				p.setDescription(rs.getString("description"));
+				p.setRepertoireGitHub(rs.getString("repertoireGitHub"));
 				projet.add(p);
 			}
 			rs.close();
@@ -131,11 +134,11 @@ public class ProjetDAOimpl implements IProjetDAO{
 		Connection conn = SingletonConnection.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(
-					"update CP_Projet set noms = ?, description = ? WHERE  idProjet = ? ");
+					"update CP_Projet set noms = ?, description = ?, eepertoireGitHUb = ? WHERE  idProjet = ? ");
 			ps.setString(1, p.getNoms());
 			ps.setString(2, p.getDescription());
 			ps.setInt(3, p.getIdProjet());
-			
+			ps.setString(4,p.getRepertoireGitHub());
 			ps.executeUpdate();
 			ps.close();
 			
@@ -158,7 +161,8 @@ public class ProjetDAOimpl implements IProjetDAO{
 				Projet p = new Projet();
 				p.setIdProjet(rs.getInt("idProjet"));
 				p.setNoms(rs.getString("noms"));
-				p.setDescription(rs.getString("description"));
+				p.setDescription(rs.getString("description"));	
+				p.setRepertoireGitHub(rs.getString("repertoireGitHUb"));
 				projet.add(p);
 			}
 			rs.close();

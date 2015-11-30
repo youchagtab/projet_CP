@@ -28,7 +28,7 @@ public class SeleniumAjouterProjet {
 		selenium.type("id=identifiant", "youssef");
 		selenium.click("css=input.sansLabel");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("link=Ajouter");
+		selenium.click("link=Ajouter un projet");
 		selenium.waitForPageToLoad("30000");
 		selenium.type("name=noms", "projet youssef");
 		selenium.type("name=description", "test youssef");
