@@ -50,7 +50,7 @@ public class ModifierTache extends HttpServlet {
 		System.out.println("IN");
 		String description = request.getParameter(PARAM_DESCRITPION);
 		String tag = request.getParameter(PARAM_TAG);
-		int cout = Integer.parseInt(request.getParameter(PARAM_COUT));
+		float cout = Integer.parseInt(request.getParameter(PARAM_COUT));
 		String status = request.getParameter(PARAM_STATUS);
 		int idTache = Integer.parseInt(request.getParameter(PARAM_ID_TACHE));
 		int idUS = Integer.parseInt(request.getParameter(PARAM_ID_USER_STORY));
