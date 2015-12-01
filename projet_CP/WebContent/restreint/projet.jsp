@@ -5,53 +5,53 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/projet.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 <title>projet</title>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	google.load('visualization', '1.1', { packages : [ 'corechart' ]});
-	google.setOnLoadCallback(drawChart);
+google.load('visualization', '1.1', { packages : [ 'corechart' ]});
+google.setOnLoadCallback(drawChart);
 
-	function drawChart() {
-		var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Sprints');
-		data.addColumn('number', 'Tendance');
-		data.addColumn('number', 'Difficultés');
+function drawChart() {
+	var data = new google.visualization.DataTable();
+	data.addColumn('number', 'Sprints');
+	data.addColumn('number', 'Tendance');
+	data.addColumn('number', 'Difficultés');
 
-		//recuperation de donnees
-		var listePointsDifficultes = ${listPointsDifficultes};
+	//recuperation de donnees
+	var listePointsDifficultes = ${listPointsDifficultes};
 
-		var dernier = ${dernierPoint};
+	var dernier = ${dernierPoint};
 
-		//ajout des donnees
-		var numRows = listePointsDifficultes.length;
+	//ajout des donnees
+	var numRows = listePointsDifficultes.length;
 
-		for (var i = 0; i < numRows; i++) {
-			if (i == 0) {
-				data.addRow([ i, listePointsDifficultes[i],listePointsDifficultes[i] ]);
-			} else {
-				data.addRow([ i, null, listePointsDifficultes[i] ]);
-			}
+	for (var i = 0; i < numRows; i++) {
+		if (i == 0) {
+			data.addRow([ i, listePointsDifficultes[i],listePointsDifficultes[i] ]);
+		} else {
+			data.addRow([ i, null, listePointsDifficultes[i] ]);
 		}
-
-		data.addRow([ (dernier + numRows) - 1, 0, null ]);
-
-		var options = {
-			title : 'Burn down chart',
-			subtitle : 'en difficultés par sprint',
-			interpolateNulls : true,
-			width : 900,
-			height : 500,
-			vAxis : { title : "Difficultés"},
-			hAxis : {title : "Sprints"}
-		};
-
-		var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
-		chart.draw(data, options);
 	}
+
+	data.addRow([ (dernier + numRows) - 1, 0, null ]);
+
+	var options = {
+		title : 'Burn down chart',
+		subtitle : 'en difficultés par sprint',
+		interpolateNulls : true,
+		width : 900,
+		height : 500,
+		vAxis : { title : "Difficultés"},
+		hAxis : {title : "Sprints"}
+	};
+
+	var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+	chart.draw(data, options);
+}
 </script>
 <script type="text/javascript">
 	function confirmer(url) {
@@ -67,7 +67,8 @@
 
 	<%@ include file="header.jsp"%>
 
-    <br><br>
+	<br>
+	<br>
 
 	<h2 id="h2-projet">
 		Projet :
@@ -76,15 +77,18 @@
 
 	<section class="section-conteneur" id="section-projet">
 
-<c:if test="${projet.estGitHub() }">
-<a href="ListCommitGitHub?idProjet=${projet.idProjet}" class="menu-ppale"> Commit du GitHub</a>
-</c:if>
-							
+
+
 		<br /> <strong>Backlog : </strong> <a
-			href="AjouterUserStory?idProjet=${projet.idProjet}"
-			role="button" class="btn btn-primary btn-large">Ajouter une US</a> &nbsp; <a
+			href="AjouterUserStory?idProjet=${projet.idProjet}" role="button"
+			class="btn btn-primary btn-large">Ajouter une US</a> &nbsp; <a
 			href="AfficherCollaborateurs?idProjet=${projet.idProjet}"
-			role="button" class="btn btn-primary btn-large">Collaborateurs</a> <br /> <br />
+			role="button" class="btn btn-primary btn-large">Collaborateurs</a>&nbsp;
+		<c:if test="${projet.estGitHub() }">
+			<a href="ListCommitGitHub?idProjet=${projet.idProjet}" role="button"
+				class="btn btn-default btn-large"> Commit du GitHub</a>
+		</c:if>
+		<br /> <br />
 		<article>
 			<table class="table1">
 				<tr>
@@ -101,8 +105,10 @@
 						<td>${ userStory.difficulte }</td>
 						<td>${ userStory.priorite}</td>
 						<td><a
-							href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}" role="button"  class="btn btn-success btn-large"> Modifier </a>&nbsp;<a
-							href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')" role="button" class="btn btn-danger btn-large"> Supprimer </a></td>
+							href="ModifierUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}"
+							role="button" class="btn btn-success btn-large"> Modifier </a>&nbsp;<a
+							href="javascript:confirmer('SupprimerUserStory?idUserStory=${userStory.idUS}&idProjet=${projet.idProjet}')"
+							role="button" class="btn btn-danger btn-large"> Supprimer </a></td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -113,8 +119,8 @@
 		<aside id="aside-sprint" class="aside-sprintConteneur">
 
 			<a href="AjouterSprint?numero=${numero}&idProjet=${projet.idProjet}"
-				role="button" class="btn btn-primary btn-large">Ajouter un sprint</a> <br />
-			<br />
+				role="button" class="btn btn-primary btn-large">Ajouter un
+				sprint</a> <br /> <br />
 			<c:forEach var="sprint" items="${sprints}">
 				<a
 					href="Sprint?idSprint=${sprint.idSprint}&idProjet=${projet.idProjet}"
@@ -126,7 +132,7 @@
 	</section>
 
 	<br>
-	
+
 	<div id="linechart_material" class="div-conteneur"></div>
 
 

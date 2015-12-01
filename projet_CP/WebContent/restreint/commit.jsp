@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>page des commit</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
 <link rel="stylesheet" type="text/css" href="css/style_acceuil.css">
 <link rel="stylesheet" type="text/css" href="css/menus.css">
 </head>
@@ -19,7 +20,7 @@
 	<br>
 
 	<div class="div-conteneur" id="div-accueil">
-		&nbsp;<a href="AjouterCommit?idTache=${idTache}&idProjet=${idProjet}" class="menu-ppale">Ajouter un Commit</a> <br/> <br/>
+		&nbsp;<a href="AjouterCommit?idTache=${idTache}&idProjet=${idProjet}" role="button" class="btn btn-default btn-large">Ajouter un Commit</a> <br/> <br/>
 		<table class="table1">
 			<tr>
 				<th class="thprojet">ID</th>

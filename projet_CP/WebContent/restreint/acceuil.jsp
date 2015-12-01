@@ -45,7 +45,7 @@
 					<td>${p.description}</td>
 					<td>${p.repertoireGitHub}</td>
 					<td>
-						<a href="Projet?idProjet=${p.idProjet }" role="button"  class="btn btn-success btn-large">Afficher</a> 
+						<a href="Projet?idProjet=${p.idProjet}" role="button"  class="btn btn-success btn-large">Afficher</a> 
 						<a href="javascript:confirmer('acceuil?action=delete&ref=${p.idProjet}&refUtil=${utilisateur.idUtilisateur}')" class="btn btn-warning btn-large">Se retirer</a> 	
 					</td>
 				</tr>

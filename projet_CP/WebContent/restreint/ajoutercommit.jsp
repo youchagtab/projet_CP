@@ -33,7 +33,7 @@
 					<td><input type="hidden" name="idTache" value="${param.idTache}"/>
 					    <input type="hidden" name="idProjet" value="${param.idProjet}"/>
 						<input type="submit" value="Ajouter" class="input-bouton" />
-						<input type="reset" value="Effacer	"></td>
+						<input type="reset" value="Effacer" class="input-bouton" ></td>
 				</tr>
 			</table>
 		</form>
