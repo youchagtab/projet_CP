@@ -39,7 +39,7 @@ public class AjouterTache extends HttpServlet {
 		if(request.getParameter("description") != null && request.getParameter("cout")!= null && request.getParameter("tag") != null && !request.getParameter("description").isEmpty() && !request.getParameter("cout").isEmpty() && !request.getParameter("tag").isEmpty() ){
 		
 		String description = request.getParameter("description");
-		int cout = Integer.parseInt(request.getParameter("cout"));
+		float cout = Float.parseFloat(request.getParameter("cout"));
 		String tag = request.getParameter("tag");
 		ITacheDAO tacheDAO = new TacheDAOimpl();
 		Tache tache = new Tache(tag, description, cout, "A_FAIRE", idUS);

@@ -29,7 +29,7 @@ public class TacheDAOimpl implements ITacheDAO {
 			statement = connexion.prepareStatement("INSERT INTO CP_Tache(tag,description,cout,status,idUS) VALUES(?,?,?,?,?)");
 			statement.setString(1, tache.getTag());
 			statement.setString(2, tache.getDescription());
-			statement.setInt(3, tache.getCout());
+			statement.setDouble(3, tache.getCout());
 			statement.setString(4, tache.getStatus());
 			statement.setInt(5, tache.getIdUS());
 			statement.executeUpdate();
@@ -75,7 +75,7 @@ public class TacheDAOimpl implements ITacheDAO {
 			statement = connexion.prepareStatement("UPDATE CP_Tache SET tag = ?,description= ?,cout= ?,status= ?,idUS= ? WHERE idTache = ?");
 			statement.setString(1, tache.getTag());
 			statement.setString(2, tache.getDescription());
-			statement.setInt(3, tache.getCout());
+			statement.setDouble(3, tache.getCout());
 			statement.setString(4, tache.getStatus());
 			statement.setInt(5, tache.getIdUS());
 			statement.setInt(6, tache.getIdTache());

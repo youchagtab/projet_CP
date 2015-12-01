@@ -52,7 +52,7 @@
 							</p>
 						</c:forEach>
 						<p>
-							<input type="submit" value="<<<<<" /></p>
+							<input type="submit" value="Retirer" /></p>
 						<input type="hidden" value="${param.idSprint}" name="idSprint" />
 						<input type="hidden" value="${param.idTache}" name="idTache" />
 					</form>

@@ -5,7 +5,7 @@ public class Tache
 	protected int		idTache;
 	protected String	tag;
 	protected String	description;
-	protected int		cout;
+	protected float	    cout;
 	protected String	status;
 	protected int		idUS;
 	protected int       duree;
@@ -14,7 +14,7 @@ public class Tache
     
 	public Tache() {}
 	
-	public Tache(int idTache, String tag, String description, int cout, String status, int idUS) {
+	public Tache(int idTache, String tag, String description, float cout, String status, int idUS) {
 		super();
 		this.idTache = idTache;
 		this.tag = tag;
@@ -27,7 +27,7 @@ public class Tache
 
 
 
-	public Tache(String tag, String description, int cout, String status, int idUS) {
+	public Tache(String tag, String description, float cout, String status, int idUS) {
 		super();
 		this.tag = tag;
 		this.description = description;
@@ -74,9 +74,10 @@ public class Tache
 		this.description = description;
 	}
 	public int getCout() {
-		return cout;
+		
+		return Math.round(cout);
 	}
-	public void setCout(int cout) {
+	public void setCout(float cout) {
 		this.cout = cout;
 	}
 	public String getStatus() {

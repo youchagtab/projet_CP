@@ -23,8 +23,8 @@ public class Etat {
 		return auPlusTot;
 	}
 
-	public void setAuPlusTot(float auPlusTot) {
-		this.auPlusTot = auPlusTot;
+	public void setAuPlusTot(float d) {
+		this.auPlusTot = d;
 	}
 
 	public float getAuPlusTard() {
