@@ -12,62 +12,46 @@
 <title>projet</title>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	google.load('visualization', '1.1', {
-		packages : [ 'corechart' ]
-	});
-	google.setOnLoadCallback(drawChart);
+google.load('visualization', '1.1', { packages : [ 'corechart' ]});
+google.setOnLoadCallback(drawChart);
 
-	function drawChart() {
-		var data = new google.visualization.DataTable();
-		data.addColumn('number', 'Sprints');
-		data.addColumn('number', 'Tendance');
-		data.addColumn('number', 'Difficultés');
+function drawChart() {
+	var data = new google.visualization.DataTable();
+	data.addColumn('number', 'Sprints');
+	data.addColumn('number', 'Tendance');
+	data.addColumn('number', 'Difficultés');
 
-		//recuperation de donnees
-		var listePointsDifficultes = $
-		{
-			listPointsDifficultes
+	//recuperation de donnees
+	var listePointsDifficultes = ${listPointsDifficultes};
+
+	var dernier = ${dernierPoint};
+
+	//ajout des donnees
+	var numRows = listePointsDifficultes.length;
+
+	for (var i = 0; i < numRows; i++) {
+		if (i == 0) {
+			data.addRow([ i, listePointsDifficultes[i],listePointsDifficultes[i] ]);
+		} else {
+			data.addRow([ i, null, listePointsDifficultes[i] ]);
 		}
-		;
-
-		var dernier = $
-		{
-			dernierPoint
-		}
-		;
-
-		//ajout des donnees
-		var numRows = listePointsDifficultes.length;
-
-		for (var i = 0; i < numRows; i++) {
-			if (i == 0) {
-				data.addRow([ i, listePointsDifficultes[i],
-						listePointsDifficultes[i] ]);
-			} else {
-				data.addRow([ i, null, listePointsDifficultes[i] ]);
-			}
-		}
-
-		data.addRow([ (dernier + numRows) - 1, 0, null ]);
-
-		var options = {
-			title : 'Burn down chart',
-			subtitle : 'en difficultés par sprint',
-			interpolateNulls : true,
-			width : 900,
-			height : 500,
-			vAxis : {
-				title : "Difficultés"
-			},
-			hAxis : {
-				title : "Sprints"
-			}
-		};
-
-		var chart = new google.visualization.LineChart(document
-				.getElementById('linechart_material'));
-		chart.draw(data, options);
 	}
+
+	data.addRow([ (dernier + numRows) - 1, 0, null ]);
+
+	var options = {
+		title : 'Burn down chart',
+		subtitle : 'en difficultés par sprint',
+		interpolateNulls : true,
+		width : 900,
+		height : 500,
+		vAxis : { title : "Difficultés"},
+		hAxis : {title : "Sprints"}
+	};
+
+	var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+	chart.draw(data, options);
+}
 </script>
 <script type="text/javascript">
 	function confirmer(url) {
